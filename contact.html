@@ -332,21 +332,9 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, business, message }),
         });
-
-        if (!res.ok) {
-          const text = await res.text();
-          console.error('Response status:', res.status, 'Body:', text);
-          msg.style.display = 'block';
-          msg.style.color = '#ff6b6b';
-          msg.textContent = 'Error ' + res.status + ': ' + text;
-          btn.disabled = false;
-          btn.textContent = 'Send Message';
-          return;
-        }
-
         const data = await res.json();
 
-        if (data.success) {
+        if (res.ok && data.success) {
           msg.style.display = 'block';
           msg.style.color = 'var(--gold)';
           msg.textContent = "Thanks for reaching out. I'll get back to you shortly.";
@@ -355,14 +343,14 @@
         } else {
           msg.style.display = 'block';
           msg.style.color = '#ff6b6b';
-          msg.textContent = data.error || 'Something went wrong. Please try again.';
+          msg.textContent = 'Something went wrong. Please try again.';
           btn.disabled = false;
           btn.textContent = 'Send Message';
         }
       } catch (err) {
         msg.style.display = 'block';
         msg.style.color = '#ff6b6b';
-        msg.textContent = 'Connection error: ' + err.message;
+        msg.textContent = 'Something went wrong. Please try again.';
         btn.disabled = false;
         btn.textContent = 'Send Message';
       }

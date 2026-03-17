@@ -51,7 +51,7 @@ export async function onRequestPost(context) {
 
     if (!assertResponse.ok) {
       const errorText = await assertResponse.text();
-      return new Response(JSON.stringify({ error: 'Attio error (' + assertResponse.status + '): ' + errorText }), {
+      return new Response(JSON.stringify({ error: 'Something went wrong. Please try again.' }), {
         status: 500,
         headers,
       });
