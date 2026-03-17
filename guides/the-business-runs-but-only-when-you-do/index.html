@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Business Runs But Only When You Do. | Ken Thomas</title>
+  <meta name="description" content="Permission to Market Guide 06 — Revenue architecture for founder-led businesses by Ken Thomas.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://assets.salescommand.ai/_img/width=32,height=32,fit=contain,format=png/customers/ktco/logo-navy.png">
+  <style>
+    /* --- Reset & Base --- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; font-weight: 300; color: #444; background: #fff; line-height: 1.6; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --navy: #072F54;
+      --gold: #FBC108;
+      --grey: #444444;
+      --white: #FFFFFF;
+      --off-white: #F8F8F8;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Lato', sans-serif; color: var(--navy); line-height: 1.15; }
+    h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+    h3 { font-size: 1.375rem; font-weight: 400; line-height: 1.3; }
+    p { font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.25rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+    .container--narrow { max-width: 760px; margin: 0 auto; padding: 0 2rem; position: relative; left: -3px; }
+    .divider { width: 60px; height: 4px; background: var(--gold); border: none; margin: 1.5rem 0; }
+    .text-center { text-align: center; }
+
+    ul, ol { list-style: none; }
+
+    /* --- Navigation (from main site) --- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid rgba(7, 47, 84, 0.08);
+      transition: box-shadow 0.3s ease;
+    }
+    .nav.scrolled {
+      box-shadow: 0 2px 20px rgba(7, 47, 84, 0.08);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+    .nav__logo img {
+      height: 60px;
+      width: 60px;
+      max-width: none;
+      display: block;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex: 1;
+      justify-content: center;
+      margin-left: -5px;
+    }
+    .nav__cta {
+      flex-shrink: 0;
+      min-width: 242px;
+      text-align: center;
+    }
+    .nav__links a {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--grey);
+      letter-spacing: 0.03em;
+      transition: color 0.2s ease;
+    }
+    .nav__links a:hover {
+      color: var(--navy);
+    }
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .nav__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-block;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* --- Hero --- */
+    .guide-hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10rem 0 5rem;
+      text-align: left;
+    }
+    .guide-hero__eyebrow {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .guide-hero h1 {
+      font-size: 3.25rem;
+      font-weight: 700;
+      color: var(--white);
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .guide-hero__hook {
+      font-size: 1.25rem;
+      font-weight: 300;
+      max-width: 580px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+    .guide-hero__hook p { margin-bottom: 0; }
+
+    /* --- Content Sections --- */
+    .guide-content {
+      padding: 4rem 0;
+    }
+    .guide-section {
+      margin-bottom: 3.5rem;
+    }
+    .guide-section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- Callout --- */
+    .guide-callout {
+      background: #FFF8E1;
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      border-radius: 2px;
+    }
+    .guide-callout p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+    .guide-callout--blue {
+      background: var(--navy);
+      border-left: 4px solid var(--gold);
+    }
+    .guide-callout--blue p {
+      color: var(--white);
+    }
+
+    /* --- Numbered Items (gold outline) --- */
+    .guide-numbered {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      align-items: flex-start;
+    }
+    .guide-numbered__number {
+      font-family: 'Lato', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 50px;
+    }
+    .guide-numbered__number--badge {
+      background: var(--navy);
+      color: var(--white);
+      -webkit-text-stroke: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .guide-numbered__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered__body p {
+      font-size: 1.0625rem;
+    }
+
+    /* --- Bullets --- */
+    .guide-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .guide-bullets li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* --- Numbered List --- */
+    .guide-numbered-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+      counter-reset: guide-counter;
+    }
+    .guide-numbered-list li {
+      counter-increment: guide-counter;
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered-list li::before {
+      content: counter(guide-counter) ".";
+      position: absolute;
+      left: 0;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* --- Subheading --- */
+    .guide-subheading {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* --- CTA Text --- */
+    .guide-cta-text {
+      background: var(--off-white);
+      border-top: 4px solid var(--gold);
+      padding: 2.5rem;
+      margin-top: 2rem;
+      border-radius: 2px;
+    }
+    .guide-cta-text p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+
+    /* --- Download Section --- */
+    .guide-download {
+      background: var(--navy);
+      color: var(--white);
+      padding: 5rem 0;
+    }
+    .guide-download h2 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .guide-download p {
+      opacity: 0.8;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+    }
+    .guide-download__form {
+      max-width: 440px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .guide-download__input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .guide-download__input::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+    .guide-download__input:focus {
+      border-color: var(--gold);
+    }
+    .guide-download__btn {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      background: var(--gold);
+      color: var(--navy);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .guide-download__btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .footer__brand { max-width: 420px; display: flex; flex-direction: column; }
+    .footer__logo { margin-top: -31px; margin-left: -33px; margin-bottom: 0; }
+    .footer__logo img { height: 200px; width: 200px; max-width: none; display: block; }
+    .footer__tagline { font-size: 0.9375rem; opacity: 0.65; line-height: 1.5; margin-top: auto; margin-bottom: 0; }
+    .footer__links h4 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .footer__links a {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--white);
+      opacity: 0.65;
+      margin-bottom: 0.6rem;
+      transition: opacity 0.2s ease;
+    }
+    .footer__links a:hover { opacity: 1; }
+    .footer__links a:last-child { margin-bottom: 0; }
+    .footer__bottom {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.8125rem;
+      opacity: 0.45;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .guide-hero { padding: 8rem 0 3rem; }
+      .guide-hero h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.75rem; }
+      .guide-numbered { flex-direction: column; gap: 0.75rem; }
+      .guide-download__form { flex-direction: column; }
+      .footer__inner { flex-direction: column; }
+      .nav__links { display: none; }
+      .nav__links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        gap: 1.25rem;
+      }
+      .nav__toggle { display: block; }
+    }
+    @media (max-width: 600px) {
+      .guide-hero h1 { font-size: 2rem; }
+      .container, .container--narrow { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="https://kenthomas.co/" class="nav__logo">
+        <img src="assets/ktco-logo-navy.svg" alt="KTCO — Revenue Architecture for Founder-Led Businesses">
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="https://kenthomas.co/">Home</a>
+        <a href="https://kenthomas.co/about.html">About</a>
+        <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+        <a href="https://kenthomas.co/results.html">Results</a>
+        <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+        <a href="https://kenthomas.co/contact.html">Contact</a>
+      </div>
+      <a href="#download" class="btn btn--gold nav__cta">Get the Guide</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="container--narrow">
+
+      <h1>The Business Runs<br>But Only<br>When You Do.</h1>
+      <div class="guide-hero__hook">
+        <p>You built it. You run it.<br>But the moment you step back, it stalls.<br>Revenue independence means fixing that.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guide Content -->
+  <section class="guide-content">
+    <div class="container--narrow">
+      <div class="guide-section">
+        <h2>The Next Wall</h2>
+        <hr class="divider">
+        <p>If you&#x27;ve followed this series and acted on even half of it, you&#x27;ve already done more than most founders ever do. You&#x27;ve looked at your foundation. You&#x27;ve started qualifying with intent, not interest. You&#x27;ve changed how you handle proposals. You&#x27;ve picked up the phone and talked to your best clients. You&#x27;ve started pulling what&#x27;s in your head into something someone else can follow.</p>
+<p>And when you start building the team around you... whether that&#x27;s hiring, promoting from within, or bringing in fractionals and agencies... they&#x27;ll actually have something to work from.</p>
+<p>But here&#x27;s what happens next: you&#x27;re still the one connecting everything. Marketing is doing its thing, but you&#x27;re the one telling them what&#x27;s working. Sales is closing deals, but delivery only knows what to do because you briefed them. Clients are being looked after, but only because you remembered to follow up. Nothing is broken. But nothing runs without you either.</p>
+<div class="guide-callout">
+          <p>You&#x27;ve gone from doing everything yourself to directing everything yourself. That&#x27;s progress. But it&#x27;s not independence.</p>
+        </div>
+      </div>
+<div class="guide-section">
+        <h2>Captain, Not Helmsman</h2>
+        <hr class="divider">
+        <p>Right now, you&#x27;re at the helm. You&#x27;re steering. Every course correction, every decision about where to go next, every adjustment when conditions change... it&#x27;s all you. If you step away, nobody knows which way to turn.</p>
+<p>Revenue independence means moving from the helm to the bridge. You&#x27;re still the captain. You still set the direction. But someone else is steering. Someone else is navigating. And the crew knows what to do when conditions change because the connections between them are clear.</p>
+<p>This doesn&#x27;t mean you need a big team. Your marketing might be run by a fractional or an agency. Your sales leader might be fractional too. Delivery and retention might sit with a general manager, an operations manager, or a client manager. The people can vary. What matters is that the connections between them work without you being the one passing every message.</p>
+<p><strong>Revenue independence isn&#x27;t about removing yourself. It&#x27;s about removing yourself as the single point of failure.</strong></p>
+      </div>
+<div class="guide-section">
+        <h2>Why It Stalls Here</h2>
+        <hr class="divider">
+        <p>This is where most founders stall. Whether you&#x27;ve already got people in these roles or you&#x27;re just starting to bring them in, the problem is the same. Marketing doesn&#x27;t know which leads are converting. Sales closes a deal and delivery doesn&#x27;t know what was promised. Delivery finishes a project and nobody feeds back to marketing what the client valued most, or to sales any opportunities that could lead to more work.</p>
+<p>It&#x27;s not that you want to be involved in everything. It&#x27;s that letting go feels risky when nobody else has the full picture. But you can&#x27;t grow past this point while you&#x27;re still walking the path for them instead of showing them the way.</p>
+<p>The good news is that once you see what the connections should be, you can build them. And the earlier you build them, the less they break as you grow. Every new hire, every new client, every new piece of complexity puts pressure on the gaps between your people and processes. If the connections are already there, the business absorbs that pressure. If they&#x27;re not, it lands on you. That&#x27;s where growing pains come from. Not from growing too fast. From growing without the architecture to support it.</p>
+      </div>
+<div class="guide-section">
+        <h2>The Five Feedback Loops</h2>
+        <hr class="divider">
+        <p>Revenue independence comes from five connections. Each one is a feedback loop between two parts of your business. When they&#x27;re working, information flows, handoffs are clean, and your team knows what to do without waiting for you to tell them.</p>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">01</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Marketing to Sales</h3>
+                <p>Marketing generates interest. Sales determines whether that interest is actually intent. But without a feedback loop, they operate blind.</p>
+              </div>
+            </div>
+<ul class="guide-bullets">
+<li>Marketing doesn&#x27;t know which leads actually convert</li>
+<li>Sales doesn&#x27;t know how the lead came in or what they responded to</li>
+<li>Marketing creates the wrong leads, and sales wastes time on conversations that were never going anywhere</li>
+</ul>
+<p>The loop: marketing and sales agree on who the target audience is. Marketing only passes leads that fit. Sales feeds back what&#x27;s converting and from where. They review it together and adjust. Whether your marketing is in-house, fractional, or an agency, this loop has to exist. Otherwise you&#x27;re the one translating between them.</p>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">02</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Sales to Delivery</h3>
+                <p>Sales closes a deal. Then delivery says &quot;I didn&#x27;t know they needed this&quot; or &quot;I didn&#x27;t know the timeline was this tight.&quot; The client is disappointed before the work even starts.</p>
+<p>The loop: at the moment of close, sales creates a delivery brief. Not a contract. A brief. What was promised. What matters most to the client. What their actual problem is. Delivery uses this to show up ready on day one. No more relying on the founder to fill in the gaps over a hallway conversation.</p>
+              </div>
+            </div>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">03</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Delivery to Retention</h3>
+                <p>Delivery knows things nobody else does. They know whether the client is getting value. Where the friction is. What&#x27;s actually working. But the person managing the client relationship never hears any of it.</p>
+<p>The loop: delivery regularly feeds back what they&#x27;re seeing to the person who owns the client relationship. What did we promise? What&#x27;s actually landing? What&#x27;s changed since we started? This is what turns surface-level check-ins into conversations that actually mean something.</p>
+              </div>
+            </div>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">04</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Retention to Expansion</h3>
+                <p>Retention tells you how the relationship is going. Expansion is about what comes next. Most founders treat these as the same thing, but they&#x27;re not. Retention is about protecting what you have. Expansion is about growing it.</p>
+<p>The loop: the person managing the client relationship uses what delivery has fed back to spot opportunities. Is the client getting value? Are they engaged? Do they have a problem we can solve next? When the answers are yes, they don&#x27;t wait for the founder to notice. They trigger the conversation themselves.</p>
+              </div>
+            </div>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">05</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Delivery Back to Marketing</h3>
+                <p>Your clients have real results. Real outcomes. Real wins. Marketing doesn&#x27;t have any of this. Marketing is guessing about what matters while delivery is sitting on the best proof you have.</p>
+<p>The loop: delivery captures one-sentence wins from every client at completion. What changed? What&#x27;s better? Marketing uses these in case studies, content, and messaging. Now your marketing talks about what actually happens, not what you think matters. This is what closes the full cycle.</p>
+              </div>
+            </div>
+<p>There&#x27;s one more thing these loops create that&#x27;s easy to miss. Every piece of feedback flowing through them... what clients value, where the friction is, what&#x27;s converting, what&#x27;s not... is intelligence you can use to refine your product or service. The loops don&#x27;t just connect your team. They make what you sell better. And when what you sell gets better, every loop works harder. That&#x27;s the flywheel.</p>
+      </div>
+<div class="guide-section">
+        <h2>What You&#x27;ve Already Built</h2>
+        <hr class="divider">
+        <p>If you&#x27;ve worked through this series, you&#x27;ve already started building these loops. You just might not have seen it that way.</p>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">1</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Foundation</h3>
+                <p>You looked at the foundation underneath your revenue. The positioning, the target audience, and the messaging that either attracts the right buyer or repels them. That&#x27;s the beginning of your marketing-to-sales loop. When the foundation is right, marketing generates leads that sales can actually convert.</p>
+              </div>
+            </div>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">2</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Qualification</h3>
+                <p>You learned to separate interest from intent. You asked whether each prospect could describe what was broken, whether there was a real consequence to not acting, and whether they knew how the decision gets made. That&#x27;s what prevents the wrong opportunities from reaching your delivery team.</p>
+              </div>
+            </div>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">3</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Proposals</h3>
+                <p>You addressed the silence that follows proposals. You learned that the deal is won or lost before the document lands, and that locking in a live walkthrough keeps the conversation alive. That&#x27;s how you stop qualified opportunities from slipping away before they even reach delivery.</p>
+              </div>
+            </div>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">4</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Retention</h3>
+                <p>You called your top ten clients. You got back in the room with the people who already know your value. You heard what&#x27;s changed, what they need, and where the relationship stands. That&#x27;s your retention-to-expansion loop. The conversations that protect your revenue are the same ones that grow it.</p>
+              </div>
+            </div>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">5</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Extraction</h3>
+                <p>You extracted what&#x27;s in your head. Your mission, your differentiation, your sales process. You started seeing the pattern in your wins. That&#x27;s what makes it possible to hand revenue responsibility to someone else. Without extraction, nobody else can do what you do. With it, they can.</p>
+              </div>
+            </div>
+<p><strong>That&#x27;s not a collection of tips. That&#x27;s the beginning of revenue architecture.</strong></p>
+      </div>
+<div class="guide-section">
+        <h2>Your Day-One Action</h2>
+        <hr class="divider">
+        <p>Draw two columns. Label one &quot;Runs Through Me&quot; and the other &quot;Runs Without Me.&quot;</p>
+<p>Think about the four areas that drive revenue: marketing, sales, delivery, and retention. For each one, write down what&#x27;s happening today. Who&#x27;s doing it? Does information flow to the next person in the chain, or does it stop with you?</p>
+<p>Be honest. If marketing can&#x27;t adjust without you telling them what&#x27;s working, that&#x27;s &quot;Runs Through Me.&quot; If your client manager can trigger an expansion conversation without checking with you first, that&#x27;s &quot;Runs Without Me.&quot;</p>
+<p>Now pick one. Just one thing from &quot;Runs Through Me.&quot; What&#x27;s the feedback loop that&#x27;s missing? What does someone else need to know? What handoff needs to happen that currently doesn&#x27;t?</p>
+<p>That&#x27;s your next build. Not your whole business. Just one loop. One piece of revenue independence.</p>
+      </div>
+<div class="guide-section">
+        <h2>What Comes Next</h2>
+        <hr class="divider">
+        <p>This series gave you five starting points. The foundation. Qualification. Proposals. Retention. Extraction. Each one addressed a specific problem. But revenue independence comes from seeing how they connect. How the foundation feeds qualification, how qualification feeds proposals, how proposals feed delivery, how delivery feeds retention, and how retention feeds back into growth.</p>
+<p>That&#x27;s revenue architecture. And it&#x27;s the difference between having a business and being your business.</p>
+<p>If you want to know where you stand, I&#x27;ve built two scorecards.</p>
+<p>If you&#x27;re still working on how you attract and convert new business, start with the Salesperson Preparedness Scorecard. It assesses how your marketing and sales are working and gives you specific actions to improve them.</p>
+<p>If you&#x27;re ready to build the full architecture... the feedback loops between marketing, sales, delivery, and retention... take the Revenue Independence Scorecard. It assesses how connected your revenue engine is and shows you exactly where the gaps are.</p>
+<p>Both are free. Both give you tailored recommendations based on where your business actually is. Not generic advice. Yours.</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="guide-download" id="download">
+    <div class="container text-center">
+      <h2>Download the PDF</h2>
+      <p>Want a copy to keep? Enter your email and we'll send it straight to your inbox.</p>
+      <!-- PLACEHOLDER: Wire up to your email provider -->
+      <form class="guide-download__form" action="#" method="POST">
+        <input type="email" class="guide-download__input" placeholder="Your email address" required>
+        <button type="submit" class="guide-download__btn">Send it</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/ktco-logo-white.svg" alt="KTCO">
+          </div>
+          <p class="footer__tagline">Revenue architecture for founder-led businesses.<br>Sell by choice, not obligation.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Navigate</h4>
+          <a href="https://kenthomas.co/">Home</a>
+          <a href="https://kenthomas.co/about.html">About</a>
+          <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+          <a href="https://kenthomas.co/results.html">Results</a>
+          <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+          <a href="https://kenthomas.co/contact.html">Contact</a>
+        </div>
+        <div class="footer__links">
+          <h4>Connect</h4>
+          <a href="mailto:ken@kenthomas.co">ken@kenthomas.co</a>
+          <a href="tel:+61383831226">03 8383 1226</a>
+          <a href="https://www.linkedin.com/in/revenue-architecture/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/kengrowsrev" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@kengrowsrev" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 Ken Thomas Consulting. All rights reserved. <a href="https://kenthomas.co/privacy-policy.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.25rem;">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

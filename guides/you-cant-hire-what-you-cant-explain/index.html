@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You Can&#x27;t Hire What You Can&#x27;t Explain. | Ken Thomas</title>
+  <meta name="description" content="Permission to Market Guide 05 — Revenue architecture for founder-led businesses by Ken Thomas.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://assets.salescommand.ai/_img/width=32,height=32,fit=contain,format=png/customers/ktco/logo-navy.png">
+  <style>
+    /* --- Reset & Base --- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; font-weight: 300; color: #444; background: #fff; line-height: 1.6; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --navy: #072F54;
+      --gold: #FBC108;
+      --grey: #444444;
+      --white: #FFFFFF;
+      --off-white: #F8F8F8;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Lato', sans-serif; color: var(--navy); line-height: 1.15; }
+    h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+    h3 { font-size: 1.375rem; font-weight: 400; line-height: 1.3; }
+    p { font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.25rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+    .container--narrow { max-width: 760px; margin: 0 auto; padding: 0 2rem; position: relative; left: -3px; }
+    .divider { width: 60px; height: 4px; background: var(--gold); border: none; margin: 1.5rem 0; }
+    .text-center { text-align: center; }
+
+    ul, ol { list-style: none; }
+
+    /* --- Navigation (from main site) --- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid rgba(7, 47, 84, 0.08);
+      transition: box-shadow 0.3s ease;
+    }
+    .nav.scrolled {
+      box-shadow: 0 2px 20px rgba(7, 47, 84, 0.08);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+    .nav__logo img {
+      height: 60px;
+      width: 60px;
+      max-width: none;
+      display: block;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex: 1;
+      justify-content: center;
+      margin-left: -5px;
+    }
+    .nav__cta {
+      flex-shrink: 0;
+      min-width: 242px;
+      text-align: center;
+    }
+    .nav__links a {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--grey);
+      letter-spacing: 0.03em;
+      transition: color 0.2s ease;
+    }
+    .nav__links a:hover {
+      color: var(--navy);
+    }
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .nav__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-block;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* --- Hero --- */
+    .guide-hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10rem 0 5rem;
+      text-align: left;
+    }
+    .guide-hero__eyebrow {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .guide-hero h1 {
+      font-size: 3.25rem;
+      font-weight: 700;
+      color: var(--white);
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .guide-hero__hook {
+      font-size: 1.25rem;
+      font-weight: 300;
+      max-width: 580px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+    .guide-hero__hook p { margin-bottom: 0; }
+
+    /* --- Content Sections --- */
+    .guide-content {
+      padding: 4rem 0;
+    }
+    .guide-section {
+      margin-bottom: 3.5rem;
+    }
+    .guide-section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- Callout --- */
+    .guide-callout {
+      background: #FFF8E1;
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      border-radius: 2px;
+    }
+    .guide-callout p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+    .guide-callout--blue {
+      background: var(--navy);
+      border-left: 4px solid var(--gold);
+    }
+    .guide-callout--blue p {
+      color: var(--white);
+    }
+
+    /* --- Numbered Items (gold outline) --- */
+    .guide-numbered {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      align-items: flex-start;
+    }
+    .guide-numbered__number {
+      font-family: 'Lato', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 50px;
+    }
+    .guide-numbered__number--badge {
+      background: var(--navy);
+      color: var(--white);
+      -webkit-text-stroke: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .guide-numbered__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered__body p {
+      font-size: 1.0625rem;
+    }
+
+    /* --- Bullets --- */
+    .guide-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .guide-bullets li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* --- Numbered List --- */
+    .guide-numbered-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+      counter-reset: guide-counter;
+    }
+    .guide-numbered-list li {
+      counter-increment: guide-counter;
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered-list li::before {
+      content: counter(guide-counter) ".";
+      position: absolute;
+      left: 0;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* --- Subheading --- */
+    .guide-subheading {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* --- CTA Text --- */
+    .guide-cta-text {
+      background: var(--off-white);
+      border-top: 4px solid var(--gold);
+      padding: 2.5rem;
+      margin-top: 2rem;
+      border-radius: 2px;
+    }
+    .guide-cta-text p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+
+    /* --- Download Section --- */
+    .guide-download {
+      background: var(--navy);
+      color: var(--white);
+      padding: 5rem 0;
+    }
+    .guide-download h2 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .guide-download p {
+      opacity: 0.8;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+    }
+    .guide-download__form {
+      max-width: 440px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .guide-download__input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .guide-download__input::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+    .guide-download__input:focus {
+      border-color: var(--gold);
+    }
+    .guide-download__btn {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      background: var(--gold);
+      color: var(--navy);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .guide-download__btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .footer__brand { max-width: 420px; display: flex; flex-direction: column; }
+    .footer__logo { margin-top: -31px; margin-left: -33px; margin-bottom: 0; }
+    .footer__logo img { height: 200px; width: 200px; max-width: none; display: block; }
+    .footer__tagline { font-size: 0.9375rem; opacity: 0.65; line-height: 1.5; margin-top: auto; margin-bottom: 0; }
+    .footer__links h4 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .footer__links a {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--white);
+      opacity: 0.65;
+      margin-bottom: 0.6rem;
+      transition: opacity 0.2s ease;
+    }
+    .footer__links a:hover { opacity: 1; }
+    .footer__links a:last-child { margin-bottom: 0; }
+    .footer__bottom {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.8125rem;
+      opacity: 0.45;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .guide-hero { padding: 8rem 0 3rem; }
+      .guide-hero h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.75rem; }
+      .guide-numbered { flex-direction: column; gap: 0.75rem; }
+      .guide-download__form { flex-direction: column; }
+      .footer__inner { flex-direction: column; }
+      .nav__links { display: none; }
+      .nav__links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        gap: 1.25rem;
+      }
+      .nav__toggle { display: block; }
+    }
+    @media (max-width: 600px) {
+      .guide-hero h1 { font-size: 2rem; }
+      .container, .container--narrow { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="https://kenthomas.co/" class="nav__logo">
+        <img src="assets/ktco-logo-navy.svg" alt="KTCO — Revenue Architecture for Founder-Led Businesses">
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="https://kenthomas.co/">Home</a>
+        <a href="https://kenthomas.co/about.html">About</a>
+        <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+        <a href="https://kenthomas.co/results.html">Results</a>
+        <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+        <a href="https://kenthomas.co/contact.html">Contact</a>
+      </div>
+      <a href="#download" class="btn btn--gold nav__cta">Get the Guide</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="container--narrow">
+
+      <h1>You Can&#x27;t Hire<br>What You Can&#x27;t<br>Explain.</h1>
+      <div class="guide-hero__hook">
+        <p>The real reason sales hires fail.<br>And what has to be true to ensure they don&#x27;t.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guide Content -->
+  <section class="guide-content">
+    <div class="container--narrow">
+      <div class="guide-section">
+        <h2>The Hire That Didn&#x27;t Work</h2>
+        <hr class="divider">
+        <p>I work with a business that has had around 10 salespeople come and go over the last decade. Different backgrounds. Different experience levels. Some were technical, some were pure sales. None of them lasted.</p>
+<p>The founder is a naturally talented salesperson. He&#x27;s seen so many situations over the years that he can flex his style in the moment and shift conversations instinctively. He&#x27;d brought salespeople into meetings with him. He&#x27;d talked to them about how he sells. But he&#x27;d never broken it down to first principles. Never turned it into a process someone else could follow. So every new hire came in, sold the way they knew how, and it didn&#x27;t work.</p>
+<p>The first time a salesperson actually hit their targets was after we started working together to extract what the founder knew and turn it into something repeatable. Not a script. A process. A way of thinking about the sale that didn&#x27;t require the founder to be in the room.</p>
+<div class="guide-callout">
+          <p>The problem was never the hire. The problem was that the right way to sell lived entirely in the founder&#x27;s head.</p>
+        </div>
+<p>This isn&#x27;t a story about hiring failures. It&#x27;s a story about extraction. About taking what actually works... what&#x27;s making you money, what&#x27;s keeping customers happy, what&#x27;s actually true about your business... and pulling it out of your brain long enough for someone else to use it.</p>
+      </div>
+<div class="guide-section">
+        <h2>What&#x27;s Actually Happening</h2>
+        <hr class="divider">
+        <p>Nobody sells your business the way you do. Because you know it so deeply that you don&#x27;t even have to think about it anymore. You have case studies, examples, and stories for every objection. You know how to counter-position against competitors. Your passion for your solution comes through in every conversation, and that passion influences people. You can read a room and adapt in real time. You speak your client&#x27;s language, not sales jargon.</p>
+<p>But you can&#x27;t articulate it.</p>
+<p>This is called unconscious competence. You&#x27;re so good at something that you&#x27;ve stopped thinking about how you do it. The shortcuts are automatic. The instincts are instant. The pattern recognition is invisible.</p>
+<p>And as long as that knowledge stays lodged in your nervous system and nowhere else, it&#x27;s a single point of failure. You can&#x27;t step away. Hiring doesn&#x27;t scale. Your best deals only happen when you&#x27;re involved, and everything else is mediocre.</p>
+<p><strong>But here&#x27;s the good news: it can be extracted. It just takes different work than you think.</strong></p>
+      </div>
+<div class="guide-section">
+        <h2>Extract, Don&#x27;t Reinvent</h2>
+        <hr class="divider">
+        <p>I work with a professional services business that was doing $1.2 million in revenue when we started. It was just the founder and one salesperson, and the founder was involved in every deal. Nothing closed without him.</p>
+<p>We sat down and extracted what was actually driving the business. Not what he assumed. What was real.</p>
+<ul class="guide-bullets">
+<li>Why he started the business and where he wanted to take it</li>
+<li>What made his offer different from everyone else&#x27;s</li>
+<li>Who was buying and what problems they were actually trying to solve</li>
+<li>The questions he asked to uncover the real need</li>
+<li>How he navigated sales conversations from first contact to close</li>
+</ul>
+<p>We turned his intuition into a playbook that was unique to his business. Not a cookie-cutter framework. His way of selling, documented and structured so someone else could follow it. And where the process could be better, we tweaked it based on first principles.</p>
+<p>Within six months of working together, that business went from $1.2 million to $3 million ARR. The team grew from two people selling to six. This year, their revenue target is $5 million. And the founder? He still sells when he wants to. But it&#x27;s a choice now, not an obligation.</p>
+<p>This is extraction. You&#x27;re not building a new process. You&#x27;re not bringing in a consultant to tell you how to sell better. You&#x27;re pulling the system you&#x27;re already using out of your brain, making it visible, and handing it over.</p>
+<div class="guide-callout">
+          <p>The revenue already exists. The buyers already know your system works. You just have to see it clearly enough to explain it.</p>
+        </div>
+      </div>
+<div class="guide-section">
+        <h2>The Three Things That Must Be Captured</h2>
+        <hr class="divider">
+        <div class="guide-numbered">
+              <div class="guide-numbered__number">01</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Your Mission, Vision, and Values</h3>
+                <p>Without this, nothing else you extract will hold together. Your sales process, your client relationships, your hiring decisions... they all flow from what the business stands for, where it&#x27;s going, and what you refuse to compromise on. This is the anchor.</p>
+<p>Most founders have never written this down. It lives in how they behave, how they hire, how they fire, and what they tolerate. But until it&#x27;s documented, every new person who joins your business is guessing. They&#x27;re interpreting the culture through their own lens, not yours. And when they make decisions that don&#x27;t feel right to you... when a new hire handles a client in a way you&#x27;d never approve of, or when someone on your team says yes to work you would have walked away from... it&#x27;s usually because they never had the foundation to work from in the first place.</p>
+<p>Start by answering three questions:</p>
+              </div>
+            </div>
+<ol class="guide-numbered-list">
+<li>What does this business exist to do?</li>
+<li>Where is it going in the next three to five years?</li>
+<li>What are the non-negotiable beliefs that everyone in this business must share?</li>
+</ol>
+<p>If you can&#x27;t answer these clearly, no one who works for you can either.</p>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">02</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">What Makes You Different and How You Prove It</h3>
+                <p>If you followed through on the first guide, you&#x27;ve already asked your best clients why they chose you. They&#x27;ve reinforced or reframed what makes you different. You can see it now. But can your team?</p>
+<p>If they can&#x27;t articulate what makes you different, it flows into everything. Their conversations lack conviction, and when a prospect pushes back, they don&#x27;t have the language to handle the objection because they were never given the real answer in the first place.</p>
+<p>The real distinction isn&#x27;t in your features or your credentials. It&#x27;s in your proof points, your case studies, and the language your clients actually use. That&#x27;s what needs to be captured in enough detail that your team can speak to it with the same clarity you can.</p>
+<p>Here&#x27;s how to test it:</p>
+              </div>
+            </div>
+<ul class="guide-bullets">
+<li>Ask someone on your team to explain, without preparation, what makes you different from your two closest competitors.</li>
+<li>Not features. The reason a client would choose you.</li>
+<li>If they can&#x27;t do it clearly, your differentiation lives in your head and nowhere else. That&#x27;s what needs to be extracted.</li>
+</ul>
+<p>Close it by documenting the proof points and language your clients actually use, and make sure everyone in your business can speak to them.</p>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">03</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">How You Actually Sell, and Who You Sell To</h3>
+                <p>This is where most of the unconscious competence lives. Your ideal client profile, your discovery approach, the questions you ask, the objections you handle, the stories you tell, the way you adapt in the moment. You&#x27;ve been doing this for years and it works. But you&#x27;ve never broken it down to first principles.</p>
+<p>Most founders have tried. They&#x27;ve brought salespeople into meetings. They&#x27;ve talked about how they sell. But talking about it and documenting it are two different things. Without a structured process your team can follow, every salesperson you hire is starting from scratch, guessing at what good looks like, and burning through opportunities you would have closed. That&#x27;s why leads don&#x27;t convert, why interest gets mistaken for intent, and why your best client relationships only work when you&#x27;re the one holding them.</p>
+              </div>
+            </div>
+      </div>
+<div class="guide-section">
+        <h2>What Extraction Makes Possible</h2>
+        <hr class="divider">
+        <p>When you extract these three things, something shifts. You move from unconscious competence to visible system. And visible systems can be improved, refined, and tested. Right now, what makes your business work can only replicate you. And there&#x27;s only one of you.</p>
+<p>Once it&#x27;s extracted? Your team can run it. Your next hire can learn it. Your business can scale past the size of your personal bandwidth.</p>
+<div class="guide-callout">
+          <p>Could someone else walk into your next meeting and know who to talk to, what to ask, and when to walk away? That&#x27;s the question extraction answers.</p>
+        </div>
+<p>That business with around 10 salespeople who failed over the last decade? The problem was never the talent. It was that no one had extracted what the founder knew and turned it into something others could follow. Once we did, a salesperson hit their targets for the first time. Not because they were better than the ones who came before. Because they finally had the foundation, the positioning, and the process to work from.</p>
+<p>The same will be true for you. The moment you pull this out of your head, you don&#x27;t just create capacity. You create clarity. For your team. For your next hire. For yourself, about what actually matters.</p>
+      </div>
+<div class="guide-section">
+        <h2>Your Day-One Action</h2>
+        <hr class="divider">
+        <p>Write down your last five wins. For each one, answer these questions:</p>
+<ol class="guide-numbered-list">
+<li>How did the opportunity come in?</li>
+<li>What questions did you ask?</li>
+<li>What made you confident they&#x27;d close?</li>
+<li>What did you do differently from the deals that didn&#x27;t close?</li>
+</ol>
+<p>Be specific. The actual conversations. The actual turning points. The actual words you used.</p>
+<p>By the time you&#x27;ve done this, you&#x27;ll start to see the pattern. That pattern is your sales process. It&#x27;s just been invisible until now. And once you can see it, you can hand it to someone else.</p>
+      </div>
+<div class="guide-section">
+        <h2>What Comes Next</h2>
+        <hr class="divider">
+        <p>You now have something most founders never do: a clear picture of what your business stands for, what makes it different, and how you actually sell. That&#x27;s the starting point for everything that comes after... scaling your team, hiring with confidence, and building a business that doesn&#x27;t need you in every conversation.</p>
+<p>But extraction is only half the story. There&#x27;s another piece that determines whether your business can truly run without you. It&#x27;s about revenue architecture... the connections that keep everything working together. That&#x27;s where we&#x27;re headed next.</p>
+      </div>
+      <div class="guide-cta-text">
+          <p>What your business stands for, what makes it different, and how you sell... it all lives in your head. Until you extract it, you&#x27;re the bottleneck. Start with your last five wins and see the pattern for yourself.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="guide-download" id="download">
+    <div class="container text-center">
+      <h2>Download the PDF</h2>
+      <p>Want a copy to keep? Enter your email and we'll send it straight to your inbox.</p>
+      <!-- PLACEHOLDER: Wire up to your email provider -->
+      <form class="guide-download__form" action="#" method="POST">
+        <input type="email" class="guide-download__input" placeholder="Your email address" required>
+        <button type="submit" class="guide-download__btn">Send it</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/ktco-logo-white.svg" alt="KTCO">
+          </div>
+          <p class="footer__tagline">Revenue architecture for founder-led businesses.<br>Sell by choice, not obligation.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Navigate</h4>
+          <a href="https://kenthomas.co/">Home</a>
+          <a href="https://kenthomas.co/about.html">About</a>
+          <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+          <a href="https://kenthomas.co/results.html">Results</a>
+          <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+          <a href="https://kenthomas.co/contact.html">Contact</a>
+        </div>
+        <div class="footer__links">
+          <h4>Connect</h4>
+          <a href="mailto:ken@kenthomas.co">ken@kenthomas.co</a>
+          <a href="tel:+61383831226">03 8383 1226</a>
+          <a href="https://www.linkedin.com/in/revenue-architecture/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/kengrowsrev" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@kengrowsrev" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 Ken Thomas Consulting. All rights reserved. <a href="https://kenthomas.co/privacy-policy.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.25rem;">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

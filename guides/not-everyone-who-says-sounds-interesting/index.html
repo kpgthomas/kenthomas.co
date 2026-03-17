@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not Everyone Who Says &quot;Sounds Interesting&quot; Is Going to Buy. | Ken Thomas</title>
+  <meta name="description" content="Permission to Market Guide 02 — Revenue architecture for founder-led businesses by Ken Thomas.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://assets.salescommand.ai/_img/width=32,height=32,fit=contain,format=png/customers/ktco/logo-navy.png">
+  <style>
+    /* --- Reset & Base --- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; font-weight: 300; color: #444; background: #fff; line-height: 1.6; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --navy: #072F54;
+      --gold: #FBC108;
+      --grey: #444444;
+      --white: #FFFFFF;
+      --off-white: #F8F8F8;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Lato', sans-serif; color: var(--navy); line-height: 1.15; }
+    h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+    h3 { font-size: 1.375rem; font-weight: 400; line-height: 1.3; }
+    p { font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.25rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+    .container--narrow { max-width: 760px; margin: 0 auto; padding: 0 2rem; position: relative; left: -3px; }
+    .divider { width: 60px; height: 4px; background: var(--gold); border: none; margin: 1.5rem 0; }
+    .text-center { text-align: center; }
+
+    ul, ol { list-style: none; }
+
+    /* --- Navigation (from main site) --- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid rgba(7, 47, 84, 0.08);
+      transition: box-shadow 0.3s ease;
+    }
+    .nav.scrolled {
+      box-shadow: 0 2px 20px rgba(7, 47, 84, 0.08);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+    .nav__logo img {
+      height: 60px;
+      width: 60px;
+      max-width: none;
+      display: block;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex: 1;
+      justify-content: center;
+      margin-left: -5px;
+    }
+    .nav__cta {
+      flex-shrink: 0;
+      min-width: 242px;
+      text-align: center;
+    }
+    .nav__links a {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--grey);
+      letter-spacing: 0.03em;
+      transition: color 0.2s ease;
+    }
+    .nav__links a:hover {
+      color: var(--navy);
+    }
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .nav__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-block;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* --- Hero --- */
+    .guide-hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10rem 0 5rem;
+      text-align: left;
+    }
+    .guide-hero__eyebrow {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .guide-hero h1 {
+      font-size: 3.25rem;
+      font-weight: 700;
+      color: var(--white);
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .guide-hero__hook {
+      font-size: 1.25rem;
+      font-weight: 300;
+      max-width: 580px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+    .guide-hero__hook p { margin-bottom: 0; }
+
+    /* --- Content Sections --- */
+    .guide-content {
+      padding: 4rem 0;
+    }
+    .guide-section {
+      margin-bottom: 3.5rem;
+    }
+    .guide-section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- Callout --- */
+    .guide-callout {
+      background: #FFF8E1;
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      border-radius: 2px;
+    }
+    .guide-callout p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+    .guide-callout--blue {
+      background: var(--navy);
+      border-left: 4px solid var(--gold);
+    }
+    .guide-callout--blue p {
+      color: var(--white);
+    }
+
+    /* --- Numbered Items (gold outline) --- */
+    .guide-numbered {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      align-items: flex-start;
+    }
+    .guide-numbered__number {
+      font-family: 'Lato', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 50px;
+    }
+    .guide-numbered__number--badge {
+      background: var(--navy);
+      color: var(--white);
+      -webkit-text-stroke: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .guide-numbered__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered__body p {
+      font-size: 1.0625rem;
+    }
+
+    /* --- Bullets --- */
+    .guide-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .guide-bullets li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* --- Numbered List --- */
+    .guide-numbered-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+      counter-reset: guide-counter;
+    }
+    .guide-numbered-list li {
+      counter-increment: guide-counter;
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered-list li::before {
+      content: counter(guide-counter) ".";
+      position: absolute;
+      left: 0;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* --- Subheading --- */
+    .guide-subheading {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* --- CTA Text --- */
+    .guide-cta-text {
+      background: var(--off-white);
+      border-top: 4px solid var(--gold);
+      padding: 2.5rem;
+      margin-top: 2rem;
+      border-radius: 2px;
+    }
+    .guide-cta-text p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+
+    /* --- Download Section --- */
+    .guide-download {
+      background: var(--navy);
+      color: var(--white);
+      padding: 5rem 0;
+    }
+    .guide-download h2 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .guide-download p {
+      opacity: 0.8;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+    }
+    .guide-download__form {
+      max-width: 440px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .guide-download__input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .guide-download__input::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+    .guide-download__input:focus {
+      border-color: var(--gold);
+    }
+    .guide-download__btn {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      background: var(--gold);
+      color: var(--navy);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .guide-download__btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .footer__brand { max-width: 420px; display: flex; flex-direction: column; }
+    .footer__logo { margin-top: -31px; margin-left: -33px; margin-bottom: 0; }
+    .footer__logo img { height: 200px; width: 200px; max-width: none; display: block; }
+    .footer__tagline { font-size: 0.9375rem; opacity: 0.65; line-height: 1.5; margin-top: auto; margin-bottom: 0; }
+    .footer__links h4 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .footer__links a {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--white);
+      opacity: 0.65;
+      margin-bottom: 0.6rem;
+      transition: opacity 0.2s ease;
+    }
+    .footer__links a:hover { opacity: 1; }
+    .footer__links a:last-child { margin-bottom: 0; }
+    .footer__bottom {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.8125rem;
+      opacity: 0.45;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .guide-hero { padding: 8rem 0 3rem; }
+      .guide-hero h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.75rem; }
+      .guide-numbered { flex-direction: column; gap: 0.75rem; }
+      .guide-download__form { flex-direction: column; }
+      .footer__inner { flex-direction: column; }
+      .nav__links { display: none; }
+      .nav__links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        gap: 1.25rem;
+      }
+      .nav__toggle { display: block; }
+    }
+    @media (max-width: 600px) {
+      .guide-hero h1 { font-size: 2rem; }
+      .container, .container--narrow { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="https://kenthomas.co/" class="nav__logo">
+        <img src="assets/ktco-logo-navy.svg" alt="KTCO — Revenue Architecture for Founder-Led Businesses">
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="https://kenthomas.co/">Home</a>
+        <a href="https://kenthomas.co/about.html">About</a>
+        <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+        <a href="https://kenthomas.co/results.html">Results</a>
+        <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+        <a href="https://kenthomas.co/contact.html">Contact</a>
+      </div>
+      <a href="#download" class="btn btn--gold nav__cta">Get the Guide</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="container--narrow">
+
+      <h1>Not Everyone Who Says<br>&quot;Sounds Interesting&quot;<br>Is Going to Buy.</h1>
+      <div class="guide-hero__hook">
+        <p>Interest is not intent.<br>Most founder-led businesses confuse the two and waste months on conversations that were never happening.<br>Here&#x27;s how to tell the difference... and actually know what to do about it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guide Content -->
+  <section class="guide-content">
+    <div class="container--narrow">
+      <div class="guide-section">
+        <h2>The Conversation That Felt Like Progress</h2>
+        <hr class="divider">
+        <p>I worked with a founder last year who was frustrated. Smart person. Built a solid product. But she was stuck in a pattern that I see constantly.<br><br>She&#x27;d had the same prospect in monthly meetings for five months. Great conversations. The prospect was always engaged, always said things like &quot;sounds really interesting&quot; and &quot;we should definitely explore this.&quot; She&#x27;d leave each call thinking, &quot;This is close.&quot;<br><br>But there was no commitment. No movement. Just a repeat of the same conversation, month after month, with slightly different window dressing.</p>
+<p>When we sat down and looked at it together, the pattern became obvious: the prospect was interested. But they were never intending to buy. And she had been treating interest like it meant something was going to happen.<br><br>Look, I get it. When someone&#x27;s engaged in a conversation, nodding along, asking good questions... it feels like progress. It feels like this might be the one. So you keep showing up, keep refining your pitch, keep hoping that next conversation is the one where they say yes.<br><br>But you&#x27;re not making progress. You&#x27;re just building a relationship that&#x27;s never going to turn into business.</p>
+<div class="guide-callout">
+          <p>How many prospects are you currently in conversation with who will probably never buy, but you can&#x27;t quite make yourself say no?</p>
+        </div>
+<p>This is a qualification problem. You are mistaking interest for intent. And it is costing you clarity, time, and revenue.</p>
+      </div>
+<div class="guide-section">
+        <h2>Why Founders Struggle to Let Go</h2>
+        <hr class="divider">
+        <p>Founders are optimists. You have to be. You start a business on the belief that something is possible. That requires hope.<br><br>But here&#x27;s the trap: that same optimism that builds businesses also makes you hold onto prospects you should have walked away from weeks ago.<br><br>You see the potential. You think if you just explain it better, position it differently, show them one more angle... they&#x27;ll get it. So you keep investing energy in conversations that have already answered your question. They&#x27;re just saying it quietly, through inaction.</p>
+<p>The real problem is structural, though. Founders don&#x27;t have a clear framework for what qualifies as a real opportunity versus a nice conversation. So everything looks like it could be a sale. Everything deserves one more meeting. Everything might be the one.</p>
+<p>And that indecision is expensive. It&#x27;s expensive in your time. It&#x27;s expensive in your mental energy. And it&#x27;s expensive in opportunity cost. Because while you&#x27;re having the fifth meeting with someone who&#x27;s never going to buy, you&#x27;re not opening doors with someone who will.</p>
+      </div>
+<div class="guide-section">
+        <h2>Interest Versus Intent: The Gap That Costs You Weeks</h2>
+        <hr class="divider">
+        <p>There&#x27;s a clear difference between someone who&#x27;s interested and someone who intends to buy. Most founders confuse them. Here&#x27;s the distinction:</p>
+<ul class="guide-bullets">
+<li>Interest: They want to understand what you do. They&#x27;re curious. They might even be excited.</li>
+<li>Intent: They&#x27;re ready to make a decision. They&#x27;re looking for a solution. They&#x27;re willing to move.</li>
+</ul>
+<p>Interest is free. Anyone will give it to you. Intent is valuable. It&#x27;s rare. And it&#x27;s what actually matters.<br><br>An interested prospect will take your call. An intent-driven prospect will commit to next steps. An interested prospect will say &quot;sounds good.&quot; An intent-driven prospect will say &quot;here&#x27;s when we can get started.&quot;<br><br>The problem is, when you&#x27;re in the conversation, it feels the same. They&#x27;re both engaged. They&#x27;re both asking questions. But one is going to move, and one is going to disappear in three months when they &quot;get busier.&quot;</p>
+      </div>
+<div class="guide-section">
+        <h2>The Three Things That Must Be True</h2>
+        <hr class="divider">
+        <p>If someone&#x27;s actually going to buy, if intent is real, not just interest, three things have to be true. If even one of them is missing, you&#x27;re probably looking at interest pretending to be intent.</p>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">01</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">They can describe the pain and what is driving it</h3>
+                <p>Not &quot;we&#x27;re looking to grow&quot; or &quot;we want to improve our sales.&quot; Can they tell you what is specifically broken, why it matters, and what is happening in their business right now that made this conversation necessary? If there is no trigger, there is no urgency. They are browsing, not buying. The situation and the pain have to be real, specific, and current.</p>
+              </div>
+            </div>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">02</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">There is a real consequence to not acting</h3>
+                <p>What happens if they do nothing? If the answer is &quot;things stay the same&quot; and they are comfortable with that, this is not a deal. Intent lives where inaction has a cost. Revenue is declining. A key person just left. A competitor is pulling ahead. Something has to be at stake. If they cannot articulate the impact of staying where they are, they are not ready to move.</p>
+              </div>
+            </div>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">03</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">They know how the decision gets made</h3>
+                <p>Who else needs to be involved? What does their decision process actually look like? Not &quot;I&#x27;ll run it past the team&quot; but &quot;my business partner and I will review it on Friday and come back to you Monday.&quot; If they cannot describe how and when a decision happens, you are in a conversation with no end point. That is not a deal in motion. That is a relationship going in circles.</p>
+              </div>
+            </div>
+      </div>
+<div class="guide-section">
+        <h2>What the Data Tells Us</h2>
+        <hr class="divider">
+        <p>I&#x27;ve been tracking this with founder-led businesses for years. The numbers are consistent.</p>
+<div class="guide-callout">
+          <p>70% of founders say they mistake interest for qualification. They hear engagement and assume the deal is progressing, when in reality the conversation has no forward momentum.</p>
+        </div>
+<p>This is not about being bad at sales. It is about not having a framework for distinguishing between the two. When you do not have clear criteria for what makes a real opportunity, every conversation feels like one.<br><br>The founders I work with spend so much energy on that 70%, they don&#x27;t have the bandwidth to go deep with the 30% who actually want to move.</p>
+<div class="guide-callout">
+          <p>Only 11% of founders have a sales process that&#x27;s actually repeatable. The rest are relying on intuition, relationships, and hope.</p>
+        </div>
+<p>Hope is not a qualification strategy. Intuition can be sharpened, but only when you give it something concrete to work with. A repeatable set of questions. A clear understanding of what a qualified opportunity looks like. A willingness to walk away from conversations that do not meet the bar, even when the pipeline feels thin.</p>
+      </div>
+<div class="guide-section">
+        <h2>Where Are You Really?</h2>
+        <hr class="divider">
+        <p>Before you book another discovery call or put together another proposal, get honest about where your current conversations are.</p>
+<ol class="guide-numbered-list">
+<li>In your active pipeline right now, how many conversations have been ongoing for more than 60 days without a clear next step?</li>
+<li>Can you point to specific conversations where the prospect has clearly defined the problem, the budget, and the timeline? How many?</li>
+<li>When was the last time you walked away from a prospect because they weren&#x27;t actually ready... and how did that feel?</li>
+<li>How much of your week is spent managing conversations that are probably never going to close?</li>
+<li>If you had to rank your current prospects by likelihood to actually buy, would more than half be in the 70% that probably won&#x27;t move?</li>
+</ol>
+      </div>
+<div class="guide-section">
+        <h2>Your Day-One Action</h2>
+        <hr class="divider">
+        <p>Don&#x27;t wait for the next discovery call. Don&#x27;t redesign your pitch. Tomorrow morning, do this:<br><br>List every prospect you&#x27;re currently in conversation with. Next to each name, write down:</p>
+<ul class="guide-bullets">
+<li>Can they describe what is specifically broken and what is driving the urgency?</li>
+<li>Is there a real consequence to not acting?</li>
+<li>Do they know how and when the decision gets made?</li>
+</ul>
+<p>If all three are yes, move forward. If any are no, you&#x27;ve got a choice: help them get clearer on those three things, or let the conversation go.<br><br>That&#x27;s it. One exercise. But it&#x27;s going to immediately show you where your real opportunities are.</p>
+      </div>
+<div class="guide-section">
+        <h2>What Comes Next</h2>
+        <hr class="divider">
+        <p>You can now tell the difference between someone who&#x27;s interested and someone who&#x27;s ready to buy. That changes everything about how you spend your time.</p>
+<p>But here&#x27;s what happens next. You qualify them properly. The intent is real. You send the proposal. And then... silence. The conversation that felt so alive goes cold. Not because the deal was wrong. Because something breaks between the conversation and the close.</p>
+<p>That&#x27;s the next problem. And it&#x27;s not what you think.</p>
+      </div>
+      <div class="guide-cta-text">
+          <p>Interest is easy to find. Intent is what closes deals. If this guide made you rethink a conversation you&#x27;re in right now, that&#x27;s the one to focus on.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="guide-download" id="download">
+    <div class="container text-center">
+      <h2>Download the PDF</h2>
+      <p>Want a copy to keep? Enter your email and we'll send it straight to your inbox.</p>
+      <!-- PLACEHOLDER: Wire up to your email provider -->
+      <form class="guide-download__form" action="#" method="POST">
+        <input type="email" class="guide-download__input" placeholder="Your email address" required>
+        <button type="submit" class="guide-download__btn">Send it</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/ktco-logo-white.svg" alt="KTCO">
+          </div>
+          <p class="footer__tagline">Revenue architecture for founder-led businesses.<br>Sell by choice, not obligation.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Navigate</h4>
+          <a href="https://kenthomas.co/">Home</a>
+          <a href="https://kenthomas.co/about.html">About</a>
+          <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+          <a href="https://kenthomas.co/results.html">Results</a>
+          <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+          <a href="https://kenthomas.co/contact.html">Contact</a>
+        </div>
+        <div class="footer__links">
+          <h4>Connect</h4>
+          <a href="mailto:ken@kenthomas.co">ken@kenthomas.co</a>
+          <a href="tel:+61383831226">03 8383 1226</a>
+          <a href="https://www.linkedin.com/in/revenue-architecture/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/kengrowsrev" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@kengrowsrev" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 Ken Thomas Consulting. All rights reserved. <a href="https://kenthomas.co/privacy-policy.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.25rem;">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

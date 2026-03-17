@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>They Didn&#x27;t Ghost Your Proposal | Ken Thomas</title>
+  <meta name="description" content="Permission to Market Guide 03 — Revenue architecture for founder-led businesses by Ken Thomas.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://assets.salescommand.ai/_img/width=32,height=32,fit=contain,format=png/customers/ktco/logo-navy.png">
+  <style>
+    /* --- Reset & Base --- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; font-weight: 300; color: #444; background: #fff; line-height: 1.6; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --navy: #072F54;
+      --gold: #FBC108;
+      --grey: #444444;
+      --white: #FFFFFF;
+      --off-white: #F8F8F8;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Lato', sans-serif; color: var(--navy); line-height: 1.15; }
+    h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+    h3 { font-size: 1.375rem; font-weight: 400; line-height: 1.3; }
+    p { font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.25rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+    .container--narrow { max-width: 760px; margin: 0 auto; padding: 0 2rem; position: relative; left: -3px; }
+    .divider { width: 60px; height: 4px; background: var(--gold); border: none; margin: 1.5rem 0; }
+    .text-center { text-align: center; }
+
+    ul, ol { list-style: none; }
+
+    /* --- Navigation (from main site) --- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid rgba(7, 47, 84, 0.08);
+      transition: box-shadow 0.3s ease;
+    }
+    .nav.scrolled {
+      box-shadow: 0 2px 20px rgba(7, 47, 84, 0.08);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+    .nav__logo img {
+      height: 60px;
+      width: 60px;
+      max-width: none;
+      display: block;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex: 1;
+      justify-content: center;
+      margin-left: -5px;
+    }
+    .nav__cta {
+      flex-shrink: 0;
+      min-width: 242px;
+      text-align: center;
+    }
+    .nav__links a {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--grey);
+      letter-spacing: 0.03em;
+      transition: color 0.2s ease;
+    }
+    .nav__links a:hover {
+      color: var(--navy);
+    }
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .nav__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-block;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* --- Hero --- */
+    .guide-hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10rem 0 5rem;
+      text-align: left;
+    }
+    .guide-hero__eyebrow {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .guide-hero h1 {
+      font-size: 3.25rem;
+      font-weight: 700;
+      color: var(--white);
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .guide-hero__hook {
+      font-size: 1.25rem;
+      font-weight: 300;
+      max-width: 580px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+    .guide-hero__hook p { margin-bottom: 0; }
+
+    /* --- Content Sections --- */
+    .guide-content {
+      padding: 4rem 0;
+    }
+    .guide-section {
+      margin-bottom: 3.5rem;
+    }
+    .guide-section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- Callout --- */
+    .guide-callout {
+      background: #FFF8E1;
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      border-radius: 2px;
+    }
+    .guide-callout p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+    .guide-callout--blue {
+      background: var(--navy);
+      border-left: 4px solid var(--gold);
+    }
+    .guide-callout--blue p {
+      color: var(--white);
+    }
+
+    /* --- Numbered Items (gold outline) --- */
+    .guide-numbered {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      align-items: flex-start;
+    }
+    .guide-numbered__number {
+      font-family: 'Lato', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 50px;
+    }
+    .guide-numbered__number--badge {
+      background: var(--navy);
+      color: var(--white);
+      -webkit-text-stroke: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .guide-numbered__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered__body p {
+      font-size: 1.0625rem;
+    }
+
+    /* --- Bullets --- */
+    .guide-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .guide-bullets li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* --- Numbered List --- */
+    .guide-numbered-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+      counter-reset: guide-counter;
+    }
+    .guide-numbered-list li {
+      counter-increment: guide-counter;
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered-list li::before {
+      content: counter(guide-counter) ".";
+      position: absolute;
+      left: 0;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* --- Subheading --- */
+    .guide-subheading {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* --- CTA Text --- */
+    .guide-cta-text {
+      background: var(--off-white);
+      border-top: 4px solid var(--gold);
+      padding: 2.5rem;
+      margin-top: 2rem;
+      border-radius: 2px;
+    }
+    .guide-cta-text p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+
+    /* --- Download Section --- */
+    .guide-download {
+      background: var(--navy);
+      color: var(--white);
+      padding: 5rem 0;
+    }
+    .guide-download h2 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .guide-download p {
+      opacity: 0.8;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+    }
+    .guide-download__form {
+      max-width: 440px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .guide-download__input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .guide-download__input::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+    .guide-download__input:focus {
+      border-color: var(--gold);
+    }
+    .guide-download__btn {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      background: var(--gold);
+      color: var(--navy);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .guide-download__btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .footer__brand { max-width: 420px; display: flex; flex-direction: column; }
+    .footer__logo { margin-top: -31px; margin-left: -33px; margin-bottom: 0; }
+    .footer__logo img { height: 200px; width: 200px; max-width: none; display: block; }
+    .footer__tagline { font-size: 0.9375rem; opacity: 0.65; line-height: 1.5; margin-top: auto; margin-bottom: 0; }
+    .footer__links h4 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .footer__links a {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--white);
+      opacity: 0.65;
+      margin-bottom: 0.6rem;
+      transition: opacity 0.2s ease;
+    }
+    .footer__links a:hover { opacity: 1; }
+    .footer__links a:last-child { margin-bottom: 0; }
+    .footer__bottom {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.8125rem;
+      opacity: 0.45;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .guide-hero { padding: 8rem 0 3rem; }
+      .guide-hero h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.75rem; }
+      .guide-numbered { flex-direction: column; gap: 0.75rem; }
+      .guide-download__form { flex-direction: column; }
+      .footer__inner { flex-direction: column; }
+      .nav__links { display: none; }
+      .nav__links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        gap: 1.25rem;
+      }
+      .nav__toggle { display: block; }
+    }
+    @media (max-width: 600px) {
+      .guide-hero h1 { font-size: 2rem; }
+      .container, .container--narrow { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="https://kenthomas.co/" class="nav__logo">
+        <img src="assets/ktco-logo-navy.svg" alt="KTCO — Revenue Architecture for Founder-Led Businesses">
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="https://kenthomas.co/">Home</a>
+        <a href="https://kenthomas.co/about.html">About</a>
+        <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+        <a href="https://kenthomas.co/results.html">Results</a>
+        <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+        <a href="https://kenthomas.co/contact.html">Contact</a>
+      </div>
+      <a href="#download" class="btn btn--gold nav__cta">Get the Guide</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="container--narrow">
+
+      <h1>They Didn&#x27;t Ghost<br>Your Proposal</h1>
+      <div class="guide-hero__hook">
+        <p>You had a great conversation.<br>You sent the proposal. Then silence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guide Content -->
+  <section class="guide-content">
+    <div class="container--narrow">
+      <div class="guide-section">
+        <h2>The Silence That Follows</h2>
+        <hr class="divider">
+        <p>I once had a founder tell me he&#x27;d sent 14 proposals that quarter. Three got responses. When I asked him how many he&#x27;d walked through live with the prospect, the answer was zero.</p>
+<p>He wasn&#x27;t bad at selling. His conversations were solid. But somewhere between the handshake and the signature, the momentum died.</p>
+<p>The proposal goes out. You&#x27;re excited. You tell your team, &quot;This one&#x27;s going to close.&quot; Then: nothing. A few days pass. You follow up. &quot;Just reviewing internally,&quot; they say. Another week. Another follow-up. They&#x27;re slower to respond now. Then one day, you get the email: &quot;We&#x27;ve decided to explore other options.&quot;</p>
+<p>But you didn&#x27;t lose them after the proposal. You lost them before it.</p>
+<div class="guide-callout">
+          <p>Nearly 8 in 10 founders I&#x27;ve spoken to report regular ghosting after proposals. Not because the offer was weak, but because the moment of truth happens before the document ever lands.</p>
+        </div>
+      </div>
+<div class="guide-section">
+        <h2>The Proposal Isn&#x27;t the Moment of Truth</h2>
+        <hr class="divider">
+        <p>Most founders treat the proposal as the moment of commitment. You&#x27;ve done the work. You&#x27;ve had the calls. Now you send the offer, and they decide.</p>
+<p>That&#x27;s backwards.</p>
+<p>By the time your proposal lands, the deal is either won or lost. The document doesn&#x27;t convince... it confirms. Or it doesn&#x27;t confirm, and now they&#x27;re left alone with doubts they never voiced.</p>
+<p>Think about the last three deals you closed. Which one closed because the prospect loved your proposal? Almost never. They closed because, by the time you sent it, the prospect had already decided: &quot;Yes, I want to work with this founder.&quot;</p>
+<p>The proposal&#x27;s job is to give them a reason to say yes when they&#x27;ve already leaned that direction. It&#x27;s not the closing tool. It&#x27;s the confirming tool.</p>
+<p>When there&#x27;s silence after, it usually means one of three things happened in the gap you left.</p>
+      </div>
+<div class="guide-section">
+        <h2>What Actually Happens in the Gap</h2>
+        <hr class="divider">
+        <div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">1</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">They&#x27;re Processing Alone</h3>
+                <p>After your conversation, they disconnect. No shared next step. They go back to their team, their partners, their advisors. And the story gets told a different way than you told it. Details get fuzzy. The excitement fades in translation. You&#x27;re not there to clarify, to reconnect them to why this matters.</p>
+              </div>
+            </div>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">2</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Uncertainty Compounds in Silence</h3>
+                <p>Small doubts grow. In your conversation, you addressed them in real time. Now they&#x27;re alone with the proposal, and a question you answered three minutes into the call is suddenly, &quot;Wait, what did he actually say about this?&quot; They don&#x27;t ask. They assume. And assumptions almost always lean negative.</p>
+              </div>
+            </div>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">3</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">There&#x27;s No Shared Commitment to What Happens Next</h3>
+                <p>Before you send anything, did they commit to reviewing it by a specific day? Did you agree on what a &quot;yes&quot; conversation looks like? Or did you just say, &quot;I&#x27;ll send something over,&quot; and hope?</p>
+<p>Hope is not a closing strategy.</p>
+              </div>
+            </div>
+      </div>
+<div class="guide-section">
+        <h2>The Slow-Down Checklist</h2>
+        <hr class="divider">
+        <p>Before any proposal leaves your hands, confirm these in conversation:</p>
+<ul class="guide-bullets">
+<li>They&#x27;ve said out loud that they want to move forward (not &quot;maybe,&quot; not &quot;it depends.&quot; Actual commitment)</li>
+<li>You know who else needs to approve this (is it them alone, or does it go to a partner, board, CFO?)</li>
+<li>They&#x27;ve named a realistic timeline for a decision (&quot;By Friday&quot; or &quot;Mid-month,&quot; not &quot;Soon&quot;)</li>
+<li>They understand what you&#x27;re proposing (walk through it verbally first; don&#x27;t let the document be the reveal)</li>
+<li>You&#x27;ve agreed on the next step after they&#x27;ve reviewed (&quot;Let&#x27;s book time on Tuesday to walk through any questions&quot;)</li>
+<li>They&#x27;ve confirmed how they want to review it (alone, with their team, with advisors... and you know when)</li>
+<li>You know what a &quot;yes&quot; conversation looks like (not just that they&#x27;ll say yes, but what happens next if they do)</li>
+</ul>
+<p>If you can&#x27;t tick all seven boxes, the proposal isn&#x27;t ready to send. Neither is your deal.</p>
+      </div>
+<div class="guide-section">
+        <h2>Ask Yourself This</h2>
+        <hr class="divider">
+        <p>It&#x27;s Thursday afternoon. You sent a proposal on Monday. The conversation before it was strong... they were engaged, asked the right questions, said they wanted to move forward. You felt good about it.</p>
+<p>Now it&#x27;s been four days and you&#x27;ve heard nothing. What do you do next?</p>
+<p>If your instinct is to send a follow-up email... &quot;Just checking in, did you get a chance to review?&quot;... ask yourself why you&#x27;re in this position. Did you walk through the proposal live before sending it? Did you agree on a specific date to reconnect? Did they commit to how and when they&#x27;d review it? Or did you just say &quot;I&#x27;ll send something over&quot; and hope?</p>
+<p><strong>The silence isn&#x27;t the problem. The silence is telling you what was missing before the proposal left your hands.</strong></p>
+      </div>
+<div class="guide-section">
+        <h2>Your Day-One Action</h2>
+        <hr class="divider">
+        <p>When you and the prospect agree you&#x27;re going to send through a proposal. Lock in a time to walk through it together. That way you can answer questions in real time. Hear their hesitations as they happen. Get the opportunity to obtain the signature there and then.</p>
+<p>So straight after they agree to receive the proposal, ask this:</p>
+<div class="guide-callout">
+          <p>&quot;Before this lands in your inbox, let&#x27;s jump on a quick call so I can walk you through it. That way, any questions you have, I can answer right then. Sound good?&quot;</p>
+        </div>
+<p>Not &quot;I&#x27;ll send it through and look forward to your questions.&quot; Not &quot;Give me a call after you&#x27;ve read it.&quot; Not &quot;Whenever you get a chance.&quot; You&#x27;re committing to a conversation before the proposal becomes a silo.</p>
+      </div>
+<div class="guide-section">
+        <h2>What Comes Next</h2>
+        <hr class="divider">
+        <p>You&#x27;ve handled the proposal gap. The conversation is locked in. You&#x27;re closing deals with more confidence and less silence.</p>
+<p>But while you&#x27;ve been focused on winning new business, something else has been happening quietly. The clients who already trust you, who already know how you work, who&#x27;ve already said yes once... they&#x27;ve been drifting. Not because they&#x27;re unhappy. Because you haven&#x27;t been in the room.</p>
+<p>Your best growth lever might not be the next deal. It might be the clients you already have.</p>
+      </div>
+      <div class="guide-cta-text">
+          <p>The proposal gap isn&#x27;t about better documents. It&#x27;s about better conversations. If this guide made you think of a proposal sitting in someone&#x27;s inbox right now, that&#x27;s the one to fix first.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="guide-download" id="download">
+    <div class="container text-center">
+      <h2>Download the PDF</h2>
+      <p>Want a copy to keep? Enter your email and we'll send it straight to your inbox.</p>
+      <!-- PLACEHOLDER: Wire up to your email provider -->
+      <form class="guide-download__form" action="#" method="POST">
+        <input type="email" class="guide-download__input" placeholder="Your email address" required>
+        <button type="submit" class="guide-download__btn">Send it</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/ktco-logo-white.svg" alt="KTCO">
+          </div>
+          <p class="footer__tagline">Revenue architecture for founder-led businesses.<br>Sell by choice, not obligation.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Navigate</h4>
+          <a href="https://kenthomas.co/">Home</a>
+          <a href="https://kenthomas.co/about.html">About</a>
+          <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+          <a href="https://kenthomas.co/results.html">Results</a>
+          <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+          <a href="https://kenthomas.co/contact.html">Contact</a>
+        </div>
+        <div class="footer__links">
+          <h4>Connect</h4>
+          <a href="mailto:ken@kenthomas.co">ken@kenthomas.co</a>
+          <a href="tel:+61383831226">03 8383 1226</a>
+          <a href="https://www.linkedin.com/in/revenue-architecture/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/kengrowsrev" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@kengrowsrev" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 Ken Thomas Consulting. All rights reserved. <a href="https://kenthomas.co/privacy-policy.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.25rem;">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

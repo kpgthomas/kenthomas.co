@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>It&#x27;s Not a Lead Problem. | Ken Thomas</title>
+  <meta name="description" content="Permission to Market Guide 01 — Revenue architecture for founder-led businesses by Ken Thomas.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://assets.salescommand.ai/_img/width=32,height=32,fit=contain,format=png/customers/ktco/logo-navy.png">
+  <style>
+    /* --- Reset & Base --- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; font-weight: 300; color: #444; background: #fff; line-height: 1.6; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --navy: #072F54;
+      --gold: #FBC108;
+      --grey: #444444;
+      --white: #FFFFFF;
+      --off-white: #F8F8F8;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Lato', sans-serif; color: var(--navy); line-height: 1.15; }
+    h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+    h3 { font-size: 1.375rem; font-weight: 400; line-height: 1.3; }
+    p { font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.25rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+    .container--narrow { max-width: 760px; margin: 0 auto; padding: 0 2rem; position: relative; left: -3px; }
+    .divider { width: 60px; height: 4px; background: var(--gold); border: none; margin: 1.5rem 0; }
+    .text-center { text-align: center; }
+
+    ul, ol { list-style: none; }
+
+    /* --- Navigation (from main site) --- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid rgba(7, 47, 84, 0.08);
+      transition: box-shadow 0.3s ease;
+    }
+    .nav.scrolled {
+      box-shadow: 0 2px 20px rgba(7, 47, 84, 0.08);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+    .nav__logo img {
+      height: 60px;
+      width: 60px;
+      max-width: none;
+      display: block;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex: 1;
+      justify-content: center;
+      margin-left: -5px;
+    }
+    .nav__cta {
+      flex-shrink: 0;
+      min-width: 242px;
+      text-align: center;
+    }
+    .nav__links a {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--grey);
+      letter-spacing: 0.03em;
+      transition: color 0.2s ease;
+    }
+    .nav__links a:hover {
+      color: var(--navy);
+    }
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .nav__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-block;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* --- Hero --- */
+    .guide-hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10rem 0 5rem;
+      text-align: left;
+    }
+    .guide-hero__eyebrow {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .guide-hero h1 {
+      font-size: 3.25rem;
+      font-weight: 700;
+      color: var(--white);
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .guide-hero__hook {
+      font-size: 1.25rem;
+      font-weight: 300;
+      max-width: 580px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+    .guide-hero__hook p { margin-bottom: 0; }
+
+    /* --- Content Sections --- */
+    .guide-content {
+      padding: 4rem 0;
+    }
+    .guide-section {
+      margin-bottom: 3.5rem;
+    }
+    .guide-section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- Callout --- */
+    .guide-callout {
+      background: #FFF8E1;
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      border-radius: 2px;
+    }
+    .guide-callout p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+    .guide-callout--blue {
+      background: var(--navy);
+      border-left: 4px solid var(--gold);
+    }
+    .guide-callout--blue p {
+      color: var(--white);
+    }
+
+    /* --- Numbered Items (gold outline) --- */
+    .guide-numbered {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      align-items: flex-start;
+    }
+    .guide-numbered__number {
+      font-family: 'Lato', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 50px;
+    }
+    .guide-numbered__number--badge {
+      background: var(--navy);
+      color: var(--white);
+      -webkit-text-stroke: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .guide-numbered__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered__body p {
+      font-size: 1.0625rem;
+    }
+
+    /* --- Bullets --- */
+    .guide-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .guide-bullets li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* --- Numbered List --- */
+    .guide-numbered-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+      counter-reset: guide-counter;
+    }
+    .guide-numbered-list li {
+      counter-increment: guide-counter;
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .guide-numbered-list li::before {
+      content: counter(guide-counter) ".";
+      position: absolute;
+      left: 0;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* --- Subheading --- */
+    .guide-subheading {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* --- CTA Text --- */
+    .guide-cta-text {
+      background: var(--off-white);
+      border-top: 4px solid var(--gold);
+      padding: 2.5rem;
+      margin-top: 2rem;
+      border-radius: 2px;
+    }
+    .guide-cta-text p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+
+    /* --- Download Section --- */
+    .guide-download {
+      background: var(--navy);
+      color: var(--white);
+      padding: 5rem 0;
+    }
+    .guide-download h2 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .guide-download p {
+      opacity: 0.8;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+    }
+    .guide-download__form {
+      max-width: 440px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .guide-download__input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .guide-download__input::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+    .guide-download__input:focus {
+      border-color: var(--gold);
+    }
+    .guide-download__btn {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      background: var(--gold);
+      color: var(--navy);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .guide-download__btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .footer__brand { max-width: 420px; display: flex; flex-direction: column; }
+    .footer__logo { margin-top: -31px; margin-left: -33px; margin-bottom: 0; }
+    .footer__logo img { height: 200px; width: 200px; max-width: none; display: block; }
+    .footer__tagline { font-size: 0.9375rem; opacity: 0.65; line-height: 1.5; margin-top: auto; margin-bottom: 0; }
+    .footer__links h4 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .footer__links a {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--white);
+      opacity: 0.65;
+      margin-bottom: 0.6rem;
+      transition: opacity 0.2s ease;
+    }
+    .footer__links a:hover { opacity: 1; }
+    .footer__links a:last-child { margin-bottom: 0; }
+    .footer__bottom {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.8125rem;
+      opacity: 0.45;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .guide-hero { padding: 8rem 0 3rem; }
+      .guide-hero h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.75rem; }
+      .guide-numbered { flex-direction: column; gap: 0.75rem; }
+      .guide-download__form { flex-direction: column; }
+      .footer__inner { flex-direction: column; }
+      .nav__links { display: none; }
+      .nav__links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        gap: 1.25rem;
+      }
+      .nav__toggle { display: block; }
+    }
+    @media (max-width: 600px) {
+      .guide-hero h1 { font-size: 2rem; }
+      .container, .container--narrow { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="https://kenthomas.co/" class="nav__logo">
+        <img src="assets/ktco-logo-navy.svg" alt="KTCO — Revenue Architecture for Founder-Led Businesses">
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="https://kenthomas.co/">Home</a>
+        <a href="https://kenthomas.co/about.html">About</a>
+        <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+        <a href="https://kenthomas.co/results.html">Results</a>
+        <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+        <a href="https://kenthomas.co/contact.html">Contact</a>
+      </div>
+      <a href="#download" class="btn btn--gold nav__cta">Get the Guide</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="container--narrow">
+
+      <h1>It&#x27;s Not a<br>Lead Problem.</h1>
+      <div class="guide-hero__hook">
+        <p>You&#x27;ve tried more leads. More calls.<br>A better offer. A new agency.<br>None of it moved the needle.<br>Because the problem was never<br>what you thought it was.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guide Content -->
+  <section class="guide-content">
+    <div class="container--narrow">
+      <div class="guide-section">
+        <h2>The Pattern Every Founder Follows</h2>
+        <hr class="divider">
+        <p>I was sitting at a business roundtable with 11 other founders earlier this year. Successful people, built real businesses, knew their stuff. One of them said, &quot;We&#x27;re not getting enough leads,&quot; and everyone nodded like that was obviously the problem.</p>
+<p>They all started suggesting what in their minds were logical answers. A better offer. More calls. A new pricing model. An entry-level product to get people through the door. Maybe a value ladder. Maybe an agency. Maybe just working harder.</p>
+<p>These feel logical. They are the things every business adviser, every podcast, every peer at a networking event will suggest. And they are not wrong in principle. The problem is that they are all downstream tactics. When the foundation underneath them is not right, none of them work the way they should.</p>
+<div class="guide-callout">
+          <p>This guide is about the thing most founders walk past on their way to fixing the wrong problem. It takes five minutes to read. If even one section makes you reconsider where your actual bottleneck is, it has done its job.</p>
+        </div>
+      </div>
+<div class="guide-section">
+        <h2>Three Revenue Problems That Aren&#x27;t What They Seem</h2>
+        <hr class="divider">
+        <p>I have spent years working with founder-led businesses, and the pattern is predictable. Founders almost always misidentify their revenue problem. They diagnose symptoms instead of the root cause, then invest time and money into fixing something which doesn&#x27;t solve the problem.</p>
+<p>Here are the three most common misdiagnoses.</p>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">01</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">“I need more leads”</h3>
+                <p>This is the most common one. Revenue slows, so the founder assumes the top of the funnel is the problem. They invest in ads, engage a marketing agency, or hire outsourced sales. Activity goes up. Leads come in. But the pipeline still does not convert.</p>
+<p>The issue is not the volume of leads. It is who those leads are.</p>
+<p>If your positioning attracts the wrong buyer, more leads just means more of the wrong conversations. More proposals that go nowhere. More meetings when the prospect was never going to buy. The funnel is not broken. It is pointed at the wrong people.</p>
+<p>Think about the last ten enquiries that did not convert. How many of those were genuinely your ideal client? How many were people looking for something cheaper, faster, or fundamentally different from what you actually deliver?</p>
+              </div>
+            </div>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">02</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">“My offer or pricing needs to change”</h3>
+                <p>When leads are not converting, the next instinct is to redesign the offer. Build a value ladder. Create an entry-level product. Add bonuses. Drop the price. Split a premium service into smaller containers to reduce the commitment barrier.</p>
+<p>At that same roundtable, one of the founders raised this exact problem: clients would not commit to long-term engagements, only quick fixes. Everyone at the table jumped straight to offer design. Build a smaller entry offer. Create a stepped pathway. Increase top of funnel volume and sell the bigger programme on the back of the smaller one.</p>
+<p>Not one person asked the obvious question: who is actually showing up?</p>
+<p>If the people coming through your door are looking for a quick fix, that is not an offer problem. That is a positioning and messaging problem. Your brand is attracting a buyer who was never going to commit to what you deliver. Redesigning the offer to suit the wrong buyer just means you end up with more of the wrong clients at a lower margin.</p>
+<p>The question is not “how do I get this person to buy more?” It is “why is this person here instead of someone who would?”</p>
+              </div>
+            </div>
+<div class="guide-numbered">
+              <div class="guide-numbered__number">03</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">“I just need to work harder, or make more calls”</h3>
+                <p>This is the brute-force response. Revenue is not where it needs to be, so the founder decides the solution is more effort. More calls, more meetings, more networking events, more hours.</p>
+<p>Effort without direction compounds the wrong outcomes. More calls to the wrong people means more rejection. More meetings that do not convert means more wasted time. More networking events where you are speaking to people that will never buy from you (or know people that will) means more exhaustion with nothing to show for it.</p>
+<p>The founder who tells you they just need to make more calls is often the same founder who is already working sixty-hour weeks and cannot take a holiday without revenue dropping. Activity is not their problem. Direction is.</p>
+<p>Here is the uncomfortable reality: 48% of first sales hires fail. Not because the people are wrong, but because there is no system for them to follow. If the founder cannot articulate who they serve, why those people buy, and what makes their business different from every alternative, then no amount of additional effort, whether from the founder or a new hire, will fix the revenue problem.</p>
+              </div>
+            </div>
+      </div>
+<div class="guide-section">
+        <h2>What’s Actually Happening Underneath</h2>
+        <hr class="divider">
+        <p>Every tactic in your revenue system sits on top of a foundation. That foundation has three elements. When they are right, tactics work. When they are not, nothing works the way it should, regardless of how much you spend or how hard you push.</p>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">1</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Who specifically do you serve?</h3>
+                <p>Not “small businesses” or “anyone who needs our service.” A defined, documented profile of the business and the person within it who actually makes the buying decision. Their size, their industry, their specific pain, and the trigger event that makes them ready to act. When this is unclear, your marketing attracts a broad audience, your sales conversations lack focus, and your conversion rate suffers because you are trying to be everything to everyone.</p>
+              </div>
+            </div>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">2</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Why would they choose you over every alternative, including doing nothing?</h3>
+                <p>This is your positioning. Not a tagline. Not a list of features. A clear articulation of the problem you solve, for whom, and why your approach is different from every other option they could choose. When this is missing, you compete on price. When it is clear, you compete on value.</p>
+              </div>
+            </div>
+<div class="guide-numbered guide-numbered--badge">
+              <div class="guide-numbered__number guide-numbered__number--badge">3</div>
+              <div class="guide-numbered__body">
+                <h3 class="guide-numbered__title">Does your messaging actually attract that person, or someone else?</h3>
+                <p>Your website, your LinkedIn, your proposals, your conversations: do they speak to the person who will buy the way you sell? Or do they attract a different buyer entirely? This is the gap that creates the symptoms founders mistake for a lead problem or an offer problem. The messaging is bringing in the wrong people, and then the founder tries to fix the people instead of fixing the message.</p>
+              </div>
+            </div>
+      </div>
+<div class="guide-section">
+        <h2>Test It For Yourself</h2>
+        <hr class="divider">
+        <p>Before you invest in more leads, a new offer, or another round of hustle, answer these questions. Be honest.</p>
+<ol class="guide-numbered-list">
+<li>Look at your last ten lost deals. How many were genuinely your ideal client, versus someone who was never going to buy the way you sell?</li>
+<li>If you asked your best client why they chose you, would their answer match what your website says about you?</li>
+<li>Could someone on your team describe, in two sentences, exactly who you serve?</li>
+<li>When you get a referral that converts easily, what is different about that person compared to the leads that go nowhere?</li>
+<li>If you stopped all marketing or outbound sales activity tomorrow and relied only on referrals, would the right people still find you? If so, what are those referrers saying about you that your own messaging is not?</li>
+</ol>
+<p>If you found yourself pausing on more than one of those, the foundation is where your attention needs to be. Not the tactics on top of it.</p>
+      </div>
+<div class="guide-section">
+        <h2>Your Day-One Action</h2>
+        <hr class="divider">
+        <p>Pick the question above that made you pause the longest. That&#x27;s your starting point.</p>
+<p>If it was about your last ten lost deals, go back and look at three of them. Write down who they were, what they were looking for, and why it didn&#x27;t close. The pattern will tell you whether you have a lead problem or a targeting problem.</p>
+<p>If it was about what your best client would say, call them. Ask: &quot;What made you choose us?&quot; Write down exactly what they say, word for word. Then compare it to your website. If those two things don&#x27;t match, your messaging is attracting the wrong people.</p>
+<p>If it was about whether your team can describe who you serve, ask them. Tomorrow. Don&#x27;t prep them. Just ask: &quot;In two sentences, who do we serve and why do they choose us?&quot; Their answer will tell you whether your foundation is clear or living in your head.</p>
+      </div>
+<div class="guide-section">
+        <h2>What Changes When the Foundation Is Right</h2>
+        <hr class="divider">
+        <p>When your positioning, target audience, and messaging are aligned, everything downstream starts working differently.</p>
+<p>Leads feel warmer because the people finding you already understand what you do and why it matters to them specifically.</p>
+<p>Sales conversations are shorter because the prospect has pre-qualified themselves. They are not shopping; they are confirming.</p>
+<p>Pricing objections drop because the right buyer sees value, not cost. They are comparing you to the pain of staying where they are, not to a cheaper alternative.</p>
+<p>Referrals become more precise because the people who know your work can describe exactly who you are for, instead of sending anyone who vaguely seems relevant.</p>
+<p>None of these outcomes require a bigger budget, a new offer, or more hours in the day. They require clarity about who you serve, why they buy, and whether your message matches.</p>
+<p>But here&#x27;s what happens once the foundation is right. Conversations start picking up. More people seem engaged. More meetings get booked. And that&#x27;s when a different problem shows up... one that costs you just as much time as the old one did.</p>
+<p>Not everyone who says &quot;sounds interesting&quot; is going to buy. And telling the difference is harder than you think.</p>
+      </div>
+      <div class="guide-cta-text">
+          <p>This is the first in a series of guides on revenue architecture for founder-led businesses. If it shifted where you think the problem is, you&#x27;ll want to see what comes next.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="guide-download" id="download">
+    <div class="container text-center">
+      <h2>Download the PDF</h2>
+      <p>Want a copy to keep? Enter your email and we'll send it straight to your inbox.</p>
+      <!-- PLACEHOLDER: Wire up to your email provider -->
+      <form class="guide-download__form" action="#" method="POST">
+        <input type="email" class="guide-download__input" placeholder="Your email address" required>
+        <button type="submit" class="guide-download__btn">Send it</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/ktco-logo-white.svg" alt="KTCO">
+          </div>
+          <p class="footer__tagline">Revenue architecture for founder-led businesses.<br>Sell by choice, not obligation.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Navigate</h4>
+          <a href="https://kenthomas.co/">Home</a>
+          <a href="https://kenthomas.co/about.html">About</a>
+          <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
+          <a href="https://kenthomas.co/results.html">Results</a>
+          <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
+          <a href="https://kenthomas.co/contact.html">Contact</a>
+        </div>
+        <div class="footer__links">
+          <h4>Connect</h4>
+          <a href="mailto:ken@kenthomas.co">ken@kenthomas.co</a>
+          <a href="tel:+61383831226">03 8383 1226</a>
+          <a href="https://www.linkedin.com/in/revenue-architecture/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/kengrowsrev" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@kengrowsrev" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 Ken Thomas Consulting. All rights reserved. <a href="https://kenthomas.co/privacy-policy.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.25rem;">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
