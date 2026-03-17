@@ -79,7 +79,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         data: {
           values: {
-            email_addresses: [{ email_address: email }],
+            email_addresses: [email],
           },
         },
       }),
