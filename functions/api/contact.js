@@ -33,7 +33,7 @@ export async function onRequestPost(context) {
     // Step 1: Assert the person record (create or match existing by email)
     const personValues = {
       email_addresses: [email],
-      name: [{ first_name: name.split(' ')[0], last_name: name.split(' ').slice(1).join(' ') || '' }],
+      name: [{ full_name: name, first_name: name.split(' ')[0], last_name: name.split(' ').slice(1).join(' ') || '' }],
     };
 
     const assertResponse = await fetch('https://api.attio.com/v2/objects/people/records?matching_attribute=email_addresses', {
