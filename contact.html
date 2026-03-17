@@ -177,24 +177,25 @@
           <hr class="divider">
           <p>If you'd prefer to start with a conversation rather than the scorecard, reach out. Tell me a bit about your business and what you're working through. Reach out before 4pm and I'll get back to you the same business day.</p>
 
-          <form style="margin-top: 2rem;" onsubmit="event.preventDefault(); alert('Form submission will be connected to your backend.');">
+          <form id="contactForm" style="margin-top: 2rem;">
             <div style="margin-bottom: 1.25rem;">
               <label style="display: block; font-weight: 500; font-size: 0.875rem; margin-bottom: 0.375rem; color: var(--navy);">Name</label>
-              <input type="text" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(7,47,84,0.2); border-radius: 3px; font-family: 'Roboto', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#072F54'" onblur="this.style.borderColor='rgba(7,47,84,0.2)'">
+              <input type="text" id="contactName" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(7,47,84,0.2); border-radius: 3px; font-family: 'Roboto', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#072F54'" onblur="this.style.borderColor='rgba(7,47,84,0.2)'">
             </div>
             <div style="margin-bottom: 1.25rem;">
               <label style="display: block; font-weight: 500; font-size: 0.875rem; margin-bottom: 0.375rem; color: var(--navy);">Email</label>
-              <input type="email" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(7,47,84,0.2); border-radius: 3px; font-family: 'Roboto', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#072F54'" onblur="this.style.borderColor='rgba(7,47,84,0.2)'">
+              <input type="email" id="contactEmail" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(7,47,84,0.2); border-radius: 3px; font-family: 'Roboto', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#072F54'" onblur="this.style.borderColor='rgba(7,47,84,0.2)'">
             </div>
             <div style="margin-bottom: 1.25rem;">
               <label style="display: block; font-weight: 500; font-size: 0.875rem; margin-bottom: 0.375rem; color: var(--navy);">Business name</label>
-              <input type="text" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(7,47,84,0.2); border-radius: 3px; font-family: 'Roboto', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#072F54'" onblur="this.style.borderColor='rgba(7,47,84,0.2)'">
+              <input type="text" id="contactBusiness" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(7,47,84,0.2); border-radius: 3px; font-family: 'Roboto', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#072F54'" onblur="this.style.borderColor='rgba(7,47,84,0.2)'">
             </div>
             <div style="margin-bottom: 1.25rem;">
               <label style="display: block; font-weight: 500; font-size: 0.875rem; margin-bottom: 0.375rem; color: var(--navy);">What would you like to discuss?</label>
-              <textarea rows="5" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(7,47,84,0.2); border-radius: 3px; font-family: 'Roboto', sans-serif; font-size: 1rem; outline: none; resize: vertical; transition: border-color 0.2s;" onfocus="this.style.borderColor='#072F54'" onblur="this.style.borderColor='rgba(7,47,84,0.2)'" placeholder="For example: a revenue challenge you're facing, questions about the scorecards, how the phases work, or something else entirely."></textarea>
+              <textarea rows="5" id="contactMessage" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(7,47,84,0.2); border-radius: 3px; font-family: 'Roboto', sans-serif; font-size: 1rem; outline: none; resize: vertical; transition: border-color 0.2s;" onfocus="this.style.borderColor='#072F54'" onblur="this.style.borderColor='rgba(7,47,84,0.2)'" placeholder="For example: a revenue challenge you're facing, questions about the scorecards, how the phases work, or something else entirely."></textarea>
             </div>
-            <button type="submit" class="btn btn--gold" style="width: 100%; text-align: center;">Send Message</button>
+            <button type="submit" id="contactBtn" class="btn btn--gold" style="width: 100%; text-align: center;">Send Message</button>
+            <p id="contactStatus" style="display: none; margin-top: 1rem; font-size: 0.9375rem; text-align: center;"></p>
           </form>
         </div>
 
@@ -308,6 +309,51 @@
       btn.addEventListener('click', () => {
         btn.parentElement.classList.toggle('open');
       });
+    });
+  </script>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('contactBtn');
+      const msg = document.getElementById('contactStatus');
+      const name = document.getElementById('contactName').value;
+      const email = document.getElementById('contactEmail').value;
+      const business = document.getElementById('contactBusiness').value;
+      const message = document.getElementById('contactMessage').value;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      msg.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, business, message }),
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          msg.style.display = 'block';
+          msg.style.color = 'var(--gold)';
+          msg.textContent = "Thanks for reaching out. I'll get back to you shortly.";
+          btn.textContent = 'Sent';
+          document.getElementById('contactForm').reset();
+        } else {
+          msg.style.display = 'block';
+          msg.style.color = '#ff6b6b';
+          msg.textContent = data.error || 'Something went wrong. Please try again.';
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+        }
+      } catch (err) {
+        msg.style.display = 'block';
+        msg.style.color = '#ff6b6b';
+        msg.textContent = 'Something went wrong. Please try again.';
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
     });
   </script>
 </body>
