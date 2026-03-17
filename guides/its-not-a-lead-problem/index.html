@@ -599,12 +599,12 @@
   <section class="guide-download" id="download">
     <div class="container text-center">
       <h2>Download the PDF</h2>
-      <p>Want a copy to keep? Enter your email and we'll send it straight to your inbox.</p>
-      <!-- PLACEHOLDER: Wire up to your email provider -->
-      <form class="guide-download__form" action="#" method="POST">
-        <input type="email" class="guide-download__input" placeholder="Your email address" required>
-        <button type="submit" class="guide-download__btn">Send it</button>
+      <p>Want a copy to keep? Enter your email and the download will start straight away.</p>
+      <form class="guide-download__form" id="downloadForm" data-guide="its-not-a-lead-problem">
+        <input type="email" class="guide-download__input" id="downloadEmail" placeholder="Your email address" required>
+        <button type="submit" class="guide-download__btn" id="downloadBtn">Download</button>
       </form>
+      <p id="downloadMessage" style="display: none; margin-top: 1rem; font-size: 0.9375rem;"></p>
     </div>
   </section>
 
@@ -650,6 +650,54 @@
     // Mobile nav toggle
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+
+  <script>
+    document.getElementById('downloadForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('downloadBtn');
+      const msg = document.getElementById('downloadMessage');
+      const email = document.getElementById('downloadEmail').value;
+      const guide = this.dataset.guide;
+
+      btn.disabled = true;
+      btn.textContent = 'Please wait...';
+      msg.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/download', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, guide }),
+        });
+        const data = await res.json();
+
+        if (data.success && data.pdf) {
+          msg.style.display = 'block';
+          msg.style.color = '#FBC108';
+          msg.textContent = 'Your download is starting...';
+          const link = document.createElement('a');
+          link.href = data.pdf;
+          link.download = '';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          btn.textContent = 'Downloaded';
+        } else {
+          msg.style.display = 'block';
+          msg.style.color = '#ff6b6b';
+          msg.textContent = data.error || 'Something went wrong. Please try again.';
+          btn.disabled = false;
+          btn.textContent = 'Download';
+        }
+      } catch (err) {
+        msg.style.display = 'block';
+        msg.style.color = '#ff6b6b';
+        msg.textContent = 'Something went wrong. Please try again.';
+        btn.disabled = false;
+        btn.textContent = 'Download';
+      }
     });
   </script>
 
