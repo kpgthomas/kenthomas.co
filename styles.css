@@ -691,7 +691,7 @@ section {
   h2 { font-size: 1.75rem; }
   section { padding: 4rem 0; }
   .hero { padding: 3rem 0 4rem; min-height: auto; }
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 0; }
   .hero__stat { flex-direction: column; gap: 1.5rem; }
   .nav__links { display: none; }
   .nav__links.open {
