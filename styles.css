@@ -137,6 +137,10 @@ section {
   background: var(--white);
   border-bottom: 1px solid rgba(7, 47, 84, 0.08);
   transition: box-shadow 0.3s ease;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .nav.scrolled {
