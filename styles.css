@@ -657,13 +657,11 @@ section {
 }
 
 .faq-item__answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
+  display: none;
 }
 
 .faq-item.open .faq-item__answer {
-  max-height: 2000px;
+  display: block;
 }
 
 .faq-item__answer p {
@@ -691,7 +689,7 @@ section {
   h2 { font-size: 1.75rem; }
   section { padding: 4rem 0; }
   .hero { padding: 3rem 0 4rem; min-height: auto; }
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 0; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 1.25rem; }
   .hero__stat { flex-direction: column; gap: 1.5rem; }
   .nav__links { display: none; }
   .nav__links.open {
