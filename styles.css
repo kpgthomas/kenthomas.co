@@ -663,7 +663,7 @@ section {
 }
 
 .faq-item.open .faq-item__answer {
-  max-height: 500px;
+  max-height: 2000px;
 }
 
 .faq-item__answer p {
