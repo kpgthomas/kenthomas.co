@@ -683,8 +683,13 @@ section {
 .mb-3 { margin-bottom: 2rem; }
 .mb-4 { margin-bottom: 3rem; }
 
+/* --- About page: mobile/desktop column swap --- */
+.mobile-continue { display: none; }
+
 /* --- Responsive --- */
 @media (max-width: 900px) {
+  .mobile-continue { display: block; }
+  .desktop-only-col { display: none; }
   h1, .hero__title { font-size: 2.5rem; }
   h2 { font-size: 1.75rem; }
   section { padding: 4rem 0; }
