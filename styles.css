@@ -683,9 +683,11 @@ section {
 .mb-3 { margin-bottom: 2rem; }
 .mb-4 { margin-bottom: 3rem; }
 
+.desktop-block { display: block; }
+
 /* --- Responsive --- */
 @media (max-width: 900px) {
-  .desktop-br { display: none; }
+  .desktop-block { display: inline; }
   h1, .hero__title { font-size: 2.5rem; }
   h2 { font-size: 1.75rem; }
   section { padding: 4rem 0; }
