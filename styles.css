@@ -688,7 +688,7 @@ section {
 /* --- Responsive --- */
 @media (max-width: 900px) {
   .hide-mobile { display: none; }
-  .show-mobile-only { display: inline; }
+  .show-mobile-only { display: block; }
   h1, .hero__title { font-size: 2.5rem; }
   h2 { font-size: 1.75rem; }
   section { padding: 4rem 0; }
