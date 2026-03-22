@@ -685,6 +685,7 @@ section {
 
 /* --- Responsive --- */
 @media (max-width: 900px) {
+  .desktop-br { display: none; }
   h1, .hero__title { font-size: 2.5rem; }
   h2 { font-size: 1.75rem; }
   section { padding: 4rem 0; }
