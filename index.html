@@ -187,8 +187,18 @@
       <span class="section-number">02</span>
       <div class="grid-2">
         <div>
-          <h2 class="hide-mobile">Your business still needs you...<br>for now.</h2>
-          <h2 class="show-mobile-only">Your business still needs you... for now.</h2>
+          <h2><span style="display: none;" id="desktopHeading">Your business still needs you...<br>for now.</span><span id="mobileHeading">Your business still needs you... for now.</span></h2>
+          <script>
+            (function() {
+              var mq = window.matchMedia('(min-width: 901px)');
+              function update(e) {
+                document.getElementById('desktopHeading').style.display = e.matches ? 'inline' : 'none';
+                document.getElementById('mobileHeading').style.display = e.matches ? 'none' : 'inline';
+              }
+              mq.addEventListener('change', update);
+              update(mq);
+            })();
+          </script>
           <hr class="divider">
         </div>
         <div>
