@@ -684,13 +684,11 @@ section {
 .mb-4 { margin-bottom: 3rem; }
 
 .show-mobile-only { display: none !important; }
-.ecosystem-hero { padding-left: calc(2.9375rem + 37px); }
 
 /* --- Responsive --- */
 @media (max-width: 900px) {
   .hide-mobile { display: none !important; }
   .show-mobile-only { display: block !important; }
-  .ecosystem-hero { padding-left: 0; }
   h1, .hero__title { font-size: 2.5rem; }
   h2 { font-size: 1.75rem; }
   section { padding: 4rem 0; }
