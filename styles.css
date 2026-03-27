@@ -718,7 +718,7 @@ section {
   .nav__toggle { display: block; }
   .footer__inner { flex-direction: column; }
   .hero--inner .container {
-    padding-left: 2rem;
+    padding-left: 1.25rem;
   }
 }
 
