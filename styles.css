@@ -717,12 +717,18 @@ section {
   }
   .nav__toggle { display: block; }
   .footer__inner { flex-direction: column; }
+  .hero--inner .container {
+    padding-left: 2rem;
+  }
 }
 
 @media (max-width: 600px) {
   h1, .hero__title { font-size: 2rem; }
   .container { padding: 0 1.25rem; }
   .card { padding: 1.75rem; }
+  .hero--inner .container {
+    padding-left: 1.25rem;
+  }
   .hero--inner .container.ecosystem-hero-adjust {
     padding-left: 1.25rem;
     left: 0;
