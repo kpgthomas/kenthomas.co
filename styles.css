@@ -275,6 +275,8 @@ section {
 
 .hero--inner .container {
   padding-left: 2.9375rem;
+  position: relative;
+  left: -8px;
 }
 
 .hero--inner .container.ecosystem-hero-adjust {
@@ -719,6 +721,7 @@ section {
   .footer__inner { flex-direction: column; }
   .hero--inner .container {
     padding-left: 1.25rem;
+    left: 0;
   }
 }
 
@@ -728,6 +731,7 @@ section {
   .card { padding: 1.75rem; }
   .hero--inner .container {
     padding-left: 1.25rem;
+    left: 0;
   }
   .hero--inner .container.ecosystem-hero-adjust {
     padding-left: 1.25rem;
