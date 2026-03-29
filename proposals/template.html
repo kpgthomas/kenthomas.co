@@ -2504,7 +2504,7 @@
     window.addEventListener('scroll', updateProgress);
     updateProgress();
 
-    // ---- Proposal event tracking ----
+    // ---- Proposal event tracking & signature persistence ----
     const PROPOSAL_DEAL_ID = '[DEAL_ID]';
     const PROPOSAL_TRACKER_ENDPOINT = 'https://kenthomas.co/api/proposal-event';
     let proposalFirstViewedSent = false;
@@ -2513,7 +2513,7 @@
      * Send proposal event to tracking worker
      */
     async function sendProposalEvent(eventType, signatureData = null) {
-      if (!PROPOSAL_DEAL_ID || PROPOSAL_DEAL_ID.includes('[DEAL_ID]')) {
+      if (!PROPOSAL_DEAL_ID || PROPOSAL_DEAL_ID.length < 10) {
         console.warn('Proposal tracking: Deal ID not set');
         return;
       }
@@ -2549,9 +2549,81 @@
     }
 
     /**
-     * Track proposal first view on page load
+     * Check if proposal has already been signed (runs on page load)
+     * If signed, locks the form and displays the permanent audit trail
+     */
+    async function checkExistingSignature() {
+      if (!PROPOSAL_DEAL_ID || PROPOSAL_DEAL_ID.length < 10) {
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `${PROPOSAL_TRACKER_ENDPOINT}?dealId=${encodeURIComponent(PROPOSAL_DEAL_ID)}`,
+          { method: 'GET' }
+        );
+
+        if (!response.ok) return;
+
+        const result = await response.json();
+
+        if (result.signed && result.data) {
+          displaySignedState(result.data);
+        }
+      } catch (error) {
+        console.error('Error checking signature status:', error);
+      }
+    }
+
+    /**
+     * Display the permanently signed state with audit trail
+     */
+    function displaySignedState(auditData) {
+      const sigMethodLabel = auditData.signatureMethod === 'drawn' ? 'Hand-drawn'
+        : auditData.signatureMethod === 'typed' ? 'Typed' : 'Uploaded image';
+
+      const signedDate = new Date(auditData.signedAt);
+
+      // Build audit trail HTML
+      let auditHtml = `
+        <strong>Signed by:</strong> ${auditData.signedBy} (${auditData.role})<br>
+        <strong>Email:</strong> ${auditData.email}<br>
+        <strong>Signature method:</strong> ${sigMethodLabel}<br>
+        <strong>Date:</strong> ${signedDate.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}<br>
+        <strong>Time:</strong> ${signedDate.toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' })}<br>
+        <strong>IP Address:</strong> ${auditData.clientIP}<br>
+        <strong>Country:</strong> ${auditData.country}
+      `;
+
+      // Show signature image if available
+      if (auditData.signatureImage) {
+        const sigPreview = document.createElement('div');
+        sigPreview.style.cssText = 'margin-top: 1rem; padding: 1rem; background: #fff; border-radius: 4px; text-align: center;';
+        const sigImg = document.createElement('img');
+        sigImg.src = auditData.signatureImage;
+        sigImg.alt = 'Signature';
+        sigImg.style.cssText = 'max-width: 300px; max-height: 120px;';
+        sigPreview.appendChild(sigImg);
+
+        document.getElementById('auditTrail').innerHTML = auditHtml;
+        document.getElementById('auditTrail').appendChild(sigPreview);
+      } else {
+        document.getElementById('auditTrail').innerHTML = auditHtml;
+      }
+
+      // Hide the signing form, show the signed confirmation
+      document.getElementById('signatureForm').style.display = 'none';
+      document.getElementById('signedConfirmation').classList.add('visible');
+    }
+
+    /**
+     * Track proposal first view and check signature status on page load
      */
     document.addEventListener('DOMContentLoaded', function() {
+      // Check if already signed (this locks the form if so)
+      checkExistingSignature();
+
+      // Track the view event
       if (!proposalFirstViewedSent) {
         proposalFirstViewedSent = true;
         sendProposalEvent('viewed');
@@ -2560,6 +2632,7 @@
 
     // Fallback if DOMContentLoaded already fired
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      checkExistingSignature();
       if (!proposalFirstViewedSent) {
         proposalFirstViewedSent = true;
         sendProposalEvent('viewed');
@@ -2745,14 +2818,57 @@
     }
 
     // ---- Sign the proposal ----
-    function signProposal() {
+    async function signProposal() {
       const now = new Date();
       const name = sigFullName.value.trim();
       const role = document.getElementById('sigRole').value.trim();
       const email = document.getElementById('sigEmail').value.trim();
       const sigData = getSignatureData();
 
-      // Build audit trail
+      // Disable the sign button immediately to prevent double-signing
+      document.getElementById('btnSign').disabled = true;
+      document.getElementById('btnSign').textContent = 'Signing...';
+
+      // Get signature as image data (base64) for permanent storage
+      let signatureImage = null;
+      if (sigData.type === 'drawn') {
+        signatureImage = document.getElementById('sigCanvas').toDataURL('image/png');
+      } else if (sigData.type === 'uploaded') {
+        const uploadImg = document.getElementById('sigUploadImg');
+        if (uploadImg && uploadImg.src) {
+          signatureImage = uploadImg.src;
+        }
+      } else if (sigData.type === 'typed') {
+        // Render typed name to a canvas for storage
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = 520;
+        tempCanvas.height = 80;
+        const tempCtx = tempCanvas.getContext('2d');
+        tempCtx.fillStyle = '#FFFFFF';
+        tempCtx.fillRect(0, 0, 520, 80);
+        tempCtx.font = 'italic 32px "Dancing Script", "Brush Script MT", cursive';
+        tempCtx.fillStyle = '#072F54';
+        tempCtx.textAlign = 'center';
+        tempCtx.textBaseline = 'middle';
+        tempCtx.fillText(sigData.data, 260, 40);
+        signatureImage = tempCanvas.toDataURL('image/png');
+      }
+
+      // Build full signature data for server-side storage
+      const signaturePayload = {
+        signedBy: name,
+        role: role,
+        email: email,
+        signatureMethod: sigData.type,
+        signatureImage: signatureImage,
+        userAgent: navigator.userAgent,
+        signedAt: now.toISOString()
+      };
+
+      // Send to worker for permanent storage + Attio update
+      await sendProposalEvent('signed', signaturePayload);
+
+      // Build local audit trail display
       const sigMethodLabel = sigData.type === 'drawn' ? 'Hand-drawn' : sigData.type === 'typed' ? 'Typed' : 'Uploaded image';
       const auditHtml = `
         <strong>Signed by:</strong> ${name} (${role})<br>
@@ -2760,28 +2876,27 @@
         <strong>Signature method:</strong> ${sigMethodLabel}<br>
         <strong>Date:</strong> ${now.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}<br>
         <strong>Time:</strong> ${now.toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' })}<br>
-        <strong>IP Address:</strong> [Captured by server]<br>
+        <strong>IP Address:</strong> [Recorded in audit trail]<br>
         <strong>Browser:</strong> ${navigator.userAgent.substring(0, 80)}...
       `;
 
       document.getElementById('auditTrail').innerHTML = auditHtml;
 
+      // Show the signature image in the audit trail
+      if (signatureImage) {
+        const sigPreview = document.createElement('div');
+        sigPreview.style.cssText = 'margin-top: 1rem; padding: 1rem; background: #fff; border-radius: 4px; text-align: center;';
+        const sigImg = document.createElement('img');
+        sigImg.src = signatureImage;
+        sigImg.alt = 'Signature';
+        sigImg.style.cssText = 'max-width: 300px; max-height: 120px;';
+        sigPreview.appendChild(sigImg);
+        document.getElementById('auditTrail').appendChild(sigPreview);
+      }
+
       // Hide form, show confirmation
       document.getElementById('signatureForm').style.display = 'none';
       document.getElementById('signedConfirmation').classList.add('visible');
-
-      // Track proposal signed event with signature metadata
-      const signatureMetadata = {
-        signedBy: name,
-        role: role,
-        email: email,
-        signatureMethod: sigData.type,
-        signedAt: now.toISOString()
-      };
-      sendProposalEvent('signed', signatureMetadata);
-
-      // In production: POST to server to store signature data, send confirmation emails
-      // sigData contains { type: 'drawn'|'typed'|'uploaded', data: base64/string }
     }
   </script>
 
