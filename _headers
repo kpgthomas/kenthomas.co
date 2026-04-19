@@ -3,6 +3,9 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Link: <>; rel="alternate"; type="text/markdown"
+  Link: </.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"
+  Link: </.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json"
   Link: </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json"
   Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
   Vary: Accept
