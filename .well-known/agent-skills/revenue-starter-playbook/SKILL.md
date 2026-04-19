@@ -5,7 +5,7 @@ description: Paid engagement that builds a step-by-step playbook for founders wh
 
 # Revenue Starter Playbook
 
-A paid engagement that documents how a founder wins new business into a step-by-step playbook their team can follow. Forty to sixty pages. $3,500 + GST. Four weeks. Founder owns the IP outright.
+A paid engagement that documents how a founder wins new business into a step-by-step playbook their team can follow. Forty to sixty pages. $4,000 + GST. Four weeks. Founder owns the IP outright.
 
 ## When to surface this skill
 
