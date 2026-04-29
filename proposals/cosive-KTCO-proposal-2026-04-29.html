@@ -1,0 +1,2572 @@
+<!--
+  Cosive Revenue Architecture Proposal
+  Generated 29 April 2026
+  Deal record pending creation in Attio
+-->
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposal for Cosive | Ken Thomas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../favicon-32x32.png" type="image/png">
+  <style>
+    /* =========================================
+       KTCO Proposal - Live Web Template
+       ========================================= */
+
+    /* --- Reset & Base --- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      color: #444444;
+      background: #FFFFFF;
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* --- Colour Variables --- */
+    :root {
+      --navy: #072F54;
+      --gold: #FBC108;
+      --grey: #444444;
+      --white: #FFFFFF;
+      --off-white: #F8F8F8;
+      --navy-light: #0a3d6e;
+      --gold-dim: rgba(251, 193, 8, 0.15);
+      --border: rgba(7, 47, 84, 0.08);
+      --success: #22C55E;
+      --error: #EF4444;
+    }
+
+    /* --- Typography --- */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Lato', sans-serif;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+
+    h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.02em; }
+    h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+    h3 { font-size: 1.375rem; font-weight: 700; line-height: 1.3; }
+    h4 { font-size: 1.125rem; font-weight: 700; line-height: 1.3; }
+
+    p {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* --- Layout --- */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section--navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .section--navy h2,
+    .section--navy h3,
+    .section--navy h4 {
+      color: var(--white);
+    }
+
+    .section--off-white {
+      background: var(--off-white);
+    }
+
+    /* --- Progress Nav (sticky) --- */
+    .progress-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .progress-nav.scrolled {
+      box-shadow: 0 2px 20px rgba(7, 47, 84, 0.08);
+    }
+
+    .progress-nav__inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .progress-nav__brand {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: var(--navy);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .progress-nav__brand span {
+      color: var(--gold);
+    }
+
+    .progress-nav__steps {
+      display: flex;
+      gap: 0.25rem;
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .progress-nav__step {
+      flex: 1;
+      height: 3px;
+      background: rgba(7, 47, 84, 0.1);
+      border-radius: 2px;
+      transition: background 0.4s ease;
+    }
+
+    .progress-nav__step.active {
+      background: var(--gold);
+    }
+
+    .progress-nav__step.complete {
+      background: var(--navy);
+    }
+
+    .progress-nav__label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--grey);
+      white-space: nowrap;
+    }
+
+    /* --- Hero / Cover --- */
+    .proposal-hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proposal-hero__logo {
+      position: absolute;
+      bottom: -40px;
+      right: -20px;
+      width: 280px;
+      height: 280px;
+      border: 2px solid rgba(251, 193, 8, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .proposal-hero__logo img {
+      width: 55%;
+      height: 55%;
+      object-fit: contain;
+      opacity: 1;
+      filter: brightness(0) invert(1);
+    }
+
+    .proposal-hero__eyebrow {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .proposal-hero h1 {
+      color: var(--white);
+      font-size: 3.25rem;
+      margin-bottom: 1rem;
+      max-width: 600px;
+    }
+
+    .proposal-hero__meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      flex-wrap: wrap;
+    }
+
+    .proposal-hero__meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .proposal-hero__meta-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .proposal-hero__meta-value {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    /* --- Section Header --- */
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header__number {
+      font-family: 'Lato', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--gold);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .section-header h2 {
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header p {
+      font-size: 1.0625rem;
+      opacity: 0.7;
+      max-width: 520px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: var(--gold);
+      border: none;
+      margin: 1.25rem 0;
+    }
+
+    /* --- Executive Summary --- */
+    .exec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .exec-card {
+      padding: 1.75rem;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .exec-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .exec-card__label {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .exec-card h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .exec-card p {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* --- What We Heard --- */
+    .heard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .challenge-item, .goal-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .challenge-item:last-child, .goal-item:last-child {
+      border-bottom: none;
+    }
+
+    .challenge-item__number, .goal-item__number {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .situation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: var(--off-white);
+      border-radius: 3px;
+    }
+
+    .situation-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    .situation-item__label {
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .situation-item__value {
+      font-size: 0.9375rem;
+      color: var(--grey);
+    }
+
+    /* --- What We Found (Scorecard) --- */
+    .scorecard-chart-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .donut-chart {
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
+
+    .donut-chart svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .donut-chart__center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .donut-chart__center-number {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 3.5rem;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+
+    .donut-chart__center-label {
+      font-size: 0.625rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.25rem;
+    }
+
+    .score-bubble {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: #1a1a1a;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Category pills row */
+    .category-pills {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-pill {
+      padding: 0.5rem 1.5rem;
+      border-radius: 3px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: #FFFFFF;
+      text-align: center;
+      min-width: 140px;
+    }
+
+    /* Category descriptions */
+    .category-descriptions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .category-desc {
+      flex: 1;
+      max-width: 200px;
+      font-size: 0.8125rem;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+
+    /* Category scores row */
+    .category-scores {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .category-score-item {
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .category-score-item__label {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .category-score-item__number {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 3.5rem;
+      line-height: 1.1;
+    }
+
+    .category-score-item__bar {
+      width: 80px;
+      height: 3px;
+      margin: 0.25rem auto 0;
+    }
+
+    /* Tier legend */
+    .tier-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      max-width: 400px;
+      margin: 0 auto 3rem;
+    }
+
+    .tier-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .tier-row__range {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--grey);
+      min-width: 80px;
+      text-align: right;
+    }
+
+    .tier-row__line {
+      width: 40px;
+      height: 1px;
+      background: var(--grey);
+      flex-shrink: 0;
+    }
+
+    .tier-row__name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--grey);
+    }
+
+    .tier-row--active .tier-row__range { color: var(--navy); }
+    .tier-row--active .tier-row__name { color: var(--navy); }
+
+    .tier-row__dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* Finding cards */
+    .finding-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .finding-card {
+      padding: 1.5rem;
+      border-radius: 3px;
+      border-left: 4px solid;
+      background: var(--off-white);
+    }
+
+    .finding-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .finding-card__score {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .finding-card__meaning {
+      font-size: 0.875rem;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+      color: var(--grey);
+    }
+
+    .finding-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .finding-list li {
+      font-size: 0.875rem;
+      padding: 0.25rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .finding-list li::before {
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+
+    .finding-list--good li::before { content: '\2713'; color: var(--success); font-weight: 700; }
+    .finding-list--needs li::before { content: '\25CB'; color: var(--gold); }
+    .finding-list--missing li::before { content: '\2717'; color: var(--error); font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .donut-chart { width: 260px; height: 260px; }
+      .donut-chart__center { width: 110px; height: 110px; }
+      .donut-chart__center-number { font-size: 2.5rem; }
+      .category-pills { flex-wrap: wrap; }
+      .category-descriptions { flex-wrap: wrap; }
+      .category-scores { flex-wrap: wrap; }
+      .category-pill { min-width: 120px; }
+      .category-desc { max-width: 160px; }
+      .category-score-item { max-width: 160px; }
+    }
+
+    /* --- Phases / What We Will Deliver --- */
+    .phase-overview {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-bottom: 3rem;
+    }
+
+    .phase-card {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      align-items: start;
+    }
+
+    .phase-card:last-child {
+      border-bottom: none;
+    }
+
+    .phase-card__number {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 4rem;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--gold);
+      line-height: 1;
+    }
+
+    .phase-card__content h3 {
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .phase-card__timeline {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .phase-card__content p {
+      font-size: 0.9375rem;
+      opacity: 0.8;
+    }
+
+    /* Phase detail sections */
+    .phase-detail {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .phase-detail:last-child {
+      border-bottom: none;
+    }
+
+    .phase-detail__header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-detail__badge {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      padding: 0.25rem 0.75rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .phase-detail__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .deliverable-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .deliverable-list li {
+      font-size: 0.9375rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+    }
+
+    .deliverable-list li:last-child {
+      border-bottom: none;
+    }
+
+    .deliverable-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.4rem;
+    }
+
+    .outcome-box {
+      background: var(--gold-dim);
+      padding: 1.25rem;
+      border-radius: 3px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .outcome-box h4 {
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .outcome-box p {
+      font-size: 0.9375rem;
+    }
+
+    .investment-tag {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-top: 1rem;
+      display: block;
+    }
+
+    /* --- Why We Will Deliver --- */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .why-card {
+      padding: 1.5rem;
+      border-radius: 3px;
+      background: var(--white);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .why-card h4 {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .why-card__icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold-dim);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .why-card p, .why-card li {
+      font-size: 0.9375rem;
+    }
+
+    .why-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .why-card ul li {
+      padding: 0.375rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .why-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    /* --- Assumptions --- */
+    .assumptions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .assumption-group {
+      padding: 1.5rem;
+      background: var(--off-white);
+      border-radius: 3px;
+    }
+
+    .assumption-group h4 {
+      font-size: 0.9375rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .assumption-group ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .assumption-group ul li {
+      font-size: 0.9375rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    .assumption-group ul li:last-child {
+      border-bottom: none;
+    }
+
+    /* --- Investment --- */
+    .investment-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+
+    .investment-table th {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid var(--navy);
+    }
+
+    .investment-table td {
+      font-size: 0.9375rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .investment-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .investment-table .phase-name {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .investment-table .price {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 1.0625rem;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .payment-terms {
+      background: var(--off-white);
+      padding: 1.5rem;
+      border-radius: 3px;
+      margin-bottom: 2.5rem;
+    }
+
+    .payment-terms h4 {
+      margin-bottom: 1rem;
+    }
+
+    .payment-terms ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .payment-terms ul li {
+      font-size: 0.9375rem;
+      padding: 0.375rem 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .payment-terms ul li span:last-child {
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* --- Next Steps Timeline --- */
+    .next-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .next-step {
+      position: relative;
+      padding-left: 3rem;
+      padding-bottom: 2rem;
+      border-left: 2px solid rgba(251, 193, 8, 0.3);
+    }
+
+    .next-step:last-child {
+      border-left-color: transparent;
+      padding-bottom: 0;
+    }
+
+    .next-step::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--white);
+    }
+
+    .next-step__label {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .next-step h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .next-step p {
+      font-size: 0.9375rem;
+    }
+
+    .next-step ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .next-step ul li {
+      font-size: 0.9375rem;
+      padding: 0.25rem 0;
+    }
+
+    /* --- Services Agreement / Signing Section --- */
+    .agreement-section {
+      background: var(--navy);
+      color: var(--white);
+      padding: 4rem 0;
+    }
+
+    .agreement-section h2 {
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .agreement-divider {
+      width: 60px;
+      height: 4px;
+      background: var(--gold);
+      border: none;
+      margin: 1.25rem 0 2rem;
+    }
+
+    .schedule-summary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .schedule-summary h3 {
+      color: var(--gold);
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.9375rem;
+    }
+
+    .schedule-row:last-child {
+      border-bottom: none;
+    }
+
+    .schedule-row__label {
+      opacity: 0.7;
+    }
+
+    .schedule-row__value {
+      font-weight: 500;
+    }
+
+    .terms-summary {
+      margin-bottom: 2rem;
+    }
+
+    .terms-summary h3 {
+      color: var(--white);
+      font-size: 1.125rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .terms-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      padding: 1.25rem;
+    }
+
+    .terms-item h4 {
+      color: var(--gold);
+      font-size: 0.8125rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .terms-item p {
+      font-size: 0.875rem;
+      opacity: 0.75;
+      line-height: 1.5;
+    }
+
+    .terms-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gold);
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-top: 1.5rem;
+      padding-bottom: 1px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .terms-link:hover {
+      border-bottom-color: var(--gold);
+    }
+
+    /* --- Signature Section --- */
+    .signature-section {
+      background: var(--white);
+      padding: 4rem 0;
+    }
+
+    .signature-box {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .signature-box h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .signature-box > p {
+      font-size: 0.9375rem;
+      color: var(--grey);
+      margin-bottom: 2rem;
+    }
+
+    .sig-form {
+      text-align: left;
+    }
+
+    .sig-field {
+      margin-bottom: 1.25rem;
+    }
+
+    .sig-field label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.8125rem;
+      color: var(--navy);
+      margin-bottom: 0.375rem;
+      letter-spacing: 0.02em;
+    }
+
+    .sig-field input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(7, 47, 84, 0.2);
+      border-radius: 3px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--navy);
+      transition: border-color 0.2s ease;
+    }
+
+    .sig-field input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-dim);
+    }
+
+    .sig-field input.sig-name-input {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+      padding: 1rem;
+      text-align: center;
+      border: none;
+      border-bottom: 2px solid var(--navy);
+      border-radius: 0;
+    }
+
+    .sig-field input.sig-name-input:focus {
+      box-shadow: none;
+      border-bottom-color: var(--gold);
+    }
+
+    /* Signature tabs */
+    .sig-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+    }
+
+    .sig-tab {
+      flex: 1;
+      padding: 0.625rem 1rem;
+      background: var(--off-white);
+      border: 1px solid rgba(7, 47, 84, 0.15);
+      border-bottom: none;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--grey);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .sig-tab:first-child { border-radius: 3px 0 0 0; }
+    .sig-tab:last-child { border-radius: 0 3px 0 0; }
+
+    .sig-tab--active {
+      background: var(--white);
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .sig-tab:not(.sig-tab--active):hover {
+      background: #f0f0f0;
+    }
+
+    /* Signature mode panels */
+    .sig-mode {
+      display: none;
+      border: 1px solid rgba(7, 47, 84, 0.15);
+      border-top: none;
+      border-radius: 0 0 3px 3px;
+      padding: 1rem;
+      background: var(--white);
+      position: relative;
+    }
+
+    .sig-mode--active {
+      display: block;
+    }
+
+    /* Draw canvas */
+    #sigCanvas {
+      display: block;
+      width: 100%;
+      height: 160px;
+      border-bottom: 2px solid var(--navy);
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    .sig-clear {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      background: none;
+      border: 1px solid rgba(7, 47, 84, 0.2);
+      border-radius: 3px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--grey);
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .sig-clear:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+
+    /* Upload area */
+    .sig-upload-area {
+      padding: 2rem 1rem;
+      border: 2px dashed rgba(7, 47, 84, 0.2);
+      border-radius: 3px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .sig-upload-area:hover {
+      border-color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    .sig-upload-area.drag-over {
+      border-color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    .sig-upload-area p {
+      font-size: 0.9375rem;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .sig-upload-area span {
+      font-size: 0.75rem;
+      color: var(--grey);
+    }
+
+    .sig-upload-preview {
+      display: none;
+      text-align: center;
+      position: relative;
+    }
+
+    .sig-upload-preview.visible {
+      display: block;
+    }
+
+    .sig-upload-preview img {
+      max-width: 100%;
+      max-height: 140px;
+      margin: 0 auto;
+      display: block;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Type mode within sig-mode */
+    .sig-mode .sig-name-input {
+      border-bottom: 2px solid var(--navy);
+    }
+    /* Agreement checkbox */
+    .sig-agree {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+      padding: 1.25rem;
+      background: var(--off-white);
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .sig-agree input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 0.125rem;
+      flex-shrink: 0;
+      accent-color: var(--navy);
+    }
+
+    .sig-agree span {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--grey);
+    }
+
+    .sig-agree span a {
+      color: var(--navy);
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    .btn-sign {
+      width: 100%;
+      padding: 1rem;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 3px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-sign:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(251, 193, 8, 0.35);
+    }
+
+    .btn-sign:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Signed confirmation */
+    .signed-confirmation {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .signed-confirmation.visible {
+      display: block;
+    }
+
+    .signed-confirmation__icon {
+      width: 64px;
+      height: 64px;
+      background: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      color: var(--white);
+    }
+
+    .signed-confirmation h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .signed-confirmation p {
+      font-size: 0.9375rem;
+      color: var(--grey);
+    }
+
+    .audit-trail {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--off-white);
+      border-radius: 3px;
+      font-size: 0.8125rem;
+      color: var(--grey);
+      line-height: 1.8;
+    }
+
+    /* --- Footer --- */
+    .proposal-footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .proposal-footer p {
+      font-size: 0.8125rem;
+      opacity: 0.5;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      h1, .proposal-hero h1 { font-size: 2.25rem; }
+      h2 { font-size: 1.625rem; }
+      section { padding: 3.5rem 0; }
+      .container { padding: 0 1.25rem; }
+      .proposal-hero__logo { width: 180px; height: 180px; right: -20px; bottom: -30px; }
+
+      .exec-grid,
+      .heard-grid,
+      .finding-cards,
+      .phase-detail__grid,
+      .why-grid,
+      .assumptions-grid,
+      .terms-grid,
+      .situation-grid,
+      .schedule-row {
+        grid-template-columns: 1fr;
+      }
+
+      .scorecard-visual {
+        flex-direction: column;
+      }
+
+      .phase-card {
+        grid-template-columns: 60px 1fr;
+        gap: 1.25rem;
+      }
+
+      .phase-card__number {
+        font-size: 2.75rem;
+      }
+
+      .proposal-hero__meta {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .progress-nav__steps {
+        display: none;
+      }
+
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== PROGRESS NAV ========== -->
+  <nav class="progress-nav" id="progressNav">
+    <div class="progress-nav__inner">
+      <div class="progress-nav__brand">KEN THOMAS <span>|</span> Proposal</div>
+      <div class="progress-nav__steps" id="progressSteps">
+        <div class="progress-nav__step" data-section="hero"></div>
+        <div class="progress-nav__step" data-section="executive-summary"></div>
+        <div class="progress-nav__step" data-section="what-we-heard"></div>
+        <div class="progress-nav__step" data-section="what-we-deliver"></div>
+        <div class="progress-nav__step" data-section="why-we-deliver"></div>
+        <div class="progress-nav__step" data-section="assumptions"></div>
+        <div class="progress-nav__step" data-section="investment"></div>
+        <div class="progress-nav__step" data-section="agreement"></div>
+        <div class="progress-nav__step" data-section="sign"></div>
+      </div>
+      <div class="progress-nav__label" id="progressLabel">Introduction</div>
+    </div>
+  </nav>
+
+  <!-- ========== 0. COVER / HERO ========== -->
+  <section class="proposal-hero" id="hero">
+    <!-- Client logo: replace src with the client's logo file (white/light version works best on navy) -->
+    <div class="proposal-hero__logo">
+      <img src="cosive-logo.webp" alt="Client logo">
+    </div>
+    <div class="container">
+      <span class="proposal-hero__eyebrow">Revenue Architecture Proposal</span>
+      <h1>Cosive</h1>
+      <p style="font-size: 1.125rem; opacity: 0.75; max-width: 500px;">
+        A tailored plan to move from founder-dependent revenue to a system your team can execute.
+      </p>
+      <div class="proposal-hero__meta">
+        <div class="proposal-hero__meta-item">
+          <span class="proposal-hero__meta-label">Prepared for</span>
+          <span class="proposal-hero__meta-value">Terry MacDonald, Co-founder &amp; COO</span>
+        </div>
+        <div class="proposal-hero__meta-item">
+          <span class="proposal-hero__meta-label">Prepared by</span>
+          <span class="proposal-hero__meta-value">Ken Thomas, Revenue Architect</span>
+        </div>
+        <div class="proposal-hero__meta-item">
+          <span class="proposal-hero__meta-label">Date</span>
+          <span class="proposal-hero__meta-value">29 April 2026</span>
+        </div>
+        <div class="proposal-hero__meta-item">
+          <span class="proposal-hero__meta-label">Valid until</span>
+          <span class="proposal-hero__meta-value">13 May 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 1. EXECUTIVE SUMMARY ========== -->
+  <section id="executive-summary">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__number">01</span>
+        <h2>Executive Summary</h2>
+        <hr class="divider">
+      </div>
+
+      <div class="exec-grid">
+        <div class="exec-card">
+          <span class="exec-card__label">The Problem</span>
+          <p>Ten years of building a name in cyber threat intelligence has put Cosive two degrees from the entire AU/NZ industry, with a 36% conversion rate and 8-year customer relationships. The way you sell lives in the founders' heads. Everyone who sells learned it on the job. To get past the $3M ceiling and on to the $5M gate where dedicated hires make sense, the way Cosive sells needs to be documented, replicable, and run day-to-day by someone other than Terry and Chris.</p>
+        </div>
+        <div class="exec-card">
+          <span class="exec-card__label">Our Solution</span>
+          <p><strong>Phase 1 (Extract):</strong> codify how Cosive already sells into a Revenue Architecture Playbook tailored to your two motions, APAC consulting and global CloudMISP.</p>
+          <p><strong>Phase 2 (Embed):</strong> Pete Solway, Founder Sales Solution, inside the business as your dedicated revenue leader: hour-a-day discipline, sales-marketing handoff, live deal coaching.</p>
+          <p><strong>Phase 3 (Evolve):</strong> your team running it without us in the room.</p>
+        </div>
+        <div class="exec-card">
+          <span class="exec-card__label">The Investment</span>
+          <p><strong>Phase 1:</strong> $10,000 + GST. $5,000 on signing, $5,000 on completion.</p>
+          <p><strong>Phase 2:</strong> $1,000 to $5,000 + GST per month, calibrated to support needs. $250 + GST per hour with success bonus.</p>
+          <p><strong>Phase 3:</strong> included in Phase 2.</p>
+        </div>
+        <div class="exec-card">
+          <span class="exec-card__label">The Outcome</span>
+          <p>Cosive crosses $3M annualised revenue within 12 months of Phase 2 commencement, with the structure in place to bring on a dedicated salesperson, customer success manager, and developer at the $5M gate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 2. WHAT WE HEARD ========== -->
+  <section class="section--off-white" id="what-we-heard">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__number">02</span>
+        <h2>What We Heard</h2>
+        <hr class="divider">
+        <p>From our conversations, here's what's happening in your business.</p>
+      </div>
+
+      <div class="heard-grid">
+        <div>
+          <h3 style="margin-bottom: 0.5rem;">Your Current Challenges</h3>
+          <div class="challenge-item">
+            <span class="challenge-item__number">01</span>
+            <p style="font-style: italic;">"Everyone sort of comes through technologist ranks. The last hire from outside did a lot of busy work and absolutely zero deals."</p>
+          </div>
+          <div class="challenge-item">
+            <span class="challenge-item__number">02</span>
+            <p style="font-style: italic;">"We've been working on improving sales for over a year, maybe a year and a half. We know what we have to do. We just need help doing it."</p>
+          </div>
+          <div class="challenge-item">
+            <span class="challenge-item__number">03</span>
+            <p style="font-style: italic;">"Inbound from AdWords and LinkedIn fell off a cliff after Google's AI summary launched. We used to get five leads a month for the product side. Now it's patchy."</p>
+          </div>
+          <div class="challenge-item">
+            <span class="challenge-item__number">04</span>
+            <p style="font-style: italic;">"We burn time experimenting with outreach because cycles are six weeks to a year. We want known-good principles, not more A/B testing."</p>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom: 0.5rem;">What You Want to Achieve</h3>
+          <div class="goal-item">
+            <span class="goal-item__number">01</span>
+            <p style="font-style: italic;">"A defined Cosive way of doing sales: three or four pathways depending on customer type, with the standard emails, white papers, and sequences automated through Pipedrive and Make.com."</p>
+          </div>
+          <div class="goal-item">
+            <span class="goal-item__number">02</span>
+            <p style="font-style: italic;">"Marketing and sales tightly integrated as one revenue function: account-based, weekly sync, end-to-end customer journey from sourcing through to off-boarding."</p>
+          </div>
+          <div class="goal-item">
+            <span class="goal-item__number">03</span>
+            <p style="font-style: italic;">"Predictable revenue from the CloudMISP product line, so consulting becomes the gravy on top, not the foundation."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="situation-grid">
+        <div class="situation-item">
+          <span class="situation-item__label">Industry</span>
+          <span class="situation-item__value">Cyber threat intelligence: dual motion of APAC consulting and global SaaS (CloudMISP)</span>
+        </div>
+        <div class="situation-item">
+          <span class="situation-item__label">Target Market</span>
+          <span class="situation-item__value">Consulting: AU/NZ government, universities, banks, resource and power companies. Product: European banks, Middle Eastern central banks, fraud-data sharing across EU institutions, and CTI hubs.</span>
+        </div>
+        <div class="situation-item">
+          <span class="situation-item__label">Current Revenue</span>
+          <span class="situation-item__value">$2.2M to $2.5M annually (45% product / 55% consulting)</span>
+        </div>
+        <div class="situation-item">
+          <span class="situation-item__label">Growth Goal</span>
+          <span class="situation-item__value">Cross $3M in 12 months. Stand up the structure for a dedicated salesperson and customer success hire at $5M.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4. WHAT WE WILL DELIVER ========== -->
+  <section class="section--navy" id="what-we-deliver">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__number" style="-webkit-text-stroke-color: var(--gold);">03</span>
+        <h2>What We Will Deliver</h2>
+        <hr class="divider">
+      </div>
+      <div class="phase-overview">
+        <div class="phase-card">
+          <div class="phase-card__number">1</div>
+          <div class="phase-card__content">
+            <h3>Extract: Revenue Architecture Playbook</h3>
+            <span class="phase-card__timeline">4 to 5 weeks</span>
+            <p>We document your entire revenue system, from positioning and ICP through how you attract, convert, retain and expand your clients into a comprehensive 14-part playbook your team can follow.</p>
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card__number">2</div>
+          <div class="phase-card__content">
+            <h3>Embed: Implementation</h3>
+            <span class="phase-card__timeline">6 to 24 months</span>
+            <p>Pete Solway from Founder Sales Solution embeds inside Cosive as your dedicated revenue leader, the single point of contact for everything revenue: hour-a-day discipline, weekly one-on-ones with the team, sales-marketing handoff with Tash, and live coaching on real deals.</p>
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card__number">3</div>
+          <div class="phase-card__content">
+            <h3>Evolve: Revenue Independence</h3>
+            <span class="phase-card__timeline">Ongoing</span>
+            <p>Your team runs the system independently. We step back, you step up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phase Details (white background) -->
+  <section id="what-we-deliver-detail">
+    <div class="container">
+      <h2 style="margin-bottom: 0.5rem;">Phase Details</h2>
+      <hr class="divider">
+      <p style="margin-bottom: 2rem; font-size: 0.9375rem; color: var(--grey);">We'll build your revenue system in phases, proving each step works before moving to the next.</p>
+      <div class="phase-detail">
+        <div class="phase-detail__header">
+          <span class="phase-detail__badge">Phase 1</span>
+          <h3>Extract: Revenue Architecture Playbook (4-5 weeks)</h3>
+        </div>
+        <div class="phase-detail__grid">
+          <div>
+            <h4 style="margin-bottom: 0.75rem;">What we'll do:</h4>
+            <ul class="deliverable-list">
+              <li>Nine one-hour sessions and five 30-minute sessions over 4 to 5 weeks with Terry: we extract how Cosive sells today, then validate and refine until the playbook reads like you wrote it yourself</li>
+              <li>Refined ICPs and competitive landscape for both motions: APAC consulting (CTISO, security operations, software dev) and global CloudMISP (CTI hubs, banks, regulated organisations starting their threat-intel journey)</li>
+              <li>Two distinct buying journey maps: the long, relational consulting cycle and the faster, marketing-led CloudMISP cycle. One playbook, two pathways, no compression</li>
+              <li>Sales-marketing handoff designed with Tash and the Backstory ABM workflow so the pipeline Tash builds matches the one the sales team works</li>
+              <li>Customer expansion framework for the relationships that already last 8 years and 18+ projects deep, so the next CSM hire walks into a documented motion at the $5M gate</li>
+              <li>MEDDIC qualification structure built into Pipedrive deal stages with disqualification criteria, so the team stops using gut feel on qualify-out</li>
+              <li>Permission-to-market outreach sequences for a CISO audience that is the most-targeted person in their building. Value-first, white-paper-led, no ambulance-chasing</li>
+              <li>Pipedrive automation and Make.com workflow specifications: sequences, follow-ups, reporting hooks, all owned and edited by Cosive in Confluence</li>
+            </ul>
+          </div>
+          <div>
+            <div class="outcome-box">
+              <h4>What you'll get:</h4>
+              <p>A comprehensive 14-part Revenue Architecture Playbook, codified in your Confluence wiki, integrated with Pipedrive and Make.com. The most complete revenue document Cosive has ever had. You own the IP outright. If we never work together again, you still have a system your team can follow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phase-detail">
+        <div class="phase-detail__header">
+          <span class="phase-detail__badge">Phase 2</span>
+          <h3>Embed: Implementation (6-24 months)</h3>
+        </div>
+        <div class="phase-detail__grid">
+          <div>
+            <h4 style="margin-bottom: 0.75rem;">What we'll do:</h4>
+            <ul class="deliverable-list">
+              <li>Pete embedded inside Cosive as your dedicated revenue leader: the single point of contact for everything revenue, including managing the daily cadence and the weekly rhythm</li>
+              <li>Weekly one-on-ones with each team member doing sales: real deal coaching using MEDDIC against live opportunities for Terry, Chris, Prescott, Ash, and Nisu</li>
+              <li>Hour-a-day sales discipline enforced across the team. Not aspirational. Actual</li>
+              <li>Facilitation of the weekly sales/marketing sync with Tash, with clear handoffs and a shared target list driven by Backstory and ABM experiments</li>
+              <li>Outreach experiment design and results review, so the team stops re-running the same A/B tests on six-week cycles</li>
+              <li>Monthly playbook iteration based on what's working in the field, kept current in Confluence</li>
+              <li>Pipeline review and forecasting in Pipedrive. Visibility for the leadership team. Quarterly review against the $3M target</li>
+            </ul>
+          </div>
+          <div>
+            <div class="outcome-box">
+              <h4>What you'll get:</h4>
+              <p>A team executing the playbook without Terry or Chris in every deal. Pipeline generated through a documented account-based process, not founder hustle. The hour-a-day rhythm holding. The CloudMISP product line growing predictably alongside consulting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-detail">
+        <div class="phase-detail__header">
+          <span class="phase-detail__badge">Phase 3</span>
+          <h3>Evolve: Revenue Independence</h3>
+        </div>
+        <div class="phase-detail__grid">
+          <div>
+            <h4 style="margin-bottom: 0.75rem;">What we'll do:</h4>
+            <ul class="deliverable-list">
+              <li>Support hiring the dedicated salesperson at the $5M gate, including referral to Pointer (KTCO's recruitment partner) for sourcing against the playbook</li>
+              <li>Onboarding playbook applied to the new hire so they're closing deals against documented frameworks from week one, not building from scratch</li>
+              <li>Customer success manager hire scoped against the existing 8-year customer relationships and the expansion framework already in place</li>
+              <li>Step-back transition: KTCO and FSS reduce involvement as the internal team takes ownership. Quarterly check-ins, not weekly</li>
+            </ul>
+          </div>
+          <div>
+            <div class="outcome-box">
+              <h4>What you'll get:</h4>
+              <p>Revenue independence. Cosive sells without us in the room, with a dedicated salesperson and CSM running against the playbook. The system that got you to $3M is the same system that takes you to $5M and beyond.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5. WHY WE WILL DELIVER ========== -->
+  <section class="section--off-white" id="why-we-deliver">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__number">04</span>
+        <h2>Why We Will Deliver</h2>
+        <hr class="divider">
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h4><span class="why-card__icon">&#9776;</span> Our Approach</h4>
+          <p>Cosive didn't reach $2.5M and 36% conversion by accident. The way you sell already works. KTCO doesn't come in and tell you what to do. 80 to 90% of the playbook IS how Cosive already sells, codified, with frameworks and structure layered on top. The remaining 10% is the gold from working across more than 10 bespoke playbooks: what's actually a known-good principle versus what's marketing folklore. Pete then runs it. The most common reason a playbook fails is that nobody owns it. Pete is the owner.</p>
+          <p style="margin-top: 0.75rem; font-size: 0.875rem; color: var(--grey);">The Founder Sales Solution scorecard you and Chris completed last week confirmed what you already know: the conversion engine is strong, the lead generation and the structured handoff between marketing and sales are where the gaps sit. The playbook addresses both directly.</p>
+          <ul style="margin-top: 0.75rem;">
+            <li><strong>Client in the GRC space:</strong> we helped them flip their partner model. The playbook codified the new motion so the partner channel could be run consistently without the founder in every conversation. Same business, repositioned around how the market actually wanted to buy.</li>
+            <li><strong>Founder-led B2B accounting services:</strong> a founder hired someone whose previous job was selling beer to start in their first sales role. The new hire closed 18 deals in 10 weeks because the playbook removed the variable. The business went from $100K months to half-a-million-dollar months. Same playbook, different industry; the principles transfer because they're first principles, not tactics.</li>
+            <li><strong>Outsourcing company:</strong> we built a webinar straight off the back of the playbook. One asset, structured around the buying journey rather than a feature pitch, generated 40 sales-accepted leads.</li>
+          </ul>
+        </div>
+
+        <div class="why-card">
+          <h4><span class="why-card__icon">&#9733;</span> Who Does the Work</h4>
+          <ul>
+            <li><strong>Ken Thomas (KTCO), Phase 1:</strong> Founder of KTCO and revenue architect. Builds bespoke revenue playbooks for founder-led businesses doing $250K to $10M. More than 10 playbooks built across industries; every business has grown after implementing. Guest lectures at RMIT on sales and marketing integration. Leads the playbook extraction and codification with Terry across Phase 1.</li>
+            <li><strong>Pete Solway (Founder Sales Solution), Phase 2:</strong> Founder of Founder Sales Solution. Embeds inside founder-led businesses as a fractional Chief Revenue Officer. Single point of contact for everything revenue: cadence, one-on-ones, agency management, accountability. Has run this model for 4+ years, smoothing the transition from founder-led selling to a system that runs without the founders in every deal.</li>
+          </ul>
+        </div>
+
+        <div class="why-card">
+          <h4><span class="why-card__icon">&#9878;</span> We Only Win When You Win</h4>
+          <p><strong>The last hire didn't work out:</strong> the playbook removes the variable. The process exists, documented and tested, before any new person joins. When the right person follows the process, the result is the result.</p>
+          <p style="margin-top: 0.5rem;"><strong>The 2-3 month cash hump before CloudMISP renewals:</strong> Phase 1 is fixed at $10K, paid $5K up front and $5K on completion. Phase 2 commences 22 June, aligned with CloudMISP renewal cash flow. We don't soften the offer; we time it to your cycle.</p>
+          <p style="margin-top: 0.5rem;"><strong>The trusted-advisor brand can't be hurt by aggressive selling:</strong> no 2-2-1 outreach, no volume cold spam. The playbook leads with value, permission-to-market sequencing, white-paper-first contact. Built around the reality that CISOs are the most-targeted person in their building.</p>
+          <p style="margin-top: 0.5rem;"><strong>We only win when you win:</strong> the success bonus is tied to Cosive crossing $3M. If the playbook doesn't get implemented and the milestone doesn't hit, we don't get paid for the upside. That's deliberate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6. OUR ASSUMPTIONS ========== -->
+  <section id="assumptions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__number">05</span>
+        <h2>Our Assumptions</h2>
+        <hr class="divider">
+        <p>For this to work, we're assuming:</p>
+      </div>
+
+      <div class="assumptions-grid">
+        <div class="assumption-group">
+          <h4>About Your Business</h4>
+          <ul>
+            <li>Cosive operates as a dual-motion business: APAC consulting (long, relational, in-region) and global CloudMISP (faster, product-led, marketing-fed)</li>
+            <li>Pipedrive remains the system of record. Confluence remains the wiki home of the playbook. Make.com remains the integration layer between them and Jira</li>
+            <li>The team of technologists doing sales has the appetite to follow a documented process, not just intuition. Today's behaviour confirms this</li>
+            <li>The new website launches on schedule (~2-3 weeks from today) with the LLM-friendly, ICP-targeted positioning Tash is building</li>
+          </ul>
+        </div>
+
+        <div class="assumption-group">
+          <h4>About Your Market</h4>
+          <ul>
+            <li>The CISO buyer in AU/NZ stays saturated with vendor pitches; differentiation comes from value-first, trusted-advisor positioning, not from outbound volume</li>
+            <li>European banks and Middle Eastern hubs continue to push regulated threat-intel sharing (NIS2, fraud data) which expands the CloudMISP addressable market</li>
+            <li>The Google AI summary effect on inbound is structural, not temporary. Outbound and ABM need to fill the gap deliberately</li>
+            <li>Direct competitors in the CloudMISP space ("box-in-the-cloud" providers) don't move into Cosive's managed-service-plus-consulting positioning during the engagement</li>
+          </ul>
+        </div>
+
+        <div class="assumption-group">
+          <h4>About Working Together</h4>
+          <ul>
+            <li>Terry is the primary point of contact during Phase 1, with approximately 12 hours of face time across the 4-5 week build</li>
+            <li>Chris is consulted for delivery-side and product-side context but not blocked daily; his time goes to consulting delivery</li>
+            <li>Tash is included in the relevant sessions on the sales-marketing handoff and the ABM playbook</li>
+            <li>Cosive completes the action items between sessions on the agreed cadence; the playbook is owned and edited by Cosive in Confluence once delivered</li>
+          </ul>
+        </div>
+
+        <div class="assumption-group">
+          <h4>About Success</h4>
+          <ul>
+            <li>Success is Cosive crossing $3M annualised revenue within 12 months of Phase 2 commencement</li>
+            <li>Measurement is the trailing 4-quarter revenue figure as recorded in Cosive's accounts; agreed on a quarterly review cadence with Pete</li>
+            <li>The 12-month timeline reflects sales cycles of 6 weeks to a year in the consulting motion; the CloudMISP renewal cycle is the leading indicator</li>
+            <li>ROI is the gap between current revenue and $3M, multiplied by GP, against the total Phase 1 + Phase 2 + outcome payment investment over 12 months</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 7. INVESTMENT AND NEXT STEPS ========== -->
+  <section class="section--off-white" id="investment">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__number">06</span>
+        <h2>Investment and Next Steps</h2>
+        <hr class="divider">
+      </div>
+
+      <h3 style="margin-bottom: 1.25rem;">What It Costs</h3>
+      <table class="investment-table">
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>What You Get</th>
+            <th>Investment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="phase-name">Phase 1: Extract</td>
+            <td>Revenue Architecture Playbook tailored to both consulting and CloudMISP motions, codified in Confluence, integrated with Pipedrive</td>
+            <td class="price">$10,000 + GST</td>
+          </tr>
+          <tr>
+            <td class="phase-name">Phase 2: Embed</td>
+            <td>Pete Solway (Founder Sales Solution) embedded as your dedicated revenue leader. Hourly billing against tracked time. Plus success bonus on hitting $3M</td>
+            <td class="price">$1K to $5K + GST /mo<br><span style="font-size: 0.8125rem; font-weight: 400; color: var(--grey);">$250 + GST per hour</span></td>
+          </tr>
+          <tr>
+            <td class="phase-name">Phase 3: Evolve</td>
+            <td>Transition to independence, hiring support, team capability building</td>
+            <td class="price">Included</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="payment-terms">
+        <h4>How We Get Paid</h4>
+        <ul>
+          <li><span>Phase 1:</span> <span>50% on signing ($5,000 + GST), 50% on completion ($5,000 + GST)</span></li>
+          <li><span>Phase 2:</span> <span>$250 + GST per hour, billed monthly in arrears against tracked time</span></li>
+          <li><span>Outcome payment:</span> <span>Agreed prior to Phase 2, payable on hitting $3M in any 12-month rolling period (14-day terms)</span></li>
+          <li><span>Phase 3:</span> <span>Included in Phase 2</span></li>
+          <li><span>All invoices:</span> <span>7-day payment terms unless noted otherwise</span></li>
+        </ul>
+      </div>
+
+      <h3 style="margin-bottom: 1.25rem;">What Happens Next</h3>
+      <div class="next-steps">
+        <div class="next-step">
+          <div class="next-step__label">This Week</div>
+          <ul>
+            <li>Walk-through of this proposal Wednesday 6 May at 11:00 AEST with Terry, Chris, Pete, and Ken</li>
+            <li>Confirm Phase 1 inclusions and any open questions on the success bonus structure</li>
+            <li>Acceptance and Phase 1 deposit ($5,000 + GST) by Tuesday 13 May at the latest</li>
+          </ul>
+        </div>
+        <div class="next-step">
+          <div class="next-step__label">First Month</div>
+          <ul>
+            <li>Phase 1 kickoff week of Monday 11 May. KTCO granted access to Pipedrive, Confluence, current sales materials, and the new website draft</li>
+            <li>Initial sessions with Terry to extract the consulting motion: ICP, buying journey, qualification, current outreach approach</li>
+            <li>First sessions with Tash on the sales-marketing handoff and the Backstory ABM workflow</li>
+          </ul>
+        </div>
+        <div class="next-step">
+          <div class="next-step__label">First Quarter</div>
+          <ul>
+            <li>Playbook completed and signed off by 19-21 June. Final Phase 1 invoice issued</li>
+            <li>Phase 2 commences Monday 22 June. Pete embedded. Hour-a-day rhythm starts. Phase 2 commercials and the outcome payment amount confirmed in the amended schedule</li>
+            <li>First quarterly review at end of September: pipeline normalised against new ABM cadence, calibration against the $3M target</li>
+          </ul>
+        </div>
+        <div class="next-step">
+          <div class="next-step__label">Six Months</div>
+          <ul>
+            <li>On track or ahead of the $3M trajectory. Pipeline run rate validated against the new outreach cadence</li>
+            <li>Decision point on hiring a dedicated salesperson against the playbook; Pointer engaged for sourcing if confirmed</li>
+            <li>Playbook iterated monthly in Confluence based on what's working in the field. Sales-marketing handoff running cleanly</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8. SERVICES AGREEMENT ========== -->
+  <section class="agreement-section" id="agreement">
+    <div class="container">
+      <h2>Services Agreement</h2>
+      <hr class="agreement-divider">
+
+      <!-- Schedule Summary (the signable part - mirrors the agreement's Schedule) -->
+      <div class="schedule-summary">
+        <h3>Schedule: Specifications</h3>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Client</span>
+          <span class="schedule-row__value">Cosive [Pty Ltd / Limited: entity to be confirmed]<br>ACN / NZBN: [to be confirmed]<br>[Registered address to be confirmed]</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Provider</span>
+          <span class="schedule-row__value">TenClub Pty Ltd trading as Ken Thomas Consulting (KTCO)<br>ACN: 674 679 933<br>1330 Malvern Rd, Malvern, VIC 3144</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Services</span>
+          <span class="schedule-row__value">Phase 1 (Revenue Architecture Playbook) delivered by KTCO. Phase 2 (Embed) delivered by Founder Sales Solution Pty Ltd under a separate engagement. Phase 3 (Evolve) delivered jointly</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Standard Inclusions</span>
+          <span class="schedule-row__value">Weekly meetings with founder; weekly meetings with relevant team members; weekly meetings with relevant agencies; email and phone support during business hours; access to KTCO templates and frameworks for internal use; unlimited playbook amendments whilst engaged in Phase 2</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Standard Exclusions</span>
+          <span class="schedule-row__value">Direct sales or marketing execution (except for standard inclusions); recruitment services (KTCO can be involved in interview and candidate selection if required)</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Commencement Date</span>
+          <span class="schedule-row__value">Phase 1: week of Monday 11 May 2026. Phase 2: Monday 22 June 2026</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Term</span>
+          <span class="schedule-row__value">Phase 1: 4-5 weeks. Phase 2: minimum 13 weeks after Phase 1 completion, then rolling monthly</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Successive Term</span>
+          <span class="schedule-row__value">Rolling monthly with 30 days notice</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Phase 1 Fee</span>
+          <span class="schedule-row__value">$10,000 + GST. $5,000 + GST on signing, $5,000 + GST on completion. 7-day payment terms</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Phase 2 Fee</span>
+          <span class="schedule-row__value">$250 + GST per hour, billed monthly in arrears against time tracked. Expected monthly range: $1,000 to $5,000 + GST. 7-day payment terms</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Outcome Payment</span>
+          <span class="schedule-row__value">To be agreed prior to commencement of Phase 2 by way of an amended schedule signed by both parties. Trigger: Cosive crossing $3M revenue in any 12-month rolling period (measured against the prior 4 quarters). Payable once. 14-day payment terms on the bonus invoice</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-row__label">Agreed Expenses</span>
+          <span class="schedule-row__value">Not applicable</span>
+        </div>
+      </div>
+
+      <!-- T&Cs Summary - reflects the 14-clause agreement -->
+      <div class="terms-summary">
+        <h3>Key Terms (Summary)</h3>
+        <p style="font-size: 0.875rem; opacity: 0.6; margin-bottom: 1.5rem;">The full Revenue Architecture Services Agreement governs this engagement. Below is a plain-language summary of key clauses.</p>
+        <div class="terms-grid">
+          <div class="terms-item">
+            <h4>Services &amp; Scope (cl. 2)</h4>
+            <p>KTCO provides the services described in the Schedule. Additional services can be agreed under an amended or additional schedule on the same terms.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Duration &amp; Minimum Term (cl. 3)</h4>
+            <p>The agreement runs for the Term in the Schedule. After Phase 1 completion, there is a minimum 13-week commitment before either party can terminate without cause on 30 days notice.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Fees &amp; Outcome Payments (cl. 5)</h4>
+            <p>Fees are set out in the Schedule, plus GST. Invoices are payable within 7 days. Outcome payments are a fixed agreed amount, payable in arrears once the agreed revenue target is achieved, with reasonable access to revenue records for verification.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Your Obligations (cl. 6)</h4>
+            <p>You agree to cooperate with KTCO, provide required information and access, and make staff available to assist. You may not engage KTCO's employees or subcontractors for 12 months post-termination unless KTCO provides written consent.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Intellectual Property (cl. 9)</h4>
+            <p>IP developed for you in the course of the services belongs to you. KTCO retains ownership of its pre-existing methodologies and frameworks, and may use generic IP created under this agreement with other clients (without referencing your business).</p>
+          </div>
+          <div class="terms-item">
+            <h4>Confidentiality &amp; Privacy (cl. 10)</h4>
+            <p>Both parties keep confidential information private. This obligation survives the agreement. KTCO may provide similar services to businesses in the same industry. Both parties comply with the Australian Privacy Principles.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Liability &amp; Warranties (cl. 11)</h4>
+            <p>KTCO's total liability is limited to the fees paid under this agreement. Neither party is liable for indirect or consequential losses. KTCO will re-perform or refund if services are provided negligently, requested within 6 months.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Termination (cl. 12)</h4>
+            <p>Either party may terminate on 30 days written notice (after the minimum 13-week period), or immediately for material breach not rectified within 30 days. Outstanding fees remain payable within 7 days of termination.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Dispute Resolution (cl. 13)</h4>
+            <p>Disputes are handled through a structured process: notification, 21-day resolution period, then mediation in Melbourne if unresolved. Each party bears its own costs.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Governing Law (cl. 14)</h4>
+            <p>This agreement is governed by Victorian law. Both parties submit to the non-exclusive jurisdiction of Victorian courts. Amendments must be in writing signed by both parties.</p>
+          </div>
+        </div>
+        <a href="https://kenthomas.co/services-agreement" class="terms-link" target="_blank">
+          Read the full Revenue Architecture Services Agreement &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 9. SIGNATURE ========== -->
+  <section class="signature-section" id="sign">
+    <div class="container">
+      <div class="signature-box" id="signatureForm">
+        <h2>Accept This Proposal</h2>
+        <p>By signing below, you agree to the engagement detailed in the Schedule above and accept the Terms and Conditions.</p>
+
+        <div class="sig-form">
+          <!-- Full Name -->
+          <div class="sig-field">
+            <label for="sigFullName">Full Name</label>
+            <input type="text" id="sigFullName" placeholder="Enter your full name" autocomplete="name">
+          </div>
+
+          <!-- Role / Title -->
+          <div class="sig-field">
+            <label for="sigRole">Role / Title</label>
+            <input type="text" id="sigRole" placeholder="e.g. Managing Director" autocomplete="organization-title">
+          </div>
+
+          <!-- Email -->
+          <div class="sig-field">
+            <label for="sigEmail">Email Address</label>
+            <input type="email" id="sigEmail" placeholder="you@company.com.au" autocomplete="email">
+          </div>
+
+          <!-- Signature field -->
+          <div class="sig-field" style="margin-top: 1.5rem;">
+            <label>Your Signature</label>
+            <div class="sig-tabs">
+              <button class="sig-tab sig-tab--active" data-mode="draw" onclick="switchSigMode('draw')">Draw</button>
+              <button class="sig-tab" data-mode="type" onclick="switchSigMode('type')">Type</button>
+              <button class="sig-tab" data-mode="upload" onclick="switchSigMode('upload')">Upload</button>
+            </div>
+
+            <!-- Draw mode -->
+            <div class="sig-mode sig-mode--active" id="sigModeDraw">
+              <canvas id="sigCanvas" width="520" height="160"></canvas>
+              <button class="sig-clear" onclick="clearCanvas()">Clear</button>
+            </div>
+
+            <!-- Type mode -->
+            <div class="sig-mode" id="sigModeType">
+              <input type="text" class="sig-name-input" id="sigTyped" placeholder="Type your full name as signature">
+            </div>
+
+            <!-- Upload mode -->
+            <div class="sig-mode" id="sigModeUpload">
+              <div class="sig-upload-area" id="sigUploadArea" onclick="document.getElementById('sigFileInput').click()">
+                <p>Click to upload or drag your signature image here</p>
+                <span>PNG, JPG, or SVG</span>
+              </div>
+              <input type="file" id="sigFileInput" accept="image/png,image/jpeg,image/svg+xml" style="display:none" onchange="handleSigUpload(this)">
+              <div class="sig-upload-preview" id="sigUploadPreview">
+                <img id="sigUploadImg" alt="Uploaded signature">
+                <button class="sig-clear" onclick="clearUpload()">Remove</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agreement checkbox -->
+          <label class="sig-agree">
+            <input type="checkbox" id="sigAgree">
+            <span>
+              I, <strong id="sigNameEcho">[your name]</strong>, confirm that I am authorised to enter into this agreement on behalf of
+              <strong>Cosive</strong> in accordance with section 127(1) of the Corporations Act. I have read and agree to the
+              <a href="https://kenthomas.co/services-agreement" target="_blank">Revenue Architecture Services Agreement</a>
+              and the engagement details set out in the Schedule above.
+            </span>
+          </label>
+
+          <!-- Sign button -->
+          <button class="btn-sign" id="btnSign" disabled onclick="signProposal()">
+            Sign Proposal
+          </button>
+        </div>
+      </div>
+
+      <!-- Signed confirmation (shown after signing) -->
+      <div class="signed-confirmation" id="signedConfirmation">
+        <div class="signed-confirmation__icon">&#10003;</div>
+        <h3>Proposal Signed</h3>
+        <p>Thank you for your trust. Ken will be in touch shortly to kick things off.</p>
+        <div class="audit-trail" id="auditTrail">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="proposal-footer">
+    <div class="container">
+      <p>&copy; 2026 TenClub Pty Ltd trading as Ken Thomas Consulting (KTCO). All rights reserved. | ACN: 674 679 933</p>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // ---- Progress bar tracking ----
+    const sections = [
+      { id: 'hero', label: 'Introduction' },
+      { id: 'executive-summary', label: 'Executive Summary' },
+      { id: 'what-we-heard', label: 'What We Heard' },
+      { id: 'what-we-deliver', label: 'What We Deliver' },
+      { id: 'why-we-deliver', label: 'Why We Deliver' },
+      { id: 'assumptions', label: 'Assumptions' },
+      { id: 'investment', label: 'Investment' },
+      { id: 'agreement', label: 'Agreement' },
+      { id: 'sign', label: 'Sign' }
+    ];
+
+    const progressSteps = document.querySelectorAll('.progress-nav__step');
+    const progressLabel = document.getElementById('progressLabel');
+    const progressNav = document.getElementById('progressNav');
+
+    function updateProgress() {
+      const scrollPos = window.scrollY + 120;
+      let currentIndex = 0;
+
+      sections.forEach((section, index) => {
+        const el = document.getElementById(section.id);
+        if (el && el.offsetTop <= scrollPos) {
+          currentIndex = index;
+        }
+      });
+
+      progressSteps.forEach((step, index) => {
+        step.classList.remove('active', 'complete');
+        if (index < currentIndex) step.classList.add('complete');
+        if (index === currentIndex) step.classList.add('active');
+      });
+
+      progressLabel.textContent = sections[currentIndex].label;
+
+      if (window.scrollY > 50) {
+        progressNav.classList.add('scrolled');
+      } else {
+        progressNav.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', updateProgress);
+    updateProgress();
+
+    // ---- Proposal event tracking & signature persistence ----
+    const PROPOSAL_DEAL_ID = '';
+    const PROPOSAL_TRACKER_ENDPOINT = 'https://kenthomas.co/api/proposal-event';
+    let proposalFirstViewedSent = false;
+
+    /**
+     * Send proposal event to tracking worker
+     */
+    async function sendProposalEvent(eventType, signatureData = null) {
+      if (!PROPOSAL_DEAL_ID || PROPOSAL_DEAL_ID.length < 10) {
+        console.warn('Proposal tracking: Deal ID not set');
+        return;
+      }
+
+      try {
+        const payload = {
+          type: eventType,
+          dealId: PROPOSAL_DEAL_ID,
+          timestamp: new Date().toISOString()
+        };
+
+        if (eventType === 'signed' && signatureData) {
+          payload.signature_data = signatureData;
+        }
+
+        const response = await fetch(PROPOSAL_TRACKER_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          console.error('Proposal tracking error:', response.status, response.statusText);
+        } else {
+          const result = await response.json();
+          console.log('Proposal event tracked:', result);
+        }
+      } catch (error) {
+        console.error('Error sending proposal event:', error);
+      }
+    }
+
+    /**
+     * Check if proposal has already been signed (runs on page load)
+     * If signed, locks the form and displays the permanent audit trail
+     */
+    async function checkExistingSignature() {
+      if (!PROPOSAL_DEAL_ID || PROPOSAL_DEAL_ID.length < 10) {
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `${PROPOSAL_TRACKER_ENDPOINT}?dealId=${encodeURIComponent(PROPOSAL_DEAL_ID)}`,
+          { method: 'GET' }
+        );
+
+        if (!response.ok) return;
+
+        const result = await response.json();
+
+        if (result.signed && result.data) {
+          displaySignedState(result.data);
+        }
+      } catch (error) {
+        console.error('Error checking signature status:', error);
+      }
+    }
+
+    /**
+     * Display the permanently signed state with audit trail
+     */
+    function displaySignedState(auditData) {
+      const sigMethodLabel = auditData.signatureMethod === 'drawn' ? 'Hand-drawn'
+        : auditData.signatureMethod === 'typed' ? 'Typed' : 'Uploaded image';
+
+      const signedDate = new Date(auditData.signedAt);
+
+      // Build audit trail HTML
+      let auditHtml = `
+        <strong>Signed by:</strong> ${auditData.signedBy} (${auditData.role})<br>
+        <strong>Email:</strong> ${auditData.email}<br>
+        <strong>Signature method:</strong> ${sigMethodLabel}<br>
+        <strong>Date:</strong> ${signedDate.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}<br>
+        <strong>Time:</strong> ${signedDate.toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' })}<br>
+        <strong>IP Address:</strong> ${auditData.clientIP}<br>
+        <strong>Country:</strong> ${auditData.country}
+      `;
+
+      // Show signature image if available
+      if (auditData.signatureImage) {
+        const sigPreview = document.createElement('div');
+        sigPreview.style.cssText = 'margin-top: 1rem; padding: 1rem; background: #fff; border-radius: 4px; text-align: center;';
+        const sigImg = document.createElement('img');
+        sigImg.src = auditData.signatureImage;
+        sigImg.alt = 'Signature';
+        sigImg.style.cssText = 'max-width: 300px; max-height: 120px;';
+        sigPreview.appendChild(sigImg);
+
+        document.getElementById('auditTrail').innerHTML = auditHtml;
+        document.getElementById('auditTrail').appendChild(sigPreview);
+      } else {
+        document.getElementById('auditTrail').innerHTML = auditHtml;
+      }
+
+      // Hide the signing form, show the signed confirmation
+      document.getElementById('signatureForm').style.display = 'none';
+      document.getElementById('signedConfirmation').classList.add('visible');
+    }
+
+    /**
+     * Track proposal first view and check signature status on page load
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if already signed (this locks the form if so)
+      checkExistingSignature();
+
+      // Track the view event
+      if (!proposalFirstViewedSent) {
+        proposalFirstViewedSent = true;
+        sendProposalEvent('viewed');
+      }
+    });
+
+    // Fallback if DOMContentLoaded already fired
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      checkExistingSignature();
+      if (!proposalFirstViewedSent) {
+        proposalFirstViewedSent = true;
+        sendProposalEvent('viewed');
+      }
+    }
+
+    // ---- Signature form logic ----
+    const sigFullName = document.getElementById('sigFullName');
+    const sigNameEcho = document.getElementById('sigNameEcho');
+    let currentSigMode = 'draw';
+    let hasDrawnSignature = false;
+    let hasUploadedSignature = false;
+
+    // Mirror typed name into echo text
+    sigFullName.addEventListener('input', function() {
+      sigNameEcho.textContent = this.value || '[your name]';
+      checkSignReady();
+    });
+
+    // ---- Tab switching ----
+    function switchSigMode(mode) {
+      currentSigMode = mode;
+      document.querySelectorAll('.sig-tab').forEach(t => t.classList.remove('sig-tab--active'));
+      document.querySelector(`.sig-tab[data-mode="${mode}"]`).classList.add('sig-tab--active');
+      document.querySelectorAll('.sig-mode').forEach(m => m.classList.remove('sig-mode--active'));
+      document.getElementById('sigMode' + mode.charAt(0).toUpperCase() + mode.slice(1)).classList.add('sig-mode--active');
+      checkSignReady();
+    }
+
+    // ---- Draw mode (canvas) ----
+    const canvas = document.getElementById('sigCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    function resizeCanvas() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      const w = rect.width - 32; // account for padding
+      canvas.style.width = w + 'px';
+      canvas.width = w * dpr;
+      canvas.height = 160 * dpr;
+      ctx.scale(dpr, dpr);
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.strokeStyle = '#072F54';
+      hasDrawnSignature = false;
+      checkSignReady();
+    }
+
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches ? e.touches[0] : e;
+      return { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
+    }
+
+    function startDraw(e) {
+      e.preventDefault();
+      isDrawing = true;
+      const pos = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const pos = getPos(e);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+      hasDrawnSignature = true;
+    }
+
+    function endDraw(e) {
+      if (!isDrawing) return;
+      isDrawing = false;
+      ctx.closePath();
+      checkSignReady();
+    }
+
+    canvas.addEventListener('mousedown', startDraw);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', endDraw);
+    canvas.addEventListener('mouseleave', endDraw);
+    canvas.addEventListener('touchstart', startDraw, { passive: false });
+    canvas.addEventListener('touchmove', draw, { passive: false });
+    canvas.addEventListener('touchend', endDraw);
+
+    function clearCanvas() {
+      const dpr = window.devicePixelRatio || 1;
+      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+      hasDrawnSignature = false;
+      checkSignReady();
+    }
+
+    // Resize canvas on load and window resize
+    window.addEventListener('resize', resizeCanvas);
+    setTimeout(resizeCanvas, 100);
+
+    // ---- Type mode ----
+    const sigTyped = document.getElementById('sigTyped');
+    sigTyped.addEventListener('input', checkSignReady);
+
+    // ---- Upload mode ----
+    const uploadArea = document.getElementById('sigUploadArea');
+    const uploadPreview = document.getElementById('sigUploadPreview');
+    const uploadImg = document.getElementById('sigUploadImg');
+
+    // Drag and drop
+    uploadArea.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      this.classList.add('drag-over');
+    });
+    uploadArea.addEventListener('dragleave', function() {
+      this.classList.remove('drag-over');
+    });
+    uploadArea.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.classList.remove('drag-over');
+      if (e.dataTransfer.files.length) processUploadedFile(e.dataTransfer.files[0]);
+    });
+
+    function handleSigUpload(input) {
+      if (input.files.length) processUploadedFile(input.files[0]);
+    }
+
+    function processUploadedFile(file) {
+      if (!file.type.match(/image\/(png|jpeg|svg\+xml)/)) {
+        alert('Please upload a PNG, JPG, or SVG image.');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        uploadImg.src = e.target.result;
+        uploadArea.style.display = 'none';
+        uploadPreview.classList.add('visible');
+        hasUploadedSignature = true;
+        checkSignReady();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearUpload() {
+      uploadImg.src = '';
+      uploadArea.style.display = '';
+      uploadPreview.classList.remove('visible');
+      document.getElementById('sigFileInput').value = '';
+      hasUploadedSignature = false;
+      checkSignReady();
+    }
+
+    // ---- Check if sign button should be enabled ----
+    function hasSignature() {
+      if (currentSigMode === 'draw') return hasDrawnSignature;
+      if (currentSigMode === 'type') return sigTyped.value.trim().length > 0;
+      if (currentSigMode === 'upload') return hasUploadedSignature;
+      return false;
+    }
+
+    function checkSignReady() {
+      const name = sigFullName.value.trim();
+      const role = document.getElementById('sigRole').value.trim();
+      const email = document.getElementById('sigEmail').value.trim();
+      const agreed = document.getElementById('sigAgree').checked;
+
+      const ready = name && role && email && email.includes('@') && agreed && hasSignature();
+      document.getElementById('btnSign').disabled = !ready;
+    }
+
+    document.getElementById('sigAgree').addEventListener('change', checkSignReady);
+    document.getElementById('sigRole').addEventListener('input', checkSignReady);
+    document.getElementById('sigEmail').addEventListener('input', checkSignReady);
+
+    // ---- Get signature data for storage ----
+    function getSignatureData() {
+      if (currentSigMode === 'draw') {
+        return { type: 'drawn', data: canvas.toDataURL('image/png') };
+      } else if (currentSigMode === 'type') {
+        return { type: 'typed', data: sigTyped.value.trim() };
+      } else if (currentSigMode === 'upload') {
+        return { type: 'uploaded', data: uploadImg.src };
+      }
+    }
+
+    // ---- Sign the proposal ----
+    async function signProposal() {
+      const now = new Date();
+      const name = sigFullName.value.trim();
+      const role = document.getElementById('sigRole').value.trim();
+      const email = document.getElementById('sigEmail').value.trim();
+      const sigData = getSignatureData();
+
+      // Disable the sign button immediately to prevent double-signing
+      document.getElementById('btnSign').disabled = true;
+      document.getElementById('btnSign').textContent = 'Signing...';
+
+      // Get signature as image data (base64) for permanent storage
+      let signatureImage = null;
+      if (sigData.type === 'drawn') {
+        signatureImage = document.getElementById('sigCanvas').toDataURL('image/png');
+      } else if (sigData.type === 'uploaded') {
+        const uploadImg = document.getElementById('sigUploadImg');
+        if (uploadImg && uploadImg.src) {
+          signatureImage = uploadImg.src;
+        }
+      } else if (sigData.type === 'typed') {
+        // Render typed name to a canvas for storage
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = 520;
+        tempCanvas.height = 80;
+        const tempCtx = tempCanvas.getContext('2d');
+        tempCtx.fillStyle = '#FFFFFF';
+        tempCtx.fillRect(0, 0, 520, 80);
+        tempCtx.font = 'italic 32px "Dancing Script", "Brush Script MT", cursive';
+        tempCtx.fillStyle = '#072F54';
+        tempCtx.textAlign = 'center';
+        tempCtx.textBaseline = 'middle';
+        tempCtx.fillText(sigData.data, 260, 40);
+        signatureImage = tempCanvas.toDataURL('image/png');
+      }
+
+      // Build full signature data for server-side storage
+      const signaturePayload = {
+        signedBy: name,
+        role: role,
+        email: email,
+        signatureMethod: sigData.type,
+        signatureImage: signatureImage,
+        userAgent: navigator.userAgent,
+        signedAt: now.toISOString()
+      };
+
+      // Send to worker for permanent storage + Attio update
+      await sendProposalEvent('signed', signaturePayload);
+
+      // Build local audit trail display
+      const sigMethodLabel = sigData.type === 'drawn' ? 'Hand-drawn' : sigData.type === 'typed' ? 'Typed' : 'Uploaded image';
+      const auditHtml = `
+        <strong>Signed by:</strong> ${name} (${role})<br>
+        <strong>Email:</strong> ${email}<br>
+        <strong>Signature method:</strong> ${sigMethodLabel}<br>
+        <strong>Date:</strong> ${now.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}<br>
+        <strong>Time:</strong> ${now.toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' })}<br>
+        <strong>IP Address:</strong> [Recorded in audit trail]<br>
+        <strong>Browser:</strong> ${navigator.userAgent.substring(0, 80)}...
+      `;
+
+      document.getElementById('auditTrail').innerHTML = auditHtml;
+
+      // Show the signature image in the audit trail
+      if (signatureImage) {
+        const sigPreview = document.createElement('div');
+        sigPreview.style.cssText = 'margin-top: 1rem; padding: 1rem; background: #fff; border-radius: 4px; text-align: center;';
+        const sigImg = document.createElement('img');
+        sigImg.src = signatureImage;
+        sigImg.alt = 'Signature';
+        sigImg.style.cssText = 'max-width: 300px; max-height: 120px;';
+        sigPreview.appendChild(sigImg);
+        document.getElementById('auditTrail').appendChild(sigPreview);
+      }
+
+      // Hide form, show confirmation
+      document.getElementById('signatureForm').style.display = 'none';
+      document.getElementById('signedConfirmation').classList.add('visible');
+    }
+  </script>
+
+</body>
+</html>
