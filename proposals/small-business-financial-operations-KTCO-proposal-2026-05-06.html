@@ -2117,7 +2117,7 @@
           <label class="sig-agree">
             <input type="checkbox" id="sigAgree">
             <span>
-              I, <strong id="sigNameEcho">[your name]</strong>, confirm that I am authorised to enter into this agreement on behalf of
+              I, <strong id="sigNameEcho">Cate Kemp</strong>, confirm that I am authorised to enter into this agreement on behalf of
               <strong>BAS Services Australia Pty Ltd, trading as Small Business Financial Operations</strong> in accordance with section 127(1) of the Corporations Act. I have read and agree to the
               <a href="https://kenthomas.co/services-agreement" target="_blank">Revenue Architecture Services Agreement</a>
               and the engagement details set out in the Schedule above.
@@ -2342,7 +2342,7 @@
 
     // Mirror typed name into echo text
     sigFullName.addEventListener('input', function() {
-      sigNameEcho.textContent = this.value || '[your name]';
+      sigNameEcho.textContent = this.value || 'Cate Kemp';
       checkSignReady();
     });
 
