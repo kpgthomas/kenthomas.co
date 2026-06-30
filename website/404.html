@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | Ken Thomas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+    }
+    .error-page__code {
+      font-family: 'Lato', sans-serif;
+      font-size: 8rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 3px var(--gold);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .error-page h1 {
+      color: var(--white);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .error-page p {
+      font-size: 1.125rem;
+      opacity: 0.7;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+    .error-page__logo {
+      margin-bottom: 3rem;
+    }
+    .error-page__logo img {
+      height: 80px;
+      width: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <div class="error-page__logo">
+      <a href="/"><img src="/assets/ktco-logo-white.svg" alt="KTCO"></a>
+    </div>
+    <div class="error-page__code">404</div>
+    <h1>Page not found</h1>
+    <p>The page you're looking for doesn't exist or has been moved.</p>
+    <a href="/" class="btn btn--gold">Back to Home</a>
+  </div>
+</body>
+</html>

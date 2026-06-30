@@ -1,0 +1,15 @@
+name = "proposal-tracker"
+main = "proposal-tracker.js"
+compatibility_date = "2024-09-25"
+
+# Route: kenthomas.co/api/proposal-event
+# This worker handles proposal view and signature tracking events
+
+[vars]
+# No public environment variables needed
+# ATTIO_API_KEY is stored as a secret (see deployment instructions)
+
+# Production route
+[[routes]]
+pattern = "kenthomas.co/api/proposal-event"
+zone_name = "kenthomas.co"

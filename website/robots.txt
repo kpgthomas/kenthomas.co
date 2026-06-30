@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kenthomas.co/sitemap.xml
+
+# Guide pages are noindex via meta tags but allow crawling
+# so search engines can discover and respect the noindex directive

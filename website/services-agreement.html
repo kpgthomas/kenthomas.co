@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revenue Architecture Services Agreement | Ken Thomas Consulting</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon-32x32.png" type="image/png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      color: #444444;
+      background: #FFFFFF;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --navy: #072F54;
+      --gold: #FBC108;
+      --grey: #444444;
+      --white: #FFFFFF;
+      --off-white: #F8F8F8;
+    }
+
+    /* --- Nav Bar --- */
+    .agreement-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--navy);
+      padding: 0.875rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .agreement-nav__title {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .agreement-nav__btn {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .agreement-nav__btn:hover {
+      opacity: 0.85;
+    }
+
+    /* --- Container --- */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* --- Hero --- */
+    .agreement-hero {
+      background: var(--off-white);
+      padding: 8rem 0 3rem;
+      text-align: center;
+    }
+
+    .agreement-hero__eyebrow {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .agreement-hero h1 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 2.25rem;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      border: none;
+      margin: 1.25rem auto;
+    }
+
+    .agreement-hero__subtitle {
+      font-size: 0.9375rem;
+      color: var(--grey);
+      opacity: 0.7;
+    }
+
+    /* --- Content --- */
+    .agreement-content {
+      padding: 4rem 0 5rem;
+    }
+
+    .agreement-content h2 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 1.375rem;
+      color: var(--navy);
+      margin-top: 3rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .agreement-content p {
+      margin-top: 0;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    .agreement-content ol {
+      margin-top: 0.75rem;
+      padding-left: 1.75rem;
+    }
+
+    .agreement-content ol[type="a"] {
+      list-style-type: lower-alpha;
+    }
+
+    .agreement-content ol[type="i"] {
+      list-style-type: lower-roman;
+    }
+
+    .agreement-content li {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      margin-bottom: 0.625rem;
+    }
+
+    .agreement-note {
+      margin-bottom: 2.5rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--off-white);
+      border-radius: 3px;
+      border-left: 4px solid var(--navy);
+      font-size: 0.875rem;
+      color: var(--grey);
+    }
+
+    /* --- Footer --- */
+    .agreement-footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .agreement-footer p {
+      font-size: 0.8125rem;
+      opacity: 0.5;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .agreement-hero h1 { font-size: 1.75rem; }
+      .container { padding: 0 1.25rem; }
+      .agreement-nav { padding: 0.75rem 1.25rem; }
+      .agreement-nav__title { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav Bar -->
+  <nav class="agreement-nav">
+    <span class="agreement-nav__title">KTCO Services Agreement</span>
+    <a href="javascript:history.back()" class="agreement-nav__btn" id="backBtn">&larr; Back to Proposal</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="agreement-hero">
+    <div class="container">
+      <span class="agreement-hero__eyebrow">Legal</span>
+      <h1>Revenue Architecture<br>Services Agreement</h1>
+      <hr class="divider">
+      <p class="agreement-hero__subtitle">TenClub Pty Ltd trading as Ken Thomas Consulting (KTCO)</p>
+    </div>
+  </section>
+
+  <!-- Agreement Content -->
+  <section class="agreement-content">
+    <div class="container">
+
+      <div class="agreement-note">
+        This document sets out the full terms and conditions of the Revenue Architecture Services Agreement. The Schedule (which contains the specific details of your engagement) is included in your proposal.
+      </div>
+
+      <p style="margin-top: 0.5rem;">This agreement is dated insert date between:</p>
+      <p style="margin-top: 1.5rem;"><strong>TENCLUB PTY LTD</strong></p>
+      <p style="margin-top: 0.25rem;"><strong>(ACN 674 679 933)</strong></p>
+      <p style="margin-top: 0.5rem;"><strong>of 1330 Malvern Rd, Malvern, VIC 3144 </strong></p>
+      <p style="margin-top: 0.5rem;">trading as Ken Thomas Consulting (KTCO) </p>
+      <p style="margin-top: 0.5rem;">and </p>
+      <p style="margin-top: 0.5rem;"><strong>The party described as the Client in the Schedule </strong></p>
+      <p style="margin-top: 0.5rem;">(<strong>Client</strong>)</p>
+      <h2 style="margin-top: 3rem;">Background</h2>
+      <p style="margin-top: 0.5rem;">TenClub Pty Ltd, trading as Ken Thomas Consulting (KTCO), has skills, background and experience in revenue architecture, helping business owners build scalable revenue systems that reduce founder dependency and enable confident growth <strong>(Services)</strong>. </p>
+      <p style="margin-top: 0.5rem;">The Client wishes to engage KTCO to provide the Services to the Client and KTCO is willing to provide the Services in accordance with the provisions of this Agreement.</p>
+      <p style="margin-top: 2rem;"><strong>IT IS AGREED AS FOLLOWS:</strong></p>
+
+      <h2>1. Definitions </h2>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;">In this Agreement unless the context indicates otherwise, the following words shall have the following meanings:</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Claims</strong> means all demands, claims, proceedings, penalties, fines and liability (whether criminal or civil, in contract, tort or otherwise);</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Commencement Date</strong> means the commencement date specified in the Schedule, or if it is not specified then the date of this agreement. </p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Confidential Information </strong>includes any information marked as confidential and any information received or developed by KTCO during the term of this Agreement, which is not publicly available and relates to processes, equipment and techniques used by the Client in the course of the Client&#x27;s business including all information, data, drawings, specifications, documentation, source or object code, designs, construction, workings, functions, features and performance notes, techniques, concepts not reduced to material form, agreements with third parties, schematics and proposals and intentions, technical data and marketing information such as customer lists, financial information and business plans;</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Day or days means </strong>calendar day/s, unless stated to the contrary;</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Facilities</strong> means the access to the Client&#x27;s software or other facility, and shall include not only access to such resources, but also use of them only to the extent required by KTCO in order to perform the Services;</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Fee(s) </strong>means the amount or rates set out in the schedule to this agreement; </p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Goods </strong>means any goods sourced by KTCO or provided by KTCO in connection with any such goods and/or services, including computer hardware and software and any goods provided in connection with any of those things. </p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>GST Law </strong>means the same as in the A New Tax System (Goods and Services Tax) Act 1999 (Cth);</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Intellectual Property Rights</strong> means in relation to a person, the rights of the person in and to:</p>
+      <p style="margin-top: 0.5rem; padding-left: 3rem;"><u>rights</u> - all and any intellectual property rights, proprietary rights, industrial property rights, copyrights (including future copyright and rights in the nature of or analogous to copyright), moral rights, performers&#x27; protection, patents, designs, inventions, Image Rights, trade marks, service marks, logos, trade names, business names, brand names, plant variety rights, circuit layout rights, software, domain names, trade secrets, business methods, know-how and methods of practice, throughout the world, whether or not now existing, whether or not registrable, in registered or unregistered form, and whether or not protected by a law in force in Australia or elsewhere;</p>
+      <p style="margin-top: 0.5rem; padding-left: 3rem;"><u>applications</u> - any applications for, or rights to obtain, acquire, renew or extend, any intellectual property rights as defined in paragraph (a) of this definition;</p>
+      <p style="margin-top: 0.5rem; padding-left: 3rem;"><u>franchises</u> - any schemes or systems which may be franchised;</p>
+      <p style="margin-top: 0.5rem; padding-left: 3rem;"><u>information</u> - any information, secret processes, know how, discoveries or creations which may be protected by law or by an order of any Governmental Agency;</p>
+      <p style="margin-top: 0.5rem; padding-left: 3rem;"><u>identity</u> - any rights to use or exploit the name, appearance, voice, sound or other features or characteristics of any person or thing (whether dead or alive), or ascribed to or associated with any fictional character;</p>
+      <p style="margin-top: 0.5rem; padding-left: 3rem;"><u>invention</u> - any rights to use or exploit any idea or thing which is the direct or indirect result of human discovery, creation, invention or effort; and/or</p>
+      <p style="margin-top: 0.5rem; padding-left: 3rem;"><u>other</u> - any other intellectual property;</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Losses</strong> means all losses including financial losses, damages, legal costs and other expenses of any nature whatsoever;</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Parties </strong>means KTCO and the Client, and <strong>Party</strong> shall mean either one of them;</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Quote </strong>means a quote provided to the Client by KTCO.</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Related Body Corporate </strong>has the meaning given in section 50 of the Corporations Act 2001 (Cth);</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Schedule</strong> means the schedule to this agreement.</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Services </strong>means the Services and other aspects of those services as specified in the Schedule.</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Specifications </strong>means the specifications set out in the Schedule</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Successive Term </strong>means the successive term set out in the Schedule</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Term </strong>means the term set out in the Schedule</p>
+      <p style="margin-top: 0.75rem; padding-left: 1.5rem;"><strong>Termination Date </strong>means the earlier of:</p>
+      <p style="margin-top: 0.25rem; padding-left: 3rem;">the date of termination of this Agreement by the Client or KTCO; and</p>
+      <p style="margin-top: 0.25rem; padding-left: 3rem;">the date of expiry of this Agreement.</p>
+
+      <h2>2. Services</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span>KTCO shall provide the Services to the Client as set out in the Specifications, in consideration for the Client paying the Fee to KTCO, subject to the provisions of this Agreement.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span>KTCO and the Client shall agree the time and place for the performance of the Services, subject to the availability of KTCO and KTCO’s subcontractors, agents or representatives.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span>Additional services may be provided by KTCO for the Client, on the same terms and conditions as this Agreement, subject to necessary changes and based on an amended or additional schedule specifying additional services.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(d)</span>The Client acknowledges and agrees that the Services will be subject to any standard inclusions and exclusions and guidelines as to support and response times as set out in the specifications. </p>
+
+      <h2>3. Duration</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span>This agreement will commence on the Commencement Date for the Term.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span>At the expiration of the Term, unless terminated under clause 12, this agreement will continue for the Successive Term, on the same terms and conditions subject to necessary changes, unless either Party gives at least 30 days written notice of termination to the other Party prior to expiration of the Term. The parties acknowledge and agree that this agreement will be subject to a minimum initial 13 week term after Phase 1 has been completed, during which neither party may terminate the agreement, unless clauses 12 (a) or (c) apply. The agreement will then continue for the Term set out in the Schedule to this agreement.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span>Where the Services comprise only of a project-based Phase 1 deliverable as specified in the schedule, this Agreement shall conclude upon delivery and acceptance of the deliverable, unless the parties agree in writing to proceed to Phase 2 under a separate or amended Schedule.</p>
+
+      <h2>4. Location</h2>
+      <p style="margin-top: 0.75rem;">KTCO shall provide the Services in such places, locations or via such electronic media as KTCO considers appropriate to the requirements of the Client.</p>
+
+      <h2>5. Fee(s)</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span>In consideration of the provision of the Services, the Client will pay KTCO the Fee(s) on the basis of the Fee(s) set out in the Schedule or a Quote provided by KTCO. The Fees will be payable as outlined in the Schedule to this agreement. KTCO may require a deposit to be paid in respect of any Fees, as specified in the Schedule. The parties furthermore agree that KTCO may charge additional fees for services which fall outside the scope of the Services described in the Schedule to this agreement.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span>The Client acknowledges that the Fee shall be exclusive of any GST that may be charged by KTCO to the Client, and therefore KTCO will be entitled to add on GST.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span>KTCO shall be entitled to increase its fees on no less than 30 days written notice to the Client. If the Client does not agree with the increased fees, the Client may terminate the Agreement without penalty. Notwithstanding the foregoing, the fees will be fixed during the initial 13 weeks after Phase 1 has been completed.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(d)</span>KTCO shall provide the Client with a tax invoice in accordance with the GST Law in relation to Fees payable under this clause 5, and payment shall be made by the Client to KTCO within 7 days following receipt of KTCO&#x27;s invoice. KTCO may provide separate invoices for Services provided at different times.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(e)</span>KTCO is permitted to charge for all costs and expenses incurred in performing the Services as are set out in the Schedule subject to the Client’s prior written approval.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(f)</span>If the Client does not make a payment by the date stated in an invoice or as otherwise provided for in the Agreement, KTCO shall be entitled to do all or any of the following:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>charge interest on the outstanding amount at the rate specified in the Penalty Interest Rates Act (Vic), as varied from time to time, with effect from the due date, which is seven days from date of invoice.</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>not perform any further Services (or any part of the Services)</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(iii)</span>claim any costs from the Client (including any collection agency and/or legal fees on a solicitor and own client basis) that KTCO may incur in order to recover its Fee(s).</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(g)</span>When making a payment the Client shall quote relevant invoice numbers.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(h)</span>Where the Fee includes an outcome payment component as specified in the Schedule, the following shall apply:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>The outcome payment shall be a fixed amount as agreed and specified in the Schedule, payable upon achievement of the agreed revenue target.</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>Outcome payments shall be invoiced in arrears within 14 days of the agreed revenue target being achieved, as verified by both parties.</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(iii)</span>The Client shall provide KTCO with reasonable access to revenue records for the purpose of verifying achievement of agreed revenue targets.</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(iv)</span>Any dispute regarding outcome payment eligibility or revenue target achievement shall be resolved in accordance with clause 13.</p>
+
+      <h2>6. Client’s Obligations</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span>During the performance of the Services the Client will:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>co-operate with KTCO as KTCO reasonably requires, including but not limited to, allowing KTCO to use all necessary and appropriate resources of the Client and its employees, subcontractors and/or agents to enable the Contractor to give effect to this Agreement;</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>provide the information and documentation that KTCO reasonably requires;</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(iii)</span>make available to KTCO such Facilities as KTCO reasonably requires, including if necessary installing any such Facilities on KTCO’s hardware ; and</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(iv)</span>ensure that the Client&#x27;s staff and agents co-operate with and assist KTCO.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span>The Client will not charge for KTCO&#x27;s use of the Facilities made available by the Client, which will be at the Client’s own cost.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span>If the Client does not provide the Facilities that KTCO reasonably requires (and within the time period) to perform the Services, then any additional costs and expenses which are reasonably incurred by KTCO will be paid by the Client.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(d)</span>The Client expressly acknowledges and agrees that it may not at any stage during the course of this agreement and for a period of one year after termination of the agreement employ, hire or otherwise engage any employee, agent or subcontractor of KTCO, or any Related Body Corporate, without KTCO’s  consent in writing, which may be withheld in its entire discretion.  </p>
+
+      <h2>7. Use of Subcontractors</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span>KTCO is permitted to use other persons to provide some or all of the Services.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span>KTCO shall be responsible for the work of any of KTCO’s subcontractors.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span>Any work undertaken by any of KTCO’s subcontractors shall be undertaken to the same standard required of KTCO in terms of this agreement.</p>
+
+      <h2>8. Limitations in the Services</h2>
+      <p style="margin-top: 0.75rem;">The Client acknowledges that there may be service limitations in relation to the Services and that the provision of Services may involve trial and error in relation to novel or unknown circumstances and be affected by third party suppliers of KTCO or the Client.</p>
+
+      <h2>9. Disclosure and Ownership of Intellectual Property Rights</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span>If the scope of this agreement involves the development of Intellectual Property Rights by KTCO for the Client, then KTCO must communicate to the Client promptly and fully all Intellectual Property Rights created or developed by KTCO or KTCO&#x27;s Personnel (either solely or jointly with others) in the course of performing the Services by KTCO for the Client. </p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span>Subject to clause 9 (c) below, any Intellectual Property Rights developed by KTCO for the Client in the course of performing the Services shall be the sole and exclusive property of the Client or its nominees.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span>Notwithstanding any other provision of this clause 9, and for the avoidance of doubt, all Intellectual Property Rights and related material of KTCO that is in existence prior to the date of this Agreement, or is developed by KTCO  independently of this Agreement remains the property of KTCO. KTCO will furthermore be entitled to use any generic Intellectual Property Rights or material created in terms of this Agreement when dealing with other companies or persons, for example to develop other artistic works of a similar kind, provided there is no reference to the Client or any of its Confidential Information and the development of similar artistic works does not infringe the Intellectual Property Rights of the Client.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(d)</span>Notwithstanding any other provision of this clause 9, the Client acknowledges and agrees that while it will own the Intellectual Property Rights created by KTCO for the Client in connection with the Services, the Intellectual Property Rights may only be used by the Client and any Related Body Corporate and the Client may not sell, license or in any way transfer the Intellectual Property Rights to any third party, or allow any other party to use the Intellectual Property Rights in any manner whatsoever, without KTCO’s written consent, which shall not be unreasonably withheld.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(e)</span>The obligations accepted by the Parties under this clause 9 survive termination or expiry of this Agreement.</p>
+
+      <h2>10. Confidentiality and Privacy</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span>KTCO must keep the Client&#x27;s, and any Related Body Corporate of the Client’s, Confidential Information confidential and not deal with it in any way that might prejudice its confidentiality.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span>KTCO&#x27;s obligations with regard to the Confidential Information will continue for so long as the Confidential Information is maintained on a confidential basis by:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>the Client, in the case of Confidential Information pertaining to the Client&#x27;s business; and</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>the Client&#x27;s client, in the case of Confidential Information pertaining to the business of any of the Client&#x27;s clients.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span>At the Termination Date:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>all Confidential Information must be returned to the Client, including all copies of the Confidential Information or any extracts or summaries of the Confidential Information that KTCO makes and any software that KTCO creates based on the Confidential Information; and</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>KTCO must erase and destroy any copies of any software containing or comprising the Confidential Information in KTCO&#x27;s possession or under KTCO&#x27;s control or that may have been loaded onto a computer possessed or controlled by KTCO.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(d)</span>The Confidential Information does not include information which:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>is generally available in the public domain otherwise than as a result of a breach of paragraph (a) by KTCO; or</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>was known by KTCO prior to the Client disclosing the information to KTCO.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(e)</span>The Client acknowledges and agrees that due to the nature of the Services provided in terms of this agreement, KTCO may provide similar services to businesses in the same or similar industry and which are competitors of the Client. The Client furthermore agrees that KTCO shall not be required to disclose any details of its other clients to the Client. </p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(f)</span>Each Party agrees to comply with the legal requirements of the Australian Privacy Principles as set out in the Privacy Act 1988 (Cth) and any other applicable legislation or privacy guidelines.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(g)</span>The obligations accepted by KTCO under this clause 10 survive termination or expiry of this Agreement.</p>
+
+      <h2>11. Warranties, liability and indemnities</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span>KTCO warrants that it will use reasonable care and skill in performing the Services.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span>If KTCO performs the Services (or any part of the Services) negligently or materially in breach of this Agreement then, if requested by the Client, KTCO will:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>In respect to any failure by KTCO to comply with relevant Statutory Guarantees, resupply the Services or equivalent services, or; </p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>pay the cost of the resupply of the Services, where payment in full has been made by the Customer, or;</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(iii)</span>refund the fees paid by the Client for the relevant Services.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span>The Client&#x27;s request referred to in paragraph 11 (b) above must be made within 6 months of the date that the Services have been provided negligently or materially in breach of this Agreement.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(d)</span>KTCO acknowledges that: </p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>under applicable Commonwealth, State and Territory laws (including the Competition and Consumer Act), certain statutory express and implied guarantees and warranties will be implied into this agreement (Statutory Guarantees), and </p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>nothing in this agreement excludes, restricts or modifies the Statutory Guarantees, or any condition, warranty, right or remedy conferred on either party by the Competition and Consumer Act or any other applicable law that cannot be excluded, restricted or modified by agreement.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(e)</span>KTCO shall effect all insurance required to be effected by law including worker&#x27;s compensation insurance as prescribed by law for KTCO&#x27;s Personnel and public liability insurance for a minimum of $20,000,000 (twenty million dollars).</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(f)</span>KTCO covenants that KTCO shall be solely responsible for its own costs, including the payment to KTCO&#x27;s subcontractors, employees and agents of all amounts due by way of salary, superannuation, annual leave, long service leave and any other benefits to which they are entitled as KTCO&#x27;s employees or agents and to otherwise comply with legislation applicable to KTCO&#x27;s employees and agents.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(g)</span>KTCO provides no warranty that any result or objective can or will be achieved or attained in terms of this agreement </p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(h)</span>Except in the case of death or personal injury caused by KTCO&#x27;s negligence or wilful misconduct, KTCO (and its personnel’s) breach of privacy and confidentiality obligations under this Agreement or for KTCO’s infringement of third party’s Intellectual Property Rights, the liability of KTCO under or in connection with this Agreement whether arising in contract, tort, negligence, breach of statutory duty or otherwise shall not exceed the Fee(s) paid by the Client to KTCO under this Agreement. </p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(i)</span>Neither Party shall be liable to the other Party in contract, tort, negligence, breach of statutory duty or otherwise for any loss, damage, costs or expenses of any nature whatsoever incurred or suffered by that other Party of an indirect or consequential nature including any economic loss or other loss of turnover, profits, business or goodwill. </p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(j)</span>The Client shall indemnify and hold harmless KTCO from and against direct and reasonable Claims and Losses arising from:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>loss, damage, liability, injury to KTCO, its employees and third parties, infringement of third party Intellectual Property Rights, or third party losses by reason of or arising out of any information supplied to the Client by KTCO, its employees or Consultants, or supplied to KTCO by the Client within or without the scope of this Agreement, or</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>a failure by the Client to act upon any reasonable advice provided by KTCO.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(k)</span>KTCO agrees to indemnify the Client from and against direct Claims and Losses that the Client may suffer, incur or otherwise become liable for, arising from or in connection with any breach by you (or any of your personnel) of privacy and confidentiality obligations under this Agreement or for KTCO’s infringement of third party’s Intellectual Property Rights.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(l)</span>A Party’s liability for any Losses under this Agreement will be reduced proportionately to the extent the relevant Losses were caused or contributed to by the acts or omissions of the other Party (or any of its personnel), including any failure by that other Party to mitigate its loss.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(m)</span>Each of the Parties acknowledges that, in entering into this Agreement, it does not do so in reliance on any representation, warranty or other provision except as expressly provided in this Agreement, and any conditions, warranties or other terms implied by statute or common law are excluded from this Agreement to the fullest extent permitted by law.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(n)</span>KTCO warrants that KTCO has no authority to engage the services of any person as an employee or agent of the Client.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(o)</span>KTCO warrants that KTCO shall not incur any liability on behalf of the Client or in any way pledge or purport to pledge the Client&#x27;s credit or accept any other or make any contract binding upon the Client without prior approval being given by the Client.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(p)</span>The obligations accepted by KTCO and the Client under this clause 11 survive termination or expiry of this Agreement.</p>
+
+      <h2>12. Termination</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span>Either Party may terminate this Agreement by notice in writing to the other if the Party notified fails to observe any term of this Agreement and fails to rectify this breach, to the satisfaction of the notifying Party, within 30 days of notice of the breach being given in writing by the notifying Party to the other Party.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span>Either Party may terminate this agreement without cause on 30 days written notice to the other Party, but only after the initial 13 week period referred to in clause 3 (b) above.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span>Either Party may terminate this Agreement upon the happening of any of the following events:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>if either Party enters into a deed of arrangement or an order is made for it to be wound up;</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>if an administrator, receiver or receiver/manager or a liquidator is appointed to either Party pursuant to the Corporations Act 2001 (Cth); or</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(iii)</span>if either Party would be presumed to be insolvent by a court in any of the circumstances referred to in the Corporations Act 2001 (Cth)</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(iv)</span>a force majeure event, as envisaged in clause 14 (a) below.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(d)</span>The Client may, at its discretion, pay to KTCO the equivalent amount of the Fees payable by the Client to KTCO during the notice period in lieu of any notice period relating to termination of this Agreement under paragraph (b).</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(e)</span>Upon termination of this Agreement any undisputed Fees, expenses or reimbursements payable by the Client to KTCO in respect of any period prior to the Termination Date must be paid by the Client within 7 days after the Termination Date.</p>
+
+      <h2>13. Dispute Resolution</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span><strong>Dispute Resolution</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">If a dispute arises out of or relates to this agreement, or the breach, termination, validity or subject matter of the agreement, or to any related claim at law, in equity or pursuant to any statute (Dispute), a Party will not start arbitration or court proceedings (except proceedings seeking injunctive, declaratory or interlocutory relief) in respect of the Dispute unless it has complied with this clause.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span><strong>Notification of Dispute</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">A Party claiming that a Dispute has arisen must notify the other Party, giving details of the Dispute.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span><strong>Resolution of Dispute</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">During the 21 day period after a notice is given under clause 13 (b) (or longer period agreed in writing by the Parties to the Dispute) (Initial Period) each Party to the Dispute (Disputant) must use its best efforts to resolve the Dispute.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(d)</span><strong>Mediation</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">If the Disputants are unable to resolve the Dispute within the initial period, each Disputant agrees that the dispute must be referred for mediation, at the request of any Disputant, to:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>a mediator agreed on by the Disputants; or</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>if the Disputants are unable to agree on a mediator within seven days (7) after the end of the initial period, a mediator nominated by the President or Acting President of the Law Institute of Victoria or the President’s nominee. </p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(e)</span><strong>Role of Mediator</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">The role of any mediator is to assist in negotiating a resolution of the Dispute. A mediator may not make a decision that is binding on a Disputant unless that Disputant has so agreed in writing.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(f)</span><strong>Rules and Venue for Mediation</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">Mediation will be in accordance with the rules of the Mediation Institute and any formal mediation will be held in Melbourne, Australia and may be held electronically.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(g)</span><strong>Confidentiality</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">Any information or documents disclosed by a Disputant under this clause:</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>must be kept confidential; and</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>may not be used except to attempt to resolve the Dispute.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(h)</span><strong>Costs</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">Each Disputant must bear its own costs of complying with this clause and the Disputants must bear equally the costs of any mediator engaged.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(i)</span><strong>Termination of agreement </strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">This clause will not merge on termination of the agreement.</p>
+
+      <h2>14. General</h2>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(a)</span><strong>Force Majeure</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">Neither Party shall have any liability under or be deemed to be in breach of this Agreement for any delays or failures in performance of this Agreement which result from circumstances beyond the reasonable control of that Party, including, but not limited to an act of war, nature, or god or pandemic or epidemic (“a force majeure event”). The Party affected by such circumstances shall promptly notify the other Party in writing when such circumstances cause a delay or failure in performance and when they cease to do so. If such circumstances continue for a continuous period of more than 3 months, either Party may terminate this Agreement by written notice to the other Party.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(b)</span><strong>Amendments</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">This Agreement may only be amended in writing signed by duly authorised representatives of the Parties.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(c)</span><strong>Assignment</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>Subject to paragraph c(ii), neither Party may assign, delegate, subcontract, mortgage, charge or otherwise transfer any or all of its rights and obligations under this Agreement without the prior written agreement of the other Party.</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>A Party may assign and transfer all its rights and obligations under this Agreement to any person to which it transfers all of its business, provided that the assignee undertakes in writing to the other Party to be bound by the obligations of the assignor under this Agreement.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(d)</span><strong>Entire agreement</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>This Agreement contains the whole agreement between the Parties in respect of the subject matter of the Agreement, and supersedes and replaces any prior written or oral agreements, representations or understandings between them relating to such subject matter.</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>The Parties confirm that they have not entered into this Agreement on the basis of any representation that is not expressly incorporated into this Agreement. </p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(e)</span><strong>Waiver</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>No failure or delay by KTCO in exercising any right, power or privilege under this Agreement shall impair the same or operate as a waiver of the same nor shall any single or partial exercise of any right, power or privilege preclude any further exercise of the same or the exercise of any other right, power or privilege.</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>The rights and remedies provided in this Agreement are cumulative and not exclusive of any rights and remedies provided by law.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(f)</span><strong>No Agency, partnership, joint venture or employment relationship</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(i)</span>This Agreement shall not constitute or imply any partnership, joint venture, agency, fiduciary relationship, employment agreement or other relationship between the Parties other than the contractual relationship expressly provided for in this Agreement.</p>
+      <p style="margin-top: 0.5rem; padding-left: 4.5rem;"><span style="display: inline-block; width: 2rem; margin-left: -2rem;">(ii)</span>Neither Party shall have, nor represent that it has, any authority to make any commitments on the other Party&#x27;s behalf.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(g)</span><strong>Further assurance</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">Each Party to this Agreement shall at the request and expense of the other execute and do any deeds and other things reasonably necessary to carry out the provisions of this Agreement or to make it easier to enforce.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(h)</span><strong>Severance</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">If any provision of this Agreement is prohibited by law or judged by a court to be unlawful, void or unenforceable, the provision shall, to the extent required, be severed from this Agreement and rendered ineffective as far as possible without modifying the remaining provisions of this Agreement, and shall not in any way affect any other circumstances of or the validity or enforcement of this Agreement.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(i)</span><strong>Notices</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">A notice or other communication connected with this Agreement has no legal effect unless it is in writing.  In addition to any other method of service provided by law, the notice may be sent by pre-paid post to the address of the addressee as set out in this Agreement, or sent by email to the email address of the addressee. Correspondence sent by prepaid post will be deemed to have been received on the third business day after posting and if sent by email, on the date of transmission, or if that day is not a business day, then on the next business day.</p>
+      <p style="margin-top: 0.75rem; padding-left: 2.5rem;"><span style="display: inline-block; width: 2.5rem; margin-left: -2.5rem;">(j)</span><strong>Law and jurisdiction</strong></p>
+      <p style="margin-top: 0.5rem; padding-left: 2.5rem;">This Agreement takes effect, is governed by, and shall be construed in accordance with the laws from time to time in force in Victoria, Australia. The Parties submit to the non-exclusive jurisdiction of the courts of that state.</p>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="agreement-footer">
+    <div class="container">
+      <p>&copy; 2026 TenClub Pty Ltd trading as Ken Thomas Consulting (KTCO). All rights reserved. | ACN: 674 679 933</p>
+      <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.5;">Agreement Version 1.0 | Effective March 2026</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>
