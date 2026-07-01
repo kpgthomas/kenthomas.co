@@ -445,27 +445,39 @@
       .container, .container--narrow { padding: 0 1.25rem; }
     }
   </style>
+  <style id="gateStyles">
+    .guide-locked { position: relative; max-height: 640px; overflow: hidden; }
+    .guide-locked::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 240px; background: linear-gradient(to bottom, rgba(255,255,255,0), #ffffff); pointer-events: none; }
+    .guide-locked.unlocked { max-height: none; overflow: visible; }
+    .guide-locked.unlocked::after { display: none; }
+    .guide-gate { padding: 1rem 0 5rem; }
+    .guide-gate__box { background: #072F54; color: #fff; border: 1px solid #FBC108; border-radius: 3px; padding: 2.5rem; text-align: center; }
+    .guide-gate__box h2 { color: #fff; margin: 0 0 0.75rem; }
+    .guide-gate__box > p { color: rgba(255,255,255,0.85); margin: 0 0 1.5rem; }
+    .guide-gate__form { display: flex; gap: 0.75rem; max-width: 520px; margin: 0 auto; }
+    .guide-gate__input { flex: 1; padding: 0.85rem 1rem; border: 1px solid rgba(255,255,255,0.4); border-radius: 3px; background: rgba(255,255,255,0.08); color: #fff; font-size: 1rem; font-family: inherit; }
+    .guide-gate__input::placeholder { color: rgba(255,255,255,0.5); }
+    .guide-gate__input:focus { outline: none; border-color: #FBC108; }
+    .guide-gate__btn { padding: 0.85rem 1.5rem; background: #FBC108; color: #072F54; border: none; border-radius: 3px; font-weight: 700; font-size: 1rem; cursor: pointer; white-space: nowrap; }
+    .guide-gate__btn:hover { opacity: 0.9; }
+    .guide-gate__btn:disabled { opacity: 0.6; cursor: default; }
+    @media (max-width: 640px) { .guide-gate__form { flex-direction: column; } }
+  </style>
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="nav" id="nav">
+    <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="https://kenthomas.co/" class="nav__logo">
-        <img src="assets/ktco-logo-navy.svg" alt="KTCO — Revenue Architecture for Founder-Led Businesses">
-      </a>
+      <a href="/" class="nav__logo"><img src="assets/ktco-logo-navy.svg" alt="Ken Thomas, Revenue Architect for Founder-Led Businesses"></a>
       <div class="nav__links" id="navLinks">
-        <a href="https://kenthomas.co/">Home</a>
-        <a href="https://kenthomas.co/about.html">About</a>
-        <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
-        <a href="https://kenthomas.co/results.html">Results</a>
-        <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
-        <a href="https://kenthomas.co/contact.html">Contact</a>
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/writing.html">Writing</a>
+        <a href="/contact.html">Contact</a>
       </div>
-      <a href="#download" class="btn btn--gold nav__cta">Get the Guide</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="/founder-revenue-code.html" class="btn btn--gold nav__cta">Founder Revenue Code</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
@@ -482,7 +494,7 @@
 
   <!-- Guide Content -->
   <section class="guide-content">
-    <div class="container--narrow">
+    <div class="container--narrow"><div id="gatedContent" class="guide-locked">
       <div class="guide-section">
         <h2>The Pattern Every Founder Follows</h2>
         <hr class="divider">
@@ -592,40 +604,39 @@
       <div class="guide-cta-text">
           <p>This is the first in a series of guides on revenue architecture for founder-led businesses. If it shifted where you think the problem is, you&#x27;ll want to see what comes next.</p>
         </div>
-    </div>
+    </div></div>
   </section>
 
-  <!-- Download Section -->
-  <section class="guide-download" id="download">
-    <div class="container text-center">
-      <h2>Download the PDF</h2>
-      <p>Want a copy to keep? Enter your email and the download will start straight away.</p>
-      <form class="guide-download__form" id="downloadForm" data-guide="its-not-a-lead-problem">
-        <input type="email" class="guide-download__input" id="downloadEmail" placeholder="Your email address" required>
-        <button type="submit" class="guide-download__btn" id="downloadBtn">Download</button>
-      </form>
-      <p id="downloadMessage" style="display: none; margin-top: 1rem; font-size: 0.9375rem;"></p>
+    <!-- Email Gate -->
+  <section class="guide-gate" id="guideGate">
+    <div class="container--narrow">
+      <div class="guide-gate__box">
+        <h2>Keep reading</h2>
+        <p>Enter your email to unlock the rest of this guide and get the PDF to keep.</p>
+        <form class="guide-gate__form" id="gateForm" data-guide="its-not-a-lead-problem">
+          <input type="email" class="guide-gate__input" id="gateEmail" placeholder="Your email address" required>
+          <button type="submit" class="guide-gate__btn" id="gateBtn">Unlock the guide</button>
+        </form>
+        <p class="guide-gate__note" id="gateMessage" style="display:none; margin-top:1rem; font-size:0.9375rem;"></p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+    <footer class="footer">
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <div class="footer__logo">
-            <img src="assets/ktco-logo-white.svg" alt="KTCO">
-          </div>
-          <p class="footer__tagline">Revenue architecture for founder-led businesses.<br>Sell by choice, not obligation.</p>
+          <div class="footer__logo"><img src="assets/ktco-logo-white.svg" alt="Ken Thomas"></div>
+          <p class="footer__tagline">Revenue Architect for Founder-Led Businesses.</p>
         </div>
         <div class="footer__links">
           <h4>Navigate</h4>
-          <a href="https://kenthomas.co/">Home</a>
-          <a href="https://kenthomas.co/about.html">About</a>
-          <a href="https://kenthomas.co/how-it-works.html">How It Works</a>
-          <a href="https://kenthomas.co/results.html">Results</a>
-          <a href="https://kenthomas.co/ecosystem.html">Ecosystem</a>
-          <a href="https://kenthomas.co/contact.html">Contact</a>
+          <a href="/">Home</a>
+          <a href="/about.html">About</a>
+          <a href="/writing.html">Writing</a>
+          <a href="/founder-revenue-code.html">Founder Revenue Code</a>
+          <a href="/contact.html">Contact</a>
         </div>
         <div class="footer__links">
           <h4>Connect</h4>
@@ -636,9 +647,7 @@
           <a href="https://www.tiktok.com/@kengrowsrev" target="_blank" rel="noopener">TikTok</a>
         </div>
       </div>
-      <div class="footer__bottom">
-        &copy; 2026 Ken Thomas Consulting. All rights reserved. <a href="https://kenthomas.co/privacy-policy.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.25rem;">Privacy Policy</a>
-      </div>
+      <div class="footer__bottom">&copy; 2026 Ken Thomas. All rights reserved. <a href="/privacy-policy.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.25rem;">Privacy Policy</a> <a href="/services-agreement.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.5rem;">Services Agreement</a></div>
     </div>
   </footer>
 
@@ -653,52 +662,55 @@
     });
   </script>
 
-  <script>
-    document.getElementById('downloadForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('downloadBtn');
-      const msg = document.getElementById('downloadMessage');
-      const email = document.getElementById('downloadEmail').value;
-      const guide = this.dataset.guide;
-
-      btn.disabled = true;
-      btn.textContent = 'Please wait...';
-      msg.style.display = 'none';
-
-      try {
-        const res = await fetch('/api/download', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, guide }),
-        });
-        const data = await res.json();
-
-        if (data.success && data.pdf) {
-          msg.style.display = 'block';
-          msg.style.color = '#FBC108';
-          msg.textContent = 'Your download is starting...';
-          const link = document.createElement('a');
-          link.href = data.pdf;
-          link.download = '';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          btn.textContent = 'Downloaded';
-        } else {
+    <script>
+    (function () {
+      var form = document.getElementById('gateForm');
+      if (!form) return;
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('gateBtn');
+        var msg = document.getElementById('gateMessage');
+        var email = document.getElementById('gateEmail').value;
+        var guide = form.dataset.guide;
+        btn.disabled = true;
+        btn.textContent = 'Please wait...';
+        msg.style.display = 'none';
+        try {
+          var res = await fetch('/api/download', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, guide: guide })
+          });
+          var data = await res.json();
+          if (data.success && data.pdf) {
+            var gated = document.getElementById('gatedContent');
+            if (gated) gated.classList.add('unlocked');
+            form.style.display = 'none';
+            msg.style.display = 'block';
+            msg.style.color = '#FBC108';
+            msg.innerHTML = 'Unlocked. Your PDF is downloading. <a href="' + data.pdf + '" download style="color:#FBC108; text-decoration:underline;">Download again</a>.';
+            var link = document.createElement('a');
+            link.href = data.pdf;
+            link.download = '';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          } else {
+            msg.style.display = 'block';
+            msg.style.color = '#ff6b6b';
+            msg.textContent = data.error || 'Something went wrong. Please try again.';
+            btn.disabled = false;
+            btn.textContent = 'Unlock the guide';
+          }
+        } catch (err) {
           msg.style.display = 'block';
           msg.style.color = '#ff6b6b';
-          msg.textContent = data.error || 'Something went wrong. Please try again.';
+          msg.textContent = 'Something went wrong. Please try again.';
           btn.disabled = false;
-          btn.textContent = 'Download';
+          btn.textContent = 'Unlock the guide';
         }
-      } catch (err) {
-        msg.style.display = 'block';
-        msg.style.color = '#ff6b6b';
-        msg.textContent = 'Something went wrong. Please try again.';
-        btn.disabled = false;
-        btn.textContent = 'Download';
-      }
-    });
+      });
+    })();
   </script>
 
 </body>
