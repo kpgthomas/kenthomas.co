@@ -1,11 +1,19 @@
-# Redirect www to non-www (primary domain: kenthomas.co)
+# Redirect www to apex (primary domain: kenthomas.co)
 https://www.kenthomas.co/* https://kenthomas.co/:splat 301
 
-# Clean URLs — strip .html extension
+# Retired pages
+/how-it-works /founder-revenue-code 301
+/how-it-works.html /founder-revenue-code 301
+/results /founder-revenue-code 301
+/results.html /founder-revenue-code 301
+/ecosystem / 301
+/ecosystem.html / 301
+
+# Clean URLs, strip .html
 /index.html / 301
 /about.html /about 301
-/how-it-works.html /how-it-works 301
-/results.html /results 301
-/ecosystem.html /ecosystem 301
+/writing.html /writing 301
+/founder-revenue-code.html /founder-revenue-code 301
 /contact.html /contact 301
 /privacy-policy.html /privacy-policy 301
+/services-agreement.html /services-agreement 301
