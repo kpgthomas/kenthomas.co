@@ -454,7 +454,7 @@
     .guide-gate__box { background: #072F54; color: #fff; border: 1px solid #FBC108; border-radius: 3px; padding: 2.5rem; text-align: center; }
     .guide-gate__box h2 { color: #fff; margin: 0 0 0.75rem; }
     .guide-gate__box > p { color: rgba(255,255,255,0.85); margin: 0 0 1.5rem; }
-    .guide-gate__form { display: flex; gap: 0.75rem; max-width: 520px; margin: 0 auto; }
+    .guide-gate__form { display: flex; flex-direction: column; gap: 0.75rem; max-width: 520px; margin: 0 auto; }
     .guide-gate__input { flex: 1; padding: 0.85rem 1rem; border: 1px solid rgba(255,255,255,0.4); border-radius: 3px; background: rgba(255,255,255,0.08); color: #fff; font-size: 1rem; font-family: inherit; }
     .guide-gate__input::placeholder { color: rgba(255,255,255,0.5); }
     .guide-gate__input:focus { outline: none; border-color: #FBC108; }
@@ -593,8 +593,9 @@
     <div class="container--narrow">
       <div class="guide-gate__box">
         <h2>Keep reading</h2>
-        <p>Enter your email to unlock the rest of this guide and get the PDF to keep.</p>
+        <p>Enter your details to unlock the rest of this guide and get the PDF to keep.</p>
         <form class="guide-gate__form" id="gateForm" data-guide="they-didnt-ghost-your-proposal">
+          <input type="text" class="guide-gate__input" id="gateName" placeholder="Your first name" required>
           <input type="email" class="guide-gate__input" id="gateEmail" placeholder="Your email address" required>
           <button type="submit" class="guide-gate__btn" id="gateBtn">Unlock the guide</button>
         </form>
@@ -651,6 +652,7 @@
         e.preventDefault();
         var btn = document.getElementById('gateBtn');
         var msg = document.getElementById('gateMessage');
+        var name = document.getElementById('gateName').value;
         var email = document.getElementById('gateEmail').value;
         var guide = form.dataset.guide;
         btn.disabled = true;
@@ -660,7 +662,7 @@
           var res = await fetch('/api/download', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email, guide: guide })
+            body: JSON.stringify({ name: name, email: email, guide: guide })
           });
           var data = await res.json();
           if (data.success && data.pdf) {

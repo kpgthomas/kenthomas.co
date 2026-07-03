@@ -11,7 +11,7 @@ export async function onRequestPost(context) {
 
   try {
     const body = await request.json();
-    const { email, guide } = body;
+    const { email, name, guide } = body;
 
     // Validate inputs
     if (!email || !guide) {
@@ -66,10 +66,10 @@ export async function onRequestPost(context) {
       });
     }
 
-    // Assert person in Attio (create if new, find if existing)
     const attioApiKey = env.ATTIO_API_KEY;
 
-    // Step 1: Assert the person record (creates or matches existing)
+    // Step 1: Assert the person by email (creates a new record or matches an existing one).
+    // We only match on email here so we do not overwrite anything on an existing record.
     const assertResponse = await fetch('https://api.attio.com/v2/objects/people/records?matching_attribute=email_addresses', {
       method: 'PUT',
       headers: {
@@ -101,9 +101,42 @@ export async function onRequestPost(context) {
 
     const attioData = await assertResponse.json();
     const personId = attioData.data?.id?.record_id;
+    const currentValues = attioData.data?.values || {};
 
-    // Step 2: Add a note to the person record with which guide they downloaded
     if (personId) {
+      // Step 2: Enrich only the fields that are currently empty, so we never
+      // clobber an existing prospect's real name or lead source.
+      const patchValues = {};
+
+      const hasName = Array.isArray(currentValues.name) && currentValues.name.length > 0;
+      if (!hasName && name && name.trim()) {
+        const n = name.trim();
+        patchValues.name = [{
+          full_name: n,
+          first_name: n.split(' ')[0],
+          last_name: n.split(' ').slice(1).join(' ') || '',
+        }];
+      }
+
+      const hasSource = Array.isArray(currentValues.lead_source)
+        && currentValues.lead_source.length > 0
+        && currentValues.lead_source[0]?.value;
+      if (!hasSource) {
+        patchValues.lead_source = [{ value: 'guide download' }];
+      }
+
+      if (Object.keys(patchValues).length > 0) {
+        await fetch(`https://api.attio.com/v2/objects/people/records/${personId}`, {
+          method: 'PATCH',
+          headers: {
+            'Authorization': `Bearer ${attioApiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ data: { values: patchValues } }),
+        });
+      }
+
+      // Step 3: Add a note recording which guide they downloaded.
       await fetch('https://api.attio.com/v2/notes', {
         method: 'POST',
         headers: {
@@ -116,7 +149,7 @@ export async function onRequestPost(context) {
             parent_record_id: personId,
             title: `Downloaded guide: ${guideData.title}`,
             format: 'plaintext',
-            content: `Downloaded "${guideData.title}" from kenthomas.co on ${new Date().toISOString().split('T')[0]}.`,
+            content: `${name ? name.trim() + ' downloaded' : 'Downloaded'} "${guideData.title}" from kenthomas.co on ${new Date().toISOString().split('T')[0]}.`,
           },
         }),
       });
