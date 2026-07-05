@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revenue Independence Assessment | Ken Thomas</title>
+  <meta name="description" content="Free assessment: how dependent is your business on you for revenue? See your score and tier immediately, then get a personalised report with specific recommendations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://kenthomas.co/assessment">
+  <link rel="icon" href="favicon-32x32.png" type="image/png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kenthomas.co" },
+      { "@type": "ListItem", "position": 2, "name": "Revenue Independence Assessment", "item": "https://kenthomas.co/assessment" }
+    ]
+  }
+  </script>
+
+  <style>
+    .quiz-shell { max-width: 720px; margin: 0 auto; }
+    .quiz-progress { height: 6px; background: rgba(7,47,84,0.1); border-radius: 3px; overflow: hidden; margin-bottom: 2.5rem; }
+    .quiz-progress__bar { height: 100%; width: 0%; background: var(--gold); transition: width 0.3s ease; }
+    .quiz-card { background: #fff; border: 1px solid rgba(7,47,84,0.12); border-radius: 3px; padding: 2.5rem; }
+    .quiz-card__category { font-family: 'Roboto'; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.75rem; }
+    .quiz-card__question { font-size: 1.375rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.35; font-family: 'Lato', sans-serif; }
+    .quiz-card__hint { font-size: 0.875rem; color: var(--grey); margin-bottom: 1.5rem; }
+    .quiz-option { display: block; width: 100%; text-align: left; padding: 1rem 1.25rem; margin-bottom: 0.625rem; border: 1px solid rgba(7,47,84,0.18); border-radius: 3px; background: #fff; font-family: 'Roboto', sans-serif; font-size: 1rem; color: var(--navy); cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+    .quiz-option:hover { border-color: var(--navy); background: rgba(7,47,84,0.03); }
+    .quiz-option.selected { border-color: var(--gold); background: var(--gold-dim); border-width: 2px; padding: calc(1rem - 1px) calc(1.25rem - 1px); }
+    .quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.75rem; }
+    .quiz-back { background: none; border: none; color: var(--grey); font-family: 'Roboto', sans-serif; font-size: 0.9375rem; cursor: pointer; padding: 0.5rem 0; }
+    .quiz-back:hover { color: var(--navy); }
+    .quiz-count { font-size: 0.8125rem; color: var(--grey); }
+    .result-score { font-size: 4.5rem; font-weight: 700; color: var(--navy); line-height: 1; font-family: 'Lato', sans-serif; }
+    .result-tier { display: inline-block; padding: 0.375rem 1rem; border-radius: 3px; background: var(--navy); color: #fff; font-family: 'Roboto'; font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.75rem; }
+    .result-cat { margin-bottom: 1.25rem; }
+    .result-cat__row { display: flex; justify-content: space-between; font-size: 0.9375rem; color: var(--navy); margin-bottom: 0.375rem; }
+    .result-cat__track { height: 8px; background: rgba(7,47,84,0.08); border-radius: 4px; overflow: hidden; }
+    .result-cat__fill { height: 100%; background: var(--gold); border-radius: 4px; transition: width 0.8s ease; }
+    .lead-field { margin-bottom: 1.25rem; }
+    .lead-field label { display: block; font-weight: 500; font-size: 0.875rem; margin-bottom: 0.375rem; color: var(--navy); }
+    .lead-field input { width: 100%; padding: 0.75rem 1rem; border: 1px solid rgba(7,47,84,0.2); border-radius: 3px; font-family: 'Roboto', sans-serif; font-size: 1rem; outline: none; }
+    .lead-field input:focus { border-color: var(--navy); }
+    @media (max-width: 600px) { .quiz-card { padding: 1.5rem; } .quiz-card__question { font-size: 1.125rem; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img src="assets/ktco-logo-navy.svg" alt="Ken Thomas, Revenue Architect for Founder-Led Businesses"></a>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="writing.html">Writing</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="founder-revenue-code.html" class="btn btn--gold nav__cta">Founder Revenue Code</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- Intro -->
+  <section class="hero hero--inner" id="introSection" style="min-height: auto; padding: 10rem 0 4rem;">
+    <div class="container">
+      <span class="hero__eyebrow" style="color: var(--gold);">Free Assessment</span>
+      <h1 style="color: var(--navy); max-width: 720px;">How dependent is your business on you for revenue?</h1>
+      <hr class="divider">
+      <p class="hero__subtitle" style="color: var(--grey); max-width: 640px;">The Revenue Independence Assessment scores your business across the four things that determine whether revenue depends on you: who is responsible, your foundations, your methods, and your metrics.</p>
+      <p style="max-width: 640px; margin-top: 1rem;"><strong>About 7 minutes. Free.</strong> You will see your score and tier immediately, and I personally review every assessment and send you a tailored report with specific recommendations.</p>
+      <button class="btn btn--gold" style="margin-top: 1.5rem;" onclick="startQuiz()">Start the assessment</button>
+      <div id="resumeBox" style="display: none; margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: var(--gold-dim); border: 1px solid var(--gold); border-radius: 3px; max-width: 640px;">
+        <p style="font-size: 0.9375rem; color: var(--navy); margin-bottom: 0.75rem;"><strong>Welcome back.</strong> You have an assessment in progress. Pick up where you left off, or start again.</p>
+        <button class="btn btn--gold" onclick="resumeQuiz()">Resume assessment</button>
+        <button onclick="startFresh()" style="background: none; border: none; color: var(--grey); font-family: 'Roboto', sans-serif; font-size: 0.875rem; cursor: pointer; margin-left: 1rem; text-decoration: underline;">Start again</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quizSection" style="display: none; padding-top: 9rem;">
+    <div class="container">
+      <div class="quiz-shell">
+        <div class="quiz-progress"><div class="quiz-progress__bar" id="progressBar"></div></div>
+        <div class="quiz-card" id="quizCard"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead capture -->
+  <section id="leadSection" style="display: none; padding-top: 9rem;">
+    <div class="container">
+      <div class="quiz-shell">
+        <div class="quiz-card">
+          <span class="quiz-card__category">Before You Start</span>
+          <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Where should I send your report?</h2>
+          <p style="font-size: 0.9375rem; color: var(--grey); margin-bottom: 1.5rem;">Your score and tier appear on screen the moment you finish. I personally review every assessment and send a tailored report with specific recommendations, usually the same business day.</p>
+          <form id="leadForm">
+            <div class="lead-field">
+              <label for="leadName">Name</label>
+              <input type="text" id="leadName" required autocomplete="name">
+            </div>
+            <div class="lead-field">
+              <label for="leadEmail">Company email address</label>
+              <input type="email" id="leadEmail" required autocomplete="email">
+            </div>
+            <div class="lead-field">
+              <label for="leadBusiness">Company name</label>
+              <input type="text" id="leadBusiness" required autocomplete="organization">
+            </div>
+            <div class="lead-field">
+              <label for="leadPhone">Phone (optional)</label>
+              <input type="tel" id="leadPhone" autocomplete="tel">
+            </div>
+            <button type="submit" class="btn btn--gold" style="width: 100%; text-align: center;" id="leadBtn">Start the assessment</button>
+            <p style="font-size: 0.75rem; color: var(--grey); margin-top: 0.75rem; text-align: center;">Your details are used to send your report and are never shared. <a href="privacy-policy.html" style="text-decoration: underline; color: var(--grey);">Privacy Policy</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="resultsSection" style="display: none; padding-top: 9rem;">
+    <div class="container">
+      <div class="quiz-shell">
+        <div class="quiz-card" style="text-align: center; margin-bottom: 1.5rem;">
+          <span class="quiz-card__category">Your Result</span>
+          <div class="result-score"><span id="resultScore">0</span><span style="font-size: 1.75rem; color: var(--grey); font-weight: 400;">/100</span></div>
+          <div class="result-tier" id="resultTier"></div>
+          <p id="resultBlurb" style="margin-top: 1.25rem; font-size: 1rem; text-align: left;"></p>
+        </div>
+        <div class="quiz-card" style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.125rem; margin-bottom: 1.25rem;">Your category breakdown</h3>
+          <div id="categoryBars"></div>
+        </div>
+        <div class="quiz-card" style="background: var(--navy); border-color: var(--navy);">
+          <h3 style="font-size: 1.125rem; color: #fff; margin-bottom: 0.75rem;">What happens next</h3>
+          <p style="color: rgba(255,255,255,0.85); font-size: 0.9375rem;">I will personally review your answers and send you a tailored report showing where your revenue system is strong, where the gaps are, and the specific things to fix first. You will hear from me the same business day, or before lunchtime the next business day. No obligation, no pressure.</p>
+          <a href="contact.html" class="btn btn--gold" style="margin-top: 1.25rem; display: inline-block;">Or get in touch directly</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo"><img src="assets/ktco-logo-white.svg" alt="Ken Thomas"></div>
+          <p class="footer__tagline">Revenue Architect for Founder-Led Businesses.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="writing.html">Writing</a>
+          <a href="founder-revenue-code.html">Founder Revenue Code</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer__links">
+          <h4>Connect</h4>
+          <a href="mailto:info@kenthomas.co">info@kenthomas.co</a>
+          <a href="tel:+61383831226">03 8383 1226</a>
+          <a href="https://www.linkedin.com/in/revenue-architecture/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/kengrowsrev" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@kengrowsrev" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="footer__bottom">&copy; 2026 Ken Thomas. All rights reserved. <a href="privacy-policy.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.25rem;">Privacy Policy</a> <a href="services-agreement.html" style="opacity: 0.65; text-decoration: underline; margin-left: 0.5rem;">Services Agreement</a></div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => { document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20); });
+    document.getElementById('navToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });
+  </script>
+
+  <script>
+    // ============================================================
+    // Revenue Independence Assessment
+    // 22 questions | 2 context + 20 scored | Score out of 100
+    // Responsibility 25, Foundations 25, Methods 35, Metrics 15
+    // ============================================================
+
+    const CATEGORIES = {
+      context:        { label: 'About Your Business', max: 0 },
+      responsibility: { label: 'Responsibility', max: 25 },
+      foundations:    { label: 'Foundations', max: 25 },
+      methods:        { label: 'Methods', max: 35 },
+      metrics:        { label: 'Metrics', max: 15 },
+    };
+
+    const QUESTIONS = [
+      { id: 'C1', cat: 'context', text: 'Do you sell B2B (business to business), B2C (business to consumer), or both?',
+        opts: [{ t: 'B2B' }, { t: 'B2C' }, { t: 'Both' }] },
+      { id: 'C2', cat: 'context', text: 'What is your approximate annual revenue?',
+        opts: [{ t: 'Under $500K' }, { t: '$500K to $2M' }, { t: '$2M to $10M' }, { t: 'Over $10M' }] },
+
+      { id: 'R1', cat: 'responsibility', text: 'Who is currently responsible for generating leads and closing deals in your business?',
+        opts: [
+          { t: 'Just me, I generate the leads and close the deals', p: 0 },
+          { t: 'I have help generating leads, but I close all the deals', p: 4 },
+          { t: 'A mix of me and others generating leads and closing deals', p: 6 },
+          { t: 'Mostly others, I only step in for key deals', p: 8 },
+          { t: 'A dedicated person or team handles it end to end', p: 10 },
+        ] },
+      { id: 'R2', cat: 'responsibility', text: 'What happens to sales when the founder or business owner is unavailable for two weeks?',
+        opts: [
+          { t: 'Sales stop completely', p: 0 },
+          { t: 'Sales slow down significantly', p: 4 },
+          { t: 'Some things continue but key deals stall', p: 6 },
+          { t: 'Most things continue with minor disruption', p: 8 },
+          { t: 'Sales continue as normal', p: 10 },
+        ] },
+      { id: 'R3', cat: 'responsibility', text: 'Have you hired anyone to help with marketing?',
+        opts: [
+          { t: 'No, I handle all marketing myself', p: 0 },
+          { t: 'I’ve tried but it didn’t work out', p: 1 },
+          { t: 'I use an external agency or freelancer', p: 3 },
+          { t: 'I have an in-house marketing person or team', p: 5 },
+        ] },
+
+      { id: 'F1', cat: 'foundations', text: 'Have you defined and documented your business’s vision, mission, and values?',
+        opts: [
+          { t: 'Yes, all defined and documented', p: 3 },
+          { t: 'Defined but not documented', p: 1 },
+          { t: 'No', p: 0 },
+        ] },
+      { id: 'F2', cat: 'foundations', text: 'Can you clearly explain what makes your business different from your competitors?',
+        opts: [
+          { t: 'Yes, it’s clearly defined and documented', p: 7 },
+          { t: 'Yes, I can explain it but it’s not documented', p: 3 },
+          { t: 'I’m not sure what makes us different', p: 0 },
+        ] },
+      { id: 'F3', cat: 'foundations', text: 'Can you define your target audience (the specific type of customer or business you’re best suited to serve)?',
+        opts: [
+          { t: 'Yes, clearly defined and documented', p: 5 },
+          { t: 'Yes, I know who they are but it’s not documented', p: 2 },
+          { t: 'We sell to anyone who will buy', p: 0 },
+        ] },
+      { id: 'F4', cat: 'foundations', text: 'How well do you know your competitive landscape?',
+        opts: [
+          { t: 'We know our competitors and understand why prospects choose them over us', p: 2 },
+          { t: 'We know who our competitors are but not much more', p: 1 },
+          { t: 'We haven’t really looked into it', p: 0 },
+        ] },
+      { id: 'F5', cat: 'foundations', text: 'Do you have brand guidelines (colours, fonts, style guide) that your team follows?',
+        opts: [
+          { t: 'Yes, documented and consistently used', p: 2 },
+          { t: 'We have some basics but it’s informal', p: 1 },
+          { t: 'No', p: 0 },
+        ] },
+      { id: 'F6', cat: 'foundations', text: 'Do you use a CRM to track your sales and marketing activities?',
+        opts: [
+          { t: 'Yes, it’s our main tool for tracking everything', p: 4 },
+          { t: 'Yes, but we don’t use it consistently', p: 2 },
+          { t: 'We use spreadsheets or a project management tool instead', p: 1 },
+          { t: 'We track things in emails, notebooks, or memory', p: 0 },
+        ] },
+      { id: 'F7', cat: 'foundations', text: 'Does your team have documented scripts or talking points for sales conversations?',
+        opts: [
+          { t: 'Yes, documented and consistently used', p: 2 },
+          { t: 'We have informal guidelines but nothing written down', p: 1 },
+          { t: 'No', p: 0 },
+        ] },
+
+      { id: 'M1', cat: 'methods', text: 'How are you currently generating leads?', hint: 'Select all that apply.', multi: true,
+        opts: [
+          { t: 'Word of mouth or referrals' },
+          { t: 'Organic marketing (social media, SEO, content)' },
+          { t: 'Paid advertising (Google Ads, Meta Ads, LinkedIn Ads, etc.)' },
+          { t: 'Cold outreach (cold calls, cold emails, direct messages)' },
+          { t: 'Partnerships or affiliates' },
+          { t: 'Events, networking, or trade shows' },
+        ],
+        score: (sel) => sel.length >= 3 ? 6 : sel.length * 2 },
+      { id: 'M2', cat: 'methods', text: 'Do you have set criteria and questions to ask for deciding if a lead is worth pursuing?',
+        opts: [
+          { t: 'Yes, clearly defined and documented', p: 6 },
+          { t: 'Yes, but it’s informal or in my head', p: 3 },
+          { t: 'No', p: 0 },
+        ] },
+      { id: 'M3', cat: 'methods', text: 'How often do prospects go quiet once they’re in your sales pipeline?',
+        opts: [
+          { t: 'Rarely', p: 4 },
+          { t: 'Sometimes', p: 2 },
+          { t: 'Frequently or very frequently', p: 0 },
+          { t: 'Not sure', p: 0 },
+        ] },
+      { id: 'M4', cat: 'methods', text: 'Do you have a consistent set of questions you ask in your first meeting with a prospect?',
+        opts: [
+          { t: 'Yes, documented and consistently used', p: 7 },
+          { t: 'Yes, but it’s informal and varies', p: 3 },
+          { t: 'No', p: 0 },
+        ] },
+      { id: 'M5', cat: 'methods', text: 'Do you have standard proposal templates, case studies and collateral to support the sales process?',
+        opts: [
+          { t: 'Yes, standard templates and collateral, tailored to each prospect and consistently used', p: 7 },
+          { t: 'We have some templates and collateral but use them inconsistently', p: 4 },
+          { t: 'We create things from scratch each time', p: 2 },
+          { t: 'No', p: 0 },
+        ] },
+      { id: 'M6', cat: 'methods', text: 'Do you have a process for managing, growing and getting referrals from your current clients?',
+        opts: [
+          { t: 'Yes, a defined process with regular check-ins, and we actively ask for referrals', p: 5 },
+          { t: 'We maintain relationships and receive referrals, but there’s no set process', p: 2 },
+          { t: 'No', p: 0 },
+        ] },
+
+      { id: 'Met1', cat: 'metrics', text: 'Do you track where your leads come from?',
+        opts: [
+          { t: 'Yes, every lead is attributed to a source', p: 4 },
+          { t: 'Sometimes or for some channels', p: 2 },
+          { t: 'No', p: 0 },
+        ] },
+      { id: 'Met2', cat: 'metrics', text: 'Which of the following do you actively track?', hint: 'Select all that apply.', multi: true, noneOption: 'None of the above',
+        opts: [
+          { t: 'Conversion rate (percentage of opportunities that become clients)' },
+          { t: 'Sales cycle length (average time from first meeting to closed deal)' },
+          { t: 'Average deal size' },
+          { t: 'Cost of acquisition (what it costs to win a new client)' },
+        ],
+        score: (sel) => Math.min(sel.length, 4) },
+      { id: 'Met3', cat: 'metrics', text: 'Can you predict your revenue for the next quarter based on your current pipeline?',
+        opts: [
+          { t: 'Yes, with reasonable accuracy', p: 4 },
+          { t: 'We make rough estimates but they’re often wrong', p: 2 },
+          { t: 'No, we can’t forecast revenue', p: 0 },
+        ] },
+      { id: 'Met4', cat: 'metrics', text: 'Do you track how your existing clients are performing (retention, growth, satisfaction)?',
+        opts: [
+          { t: 'Yes, we measure client outcomes regularly', p: 3 },
+          { t: 'We track some things informally', p: 1 },
+          { t: 'No', p: 0 },
+        ] },
+    ];
+
+    const TIERS = [
+      { min: 85, name: 'Revenue Independence', blurb: 'Your business generates revenue without depending on you. The system is built: responsibility is shared, the foundations are documented, and the numbers are tracked. The work now is protecting that independence as you scale, and making sure the system keeps improving without you having to drive it.' },
+      { min: 70, name: 'Partially Independent', blurb: 'You’ve built real parts of a revenue system, and parts of the business run without you. But there are still places where everything routes back through you, and those are the places that will cap your growth or your exit value. Your report will show you exactly which gaps to close first.' },
+      { min: 51, name: 'Dependence Reducing', blurb: 'You’re making progress: some structure exists and you’ve started sharing the load. But the business still leans on you for most of its revenue, and if you stepped away, growth would stall. The good news is the next steps are usually clear and fast to act on. Your report will lay them out.' },
+      { min: 0, name: 'Dependent', blurb: 'Right now, revenue depends on you. That’s normal for the stage most founders are at when they take this assessment, and it’s fixable. The knowledge of how your business wins is in your head; the work is getting it out, structured, and running without you. Your report will show you where to start.' },
+    ];
+
+    let current = 0;
+    const answers = {};
+    let lead = null;
+
+    // --- Progress persistence (survives timeouts, closed tabs, crashes) ---
+    const STORAGE_KEY = 'ria-progress-v1';
+    const STORAGE_MAX_AGE = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ lead, answers, current, ts: Date.now() }));
+      } catch (e) { /* private browsing or storage full; carry on without saving */ }
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+        const state = JSON.parse(raw);
+        if (!state || !state.lead || Date.now() - (state.ts || 0) > STORAGE_MAX_AGE) {
+          clearState();
+          return null;
+        }
+        return state;
+      } catch (e) { return null; }
+    }
+
+    function clearState() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* no-op */ }
+    }
+
+    // Offer to resume if there's a saved assessment in progress
+    (function () {
+      if (loadState()) document.getElementById('resumeBox').style.display = 'block';
+    })();
+
+    function resumeQuiz() {
+      const state = loadState();
+      if (!state) { startFresh(); return; }
+      lead = state.lead;
+      Object.assign(answers, state.answers || {});
+      current = Math.min(state.current || 0, QUESTIONS.length - 1);
+      document.getElementById('introSection').style.display = 'none';
+      document.getElementById('quizSection').style.display = 'block';
+      render();
+      window.scrollTo(0, 0);
+    }
+
+    function startFresh() {
+      clearState();
+      document.getElementById('resumeBox').style.display = 'none';
+      startQuiz();
+    }
+
+    function startQuiz() {
+      document.getElementById('introSection').style.display = 'none';
+      document.getElementById('leadSection').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById('leadForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      lead = {
+        name: document.getElementById('leadName').value.trim(),
+        email: document.getElementById('leadEmail').value.trim(),
+        business: document.getElementById('leadBusiness').value.trim(),
+        phone: document.getElementById('leadPhone').value.trim(),
+      };
+      saveState();
+      document.getElementById('leadSection').style.display = 'none';
+      document.getElementById('quizSection').style.display = 'block';
+      render();
+      window.scrollTo(0, 0);
+    });
+
+    function render() {
+      const q = QUESTIONS[current];
+      const card = document.getElementById('quizCard');
+      document.getElementById('progressBar').style.width = ((current) / QUESTIONS.length * 100) + '%';
+
+      let html = '<span class="quiz-card__category">' + CATEGORIES[q.cat].label + '</span>';
+      html += '<div class="quiz-card__question">' + q.text + '</div>';
+      if (q.hint) html += '<div class="quiz-card__hint">' + q.hint + '</div>';
+
+      if (q.multi) {
+        const sel = answers[q.id] || [];
+        q.opts.forEach((o, i) => {
+          html += '<button type="button" class="quiz-option' + (sel.includes(i) ? ' selected' : '') + '" onclick="toggleMulti(' + i + ')">' + o.t + '</button>';
+        });
+        if (q.noneOption) {
+          html += '<button type="button" class="quiz-option' + (sel.length === 0 && answers[q.id] !== undefined ? ' selected' : '') + '" onclick="selectNone()">' + q.noneOption + '</button>';
+        }
+        html += '<div class="quiz-nav">';
+        html += current > 0 ? '<button class="quiz-back" onclick="goBack()">&larr; Back</button>' : '<span></span>';
+        html += '<span class="quiz-count">' + (current + 1) + ' of ' + QUESTIONS.length + '</span>';
+        html += '<button class="btn btn--gold" onclick="nextMulti()">Next</button>';
+        html += '</div>';
+      } else {
+        q.opts.forEach((o, i) => {
+          html += '<button type="button" class="quiz-option' + (answers[q.id] === i ? ' selected' : '') + '" onclick="selectOption(' + i + ')">' + o.t + '</button>';
+        });
+        html += '<div class="quiz-nav">';
+        html += current > 0 ? '<button class="quiz-back" onclick="goBack()">&larr; Back</button>' : '<span></span>';
+        html += '<span class="quiz-count">' + (current + 1) + ' of ' + QUESTIONS.length + '</span>';
+        html += '<span></span>';
+        html += '</div>';
+      }
+      card.innerHTML = html;
+    }
+
+    function selectOption(i) {
+      const q = QUESTIONS[current];
+      answers[q.id] = i;
+      saveState();
+      setTimeout(advance, 180);
+      render();
+    }
+
+    function toggleMulti(i) {
+      const q = QUESTIONS[current];
+      if (!Array.isArray(answers[q.id])) answers[q.id] = [];
+      const sel = answers[q.id];
+      const idx = sel.indexOf(i);
+      if (idx >= 0) sel.splice(idx, 1); else sel.push(i);
+      saveState();
+      render();
+    }
+
+    function selectNone() {
+      const q = QUESTIONS[current];
+      answers[q.id] = [];
+      saveState();
+      render();
+    }
+
+    function nextMulti() {
+      const q = QUESTIONS[current];
+      if (answers[q.id] === undefined) answers[q.id] = [];
+      advance();
+    }
+
+    function advance() {
+      if (current < QUESTIONS.length - 1) {
+        current++;
+        saveState();
+        render();
+        window.scrollTo(0, 0);
+      } else {
+        finish();
+      }
+    }
+
+    function finish() {
+      clearState();
+      document.getElementById('progressBar').style.width = '100%';
+      document.getElementById('quizSection').style.display = 'none';
+
+      const result = computeScores();
+      showResults(result);
+
+      const payload = {
+        name: lead.name,
+        email: lead.email,
+        business: lead.business,
+        phone: lead.phone || null,
+        total: result.total,
+        tier: result.tier.name,
+        scores: {
+          responsibility: { score: result.cats.responsibility, max: 25 },
+          foundations: { score: result.cats.foundations, max: 25 },
+          methods: { score: result.cats.methods, max: 35 },
+          metrics: { score: result.cats.metrics, max: 15 },
+        },
+        answers: result.detail,
+      };
+
+      // Fire and forget; never block the respondent on the API
+      fetch('/api/assessment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).catch(() => {});
+    }
+
+    function goBack() {
+      if (current > 0) { current--; render(); window.scrollTo(0, 0); }
+    }
+
+    function computeScores() {
+      const cats = { responsibility: 0, foundations: 0, methods: 0, metrics: 0 };
+      const detail = [];
+      QUESTIONS.forEach((q) => {
+        const a = answers[q.id];
+        let pts = 0;
+        let answerText = '';
+        if (q.multi) {
+          const sel = Array.isArray(a) ? a : [];
+          pts = q.score(sel);
+          answerText = sel.length ? sel.map((i) => q.opts[i].t).join('; ') : (q.noneOption || 'None selected');
+        } else if (typeof a === 'number') {
+          const o = q.opts[a];
+          pts = o.p || 0;
+          answerText = o.t;
+        }
+        if (q.cat !== 'context') cats[q.cat] += pts;
+        detail.push({ id: q.id, question: q.text, answer: answerText, points: q.cat === 'context' ? null : pts });
+      });
+      const total = cats.responsibility + cats.foundations + cats.methods + cats.metrics;
+      const tier = TIERS.find((t) => total >= t.min);
+      return { cats, total, tier, detail };
+    }
+
+    function showResults(result) {
+      document.getElementById('resultsSection').style.display = 'block';
+      document.getElementById('resultScore').textContent = result.total;
+      document.getElementById('resultTier').textContent = result.tier.name;
+      document.getElementById('resultBlurb').textContent = result.tier.blurb;
+
+      const bars = Object.entries(CATEGORIES)
+        .filter(([key]) => key !== 'context')
+        .map(([key, c]) => {
+          const score = result.cats[key];
+          const pct = Math.round((score / c.max) * 100);
+          return '<div class="result-cat">' +
+            '<div class="result-cat__row"><span>' + c.label + '</span><span>' + score + '/' + c.max + '</span></div>' +
+            '<div class="result-cat__track"><div class="result-cat__fill" style="width: 0%" data-width="' + pct + '%"></div></div>' +
+            '</div>';
+        }).join('');
+      document.getElementById('categoryBars').innerHTML = bars;
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.result-cat__fill').forEach((el) => { el.style.width = el.dataset.width; });
+      });
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
