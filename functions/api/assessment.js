@@ -181,6 +181,31 @@ export async function onRequestPost(context) {
           },
         }),
       });
+
+      // Create an Attio task assigned to Ken so the submission triggers
+      // a notification (personal review + report, same business day)
+      try {
+        await fetch('https://api.attio.com/v2/tasks', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${attioApiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            data: {
+              content: `Review Revenue Independence Assessment: ${name} (${business.trim()}) scored ${total}/100 (${tier || 'unscored'}). Generate and send the report.`,
+              format: 'plaintext',
+              deadline_at: new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString(),
+              is_completed: false,
+              linked_records: [{ target_object: 'people', target_record_id: personId }],
+              assignees: [{ referenced_actor_type: 'workspace-member', referenced_actor_id: '46cf4d4f-5912-4677-85eb-0ced9c0b5f13' }],
+            },
+          }),
+        });
+      } catch (taskErr) {
+        console.error('Task creation error:', taskErr);
+        // Continue — note and person are still created
+      }
     }
 
     return new Response(JSON.stringify({ success: true }), {
