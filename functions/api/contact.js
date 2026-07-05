@@ -135,28 +135,23 @@ export async function onRequestPost(context) {
         }),
       });
 
-      // Step 4: Create an Attio task assigned to Ken so the enquiry
-      // triggers a notification (same-day response promise)
+      // Step 4: Trigger the Attio workflow that creates the reply task.
+      // Workflow-created tasks notify the assignee; API-created ones do not.
       try {
-        await fetch('https://api.attio.com/v2/tasks', {
+        const webhookResponse = await fetch('https://hooks.attio.com/w/5e62a492-63c3-4894-b248-f613fadfd57b/90e8e044-3670-4aa0-9f25-cec1cb4a98ff', {
           method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${attioApiKey}`,
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            data: {
-              content: `Reply to contact form enquiry from ${name}${business ? ` (${business.trim()})` : ''} — kenthomas.co`,
-              format: 'plaintext',
-              deadline_at: new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString(),
-              is_completed: false,
-              linked_records: [{ target_object: 'people', target_record_id: personId }],
-              assignees: [{ referenced_actor_type: 'workspace-member', referenced_actor_id: '46cf4d4f-5912-4677-85eb-0ced9c0b5f13' }],
-            },
+            source: 'contact-form',
+            task: `Reply to contact form enquiry from ${name}${business ? ` (${business.trim()})` : ''} — kenthomas.co`,
+            email: email,
           }),
         });
+        if (!webhookResponse.ok) {
+          console.error('Task webhook failed:', webhookResponse.status, await webhookResponse.text());
+        }
       } catch (taskErr) {
-        console.error('Task creation error:', taskErr);
+        console.error('Task webhook error:', taskErr);
         // Continue — note and person are still created
       }
     }
