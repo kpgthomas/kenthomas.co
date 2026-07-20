@@ -698,11 +698,28 @@ section {
 .show-mobile-only { display: none !important; }
 
 /* --- Responsive --- */
-/* Nav collapses to the hamburger menu below 1024px, so the full bar (with the
-   longer Founder Revenue Code button) never has to squeeze or overlap. When
+/* Between 901 and 1024px the nav condenses (tighter spacing, slightly smaller
+   button) so the full bar still fits without overlapping. It then collapses to
+   the hamburger menu at 900px, matching the site's original breakpoint. When
    collapsed, the desktop gold button is hidden and the same CTA appears inside
-   the menu (.nav__menu-cta) so it stays reachable on phones and tablets. */
+   the menu (.nav__menu-cta) so it stays reachable on phones. */
 @media (max-width: 1024px) {
+  .nav__inner { padding: 1.25rem 1.5rem; }
+  .nav__links { gap: 1.25rem; }
+  .nav__links a { font-size: 0.8125rem; }
+  .nav__cta { padding: 0.75rem 1.25rem; font-size: 0.8125rem; }
+}
+
+@media (max-width: 900px) {
+  .hide-mobile { display: none !important; }
+  .show-mobile-only { display: block !important; }
+  h1, .hero__title { font-size: 2.5rem; }
+  h2 { font-size: 1.75rem; }
+  section { padding: 4rem 0; }
+  .hero { padding: 3rem 0 4rem; min-height: auto; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 1.25rem; }
+  .grid-2--story { gap: 0; }
+  .hero__stat { flex-direction: column; gap: 1.5rem; }
   .nav__links { display: none; }
   .nav__links.open {
     display: flex;
@@ -719,18 +736,6 @@ section {
   .nav__toggle { display: block; }
   .nav__cta { display: none; }
   .nav__menu-cta { display: inline-flex; align-self: flex-start; }
-}
-
-@media (max-width: 900px) {
-  .hide-mobile { display: none !important; }
-  .show-mobile-only { display: block !important; }
-  h1, .hero__title { font-size: 2.5rem; }
-  h2 { font-size: 1.75rem; }
-  section { padding: 4rem 0; }
-  .hero { padding: 3rem 0 4rem; min-height: auto; }
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 1.25rem; }
-  .grid-2--story { gap: 0; }
-  .hero__stat { flex-direction: column; gap: 1.5rem; }
   .footer__inner { flex-direction: column; }
   .hero--inner .container {
     padding-left: 1.25rem;
